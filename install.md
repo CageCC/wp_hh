@@ -43,3 +43,8 @@ MySQL 5.0或更高版本。
 启用mod_rewrite这一Apache模块。
 在您的站点设置至 http://cn.wordpress.org的链接。
 Apache模块mod_rewrite。
+
+### 开发工具
+国际化翻译工具：
+https://poedit.net/
+
