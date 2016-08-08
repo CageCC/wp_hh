@@ -86,9 +86,11 @@ function twentysixteen_setup() {
 	set_post_thumbnail_size( 1200, 9999 );
 
 	// This theme uses wp_nav_menu() in two locations.
+	// 注册菜单(主菜单、社交菜单)
 	register_nav_menus( array(
 		'primary' => __( 'Primary Menu', 'twentysixteen' ),
 		'social'  => __( 'Social Links Menu', 'twentysixteen' ),
+		'homeindex' =>__( 'Home index Links Menu', 'twentysixteen' ),
 	) );
 
 
