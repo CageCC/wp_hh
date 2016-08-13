@@ -11,7 +11,7 @@
 <!-- .container -->
 </div>
 <!-- #main -->
-
+<!-- footer.php  -->
 	<?php
 		/** 
 		 * interface_business_template_ourclients hook

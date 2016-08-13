@@ -26,7 +26,8 @@ add_action( 'after_setup_theme', 'interface_setup' );
 		if ( ! isset( $content_width ) ){
 			$content_width = 700;
 		}
- }
+}
+/* end interface_setup*/
 
 /**
  * 初始化
@@ -93,6 +94,8 @@ function interface_constants() {
 	define( 'INTERFACE_WIDGETS_URL', INTERFACE_INC_URL . '/widgets' );
 
 }
+/* end interface_constants*/
+
 
 /**
  * 初始化
@@ -142,7 +145,7 @@ function interface_load_files() {
 	/** Load Widgets and Widgetized Area */
 	require_once( INTERFACE_WIDGETS_DIR . '/interface_widgets.php' );
 }
-
+/* end interface_load_files */
 
 /**
  * 初始化 
@@ -198,10 +201,13 @@ function interface_core_functionality() {
 
 	// used on Featured Slider on Homepage Header for narrow layout
 	add_image_size( 'slider-narrow', 1038, 500, true ); 	
+	
 	// used on Featured Slider on Homepage Header for wide layout	
 	add_image_size( 'slider-wide', 1440, 500, true ); 
+
 	// used to show gallery all images			
 	add_image_size( 'gallery', 474, 342, true ); 
+
 	//used for icon on business layout				
 	add_image_size( 'icon', 100, 100, true );						
 	
@@ -218,7 +224,7 @@ function interface_core_functionality() {
 	// Adding excerpt option box for pages as well
 	add_post_type_support( 'page', 'excerpt' );
 }
-
+/* end interface_core_functionality */
 
 
 

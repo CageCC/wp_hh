@@ -9,8 +9,6 @@
  * @since Interface 1.0
  */
 ?>
-
-<!-- get_header -->
 <?php 
 	/**
 	 * 头部

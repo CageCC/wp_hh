@@ -1,5 +1,9 @@
 <?php
 /**
+ * 其方法全部定义在 inc/structure/xxx-extensions.php
+ *
+ *
+ *
  * Displays the header section of the theme.
  *
  * @package Theme Horse
@@ -96,5 +100,6 @@
 	 */
 	do_action( 'interface_before_main' );
 ?>
+<!-- end header.php -->
 <div id="main">
 <div class="container clearfix">
