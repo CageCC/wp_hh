@@ -13,5 +13,8 @@
  */
 define('WP_USE_THEMES', true);
 
-/** Loads the WordPress Environment and Template */
+/** 
+ * 加载模板
+ * Loads the WordPress Environment and Template 
+ */
 require( dirname( __FILE__ ) . '/wp-blog-header.php' );

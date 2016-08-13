@@ -12,7 +12,7 @@
 </div>
 <!-- #main -->
 
-<?php
+		<?php
 		/** 
 		 * interface_business_template_ourclients hook
 		 *
@@ -25,24 +25,25 @@
 				do_action( 'interface_business_template_ourclients' );
 			}
 
-	?>
-<?php
-	      /** 
-	       * interface_after_main hook
-	       */
-	      do_action( 'interface_after_main' );
+		?>
+		
+		<?php
+		  /** 
+		   * interface_after_main hook
+		   */
+		  do_action( 'interface_after_main' );
 	   ?>
 <?php 
-	   	/**
-	   	 * interface_before_footer hook
-	   	 */
-	   	do_action( 'interface_before_footer' );
+		/**
+		 * interface_before_footer hook
+		 */
+		do_action( 'interface_before_footer' );
 	   ?>
 
 <footer id="colophon" class="clearfix">
-  <?php
-		      /** 
-		       * interface_footer hook		       
+				<?php
+				/** 
+				 * interface_footer hook		       
 				 *
 				 * HOOKED_FUNCTION_NAME PRIORITY
 				 *
@@ -54,20 +55,20 @@
 				 * interface_footer_info 30
 				 * interface_close_sitegenerator_div 35
 				 * interface_backtotop_html 40
-		       */
-		      do_action( 'interface_footer' );
+			   */
+			  do_action( 'interface_footer' );
 		   ?>
 </footer>
-<?php 
-	   	/**
-	   	 * interface_after_footer hook
-	   	 */
-	   	do_action( 'interface_after_footer' );
+		<?php 
+		/**
+		 * interface_after_footer hook
+		 */
+		do_action( 'interface_after_footer' );
 	   ?>
 </div>
 <!-- .wrapper -->
 
-<?php
+	<?php
 		/** 
 		 * interface_after hook
 		 */
