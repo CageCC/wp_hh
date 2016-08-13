@@ -9,12 +9,18 @@
 ?>
 <?php
 	/**
+	 *
 	 * interface_before_footer_sidebar
+	 *
+	 * 没做任何事情
 	 */
 	do_action( 'interface_before_footer_sidebar' );
 ?>
 <?php
 	/** 
+	 * inc/structure/sidebar-extensions.php
+	 *
+	 *
 	 * interface_footer_sidebar hook
 	 *
 	 * HOOKED_FUNCTION_NAME PRIORITY
@@ -25,7 +31,10 @@
 ?>
 <?php
 	/**
+	 *
 	 * interface_after_footer_sidebar
+	 *
+	 * 没做任何事情
 	 */
 	do_action( 'interface_after_footer_sidebar' );
 ?>

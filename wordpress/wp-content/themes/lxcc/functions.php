@@ -11,20 +11,36 @@
  * @subpackage Interface
  * @since Interface 1.0
  */
+
+// 加载本地 设置
 add_action( 'after_setup_theme', 'interface_setup' );
+
+
 /**
  * This content width is based on the theme structure and style.
  */
  function interface_setup() {
-	 	global $content_width;
+		global $content_width;
+
+
 		if ( ! isset( $content_width ) ){
 			$content_width = 700;
 		}
  }
 
-
-add_action( 'interface_init', 'interface_constants', 10 );
 /**
+ * 初始化
+ *
+ * 定义常量
+ */
+add_action( 'interface_init', 'interface_constants', 10 );
+
+
+
+/**
+ *
+ * 定义主题常量
+ *
  * This function defines the Interface theme constants
  *
  * @since 1.0
@@ -46,8 +62,12 @@ function interface_constants() {
 	define( 'INTERFACE_FUNCTIONS_DIR', INTERFACE_INC_DIR . '/functions' );
 	define( 'INTERFACE_SHORTCODES_DIR', INTERFACE_INC_DIR . '/shortcodes' );
 	define( 'INTERFACE_STRUCTURE_DIR', INTERFACE_INC_DIR . '/structure' );
-	if ( ! defined( 'INTERFACE_LANGUAGES_DIR' ) ) /** So we can define with a child theme */
+
+	/** So we can define with a child theme */
+	if ( ! defined( 'INTERFACE_LANGUAGES_DIR' ) ) {
 		define( 'INTERFACE_LANGUAGES_DIR', INTERFACE_PARENT_DIR . '/languages' );
+	}
+		
 	define( 'INTERFACE_WIDGETS_DIR', INTERFACE_INC_DIR . '/widgets' );
 
 	/** Define URL Location Constants */
@@ -64,14 +84,29 @@ function interface_constants() {
 	define( 'INTERFACE_FUNCTIONS_URL', INTERFACE_INC_URL . '/functions' );
 	define( 'INTERFACE_SHORTCODES_URL', INTERFACE_INC_URL . '/shortcodes' );
 	define( 'INTERFACE_STRUCTURE_URL', INTERFACE_INC_URL . '/structure' );
-	if ( ! defined( 'INTERFACE_LANGUAGES_URL' ) ) /** So we can predefine to child theme */
+	/** So we can predefine to child theme */
+	if ( ! defined( 'INTERFACE_LANGUAGES_URL' ) ) {
 		define( 'INTERFACE_LANGUAGES_URL', INTERFACE_PARENT_URL . '/languages' );
+	}
+
+
 	define( 'INTERFACE_WIDGETS_URL', INTERFACE_INC_URL . '/widgets' );
 
 }
 
-add_action( 'interface_init', 'interface_load_files', 15 );
 /**
+ * 初始化
+ *
+ * 加载文件
+ *
+ */
+add_action( 'interface_init', 'interface_load_files', 15 );
+
+
+/**
+ * 加载主题需要的文件
+ *
+ *
  * Loading the included files.
  *
  * @since 1.0
@@ -108,7 +143,18 @@ function interface_load_files() {
 	require_once( INTERFACE_WIDGETS_DIR . '/interface_widgets.php' );
 }
 
+
+/**
+ * 初始化 
+ *
+ * 加载核心功能
+ *
+ *
+ */
 add_action( 'interface_init', 'interface_core_functionality', 20 );
+
+
+
 /**
  * Adding the core functionality of WordPess.
  *
@@ -122,32 +168,59 @@ function interface_core_functionality() {
 	 */
 	do_action( 'interface_add_functionality' );
 
+
 	// Add default posts and comments RSS feed links to head
 	add_theme_support( 'automatic-feed-links' );
 
 	// This theme uses Featured Images (also known as post thumbnails) for per-post/per-page.
 	add_theme_support( 'post-thumbnails' ); 
  
-	// This theme uses wp_nav_menu() in header menu location.
-	register_nav_menu( 'primary', __( 'Primary Menu', 'interface' ) );
+	/**
+	 * 菜单挂载
+	 * 
+	 * 可挂载多个菜单
+	 *
+	 *
+	 * This theme uses wp_nav_menu() in header menu location.
+	 *
+	 */
+	register_nav_menus( array(
+		'primary' => __( 'Primary Menu', 'interface' ),
+		
+	) );
+
+
+
 
 	// Add Interface custom image sizes
 	add_image_size( 'featured', 670, 300, true );
 	add_image_size( 'featured-medium', 230, 160, true );
-	add_image_size( 'slider-narrow', 1038, 500, true ); 		// used on Featured Slider on Homepage Header for narrow layout
-	add_image_size( 'slider-wide', 1440, 500, true ); 			// used on Featured Slider on Homepage Header for wide layout
-	add_image_size( 'gallery', 474, 342, true ); 				// used to show gallery all images
-	add_image_size( 'icon', 100, 100, true );						//used for icon on business layout
+
+	// used on Featured Slider on Homepage Header for narrow layout
+	add_image_size( 'slider-narrow', 1038, 500, true ); 	
+	// used on Featured Slider on Homepage Header for wide layout	
+	add_image_size( 'slider-wide', 1440, 500, true ); 
+	// used to show gallery all images			
+	add_image_size( 'gallery', 474, 342, true ); 
+	//used for icon on business layout				
+	add_image_size( 'icon', 100, 100, true );						
 	
+
+
 
 	/**
 	 * This theme supports custom background color and image
 	 */
 	add_theme_support( 'custom-background' );
 
+
+
 	// Adding excerpt option box for pages as well
 	add_post_type_support( 'page', 'excerpt' );
 }
+
+
+
 
 /** 
  * interface_init hook
@@ -155,4 +228,8 @@ function interface_core_functionality() {
  * Hooking some functions of functions.php file to this action hook.
  */
 do_action( 'interface_init' );
+
+
+
+
 ?>

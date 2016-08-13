@@ -9,6 +9,8 @@
 
 /* Register shortcodes. */
 add_action( 'init', 'interface_add_shortcodes' );
+
+
 /**
  * Creates new shortcodes for use in any shortcode-ready area.  This function uses the add_shortcode() 
  * function to register new shortcodes with WordPress.
@@ -23,6 +25,7 @@ function interface_add_shortcodes() {
 	add_shortcode( 'th-link', 'interface_themehorse_link_shortcode' );
 }
 
+
 /**
  * Shortcode to display the current year.
  *
@@ -32,6 +35,8 @@ function interface_add_shortcodes() {
 function interface_the_year_shortcode() {
    return date( 'Y' );
 }
+
+
 
 /**
  * Shortcode to display a link back to the site.
@@ -43,6 +48,8 @@ function interface_site_link_shortcode() {
    return '<a href="' . esc_url( home_url( '/' ) ) . '" title="' . esc_attr( get_bloginfo( 'name', 'display' ) ) . '" ><span>' . get_bloginfo( 'name', 'display' ) . '</span></a>';
 }
 
+
+
 /**
  * Shortcode to display a link to WordPress.org.
  *
@@ -52,6 +59,7 @@ function interface_wp_link_shortcode() {
    return '<a href="'.esc_url( 'http://wordpress.org' ).'" target="_blank" title="' . esc_attr__( 'WordPress', 'interface' ) . '"><span>' . __( 'WordPress', 'interface' ) . '</span></a>';
 }
 
+
 /**
  * Shortcode to display a link to interface.com.
  *
@@ -60,5 +68,7 @@ function interface_wp_link_shortcode() {
 function interface_themehorse_link_shortcode() {
    return '<a href="'.esc_url( 'http://themehorse.com' ).'" target="_blank" title="'.esc_attr__( 'Theme Horse', 'interface' ).'" ><span>'.__( 'Theme Horse', 'interface') .'</span></a>';
 }
+
+
 
 ?>

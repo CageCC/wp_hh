@@ -12,17 +12,25 @@
 /****************************************************************************************/
 global $interface_theme_setting_value;
 		$options = $interface_theme_setting_value;
+
+
+
 add_action( 'interface_footer', 'interface_footer_widget_area', 5 );
 /** 
+ * sidebar-footer.php
+ *
  * Displays the footer widgets
  */
 function interface_footer_widget_area() {
 	get_sidebar( 'footer' );
 }
 
+
+
 /****************************************************************************************/
 if ((1 != $options['disable_bottom']) && (!empty($options['social_phone'] ) || !empty($options['social_email'] ) || !empty($options['social_location']))) {
 add_action( 'interface_footer', 'interface_footer_infoblog', 10 );
+
 /**
  * Opens the footer infobox
  */
@@ -38,6 +46,11 @@ function interface_footer_div_close() {
 	</div> <!-- .info-bar -->';
 	} 
 }
+
+
+
+
+
 /****************************************************************************************/
 
 add_action( 'interface_footer', 'interface_open_sitegenerator_div', 20 );
@@ -51,8 +64,10 @@ function interface_open_sitegenerator_div() {
 				<div class="container clearfix">';
 }
 
-	/****************************************************************************************/
 
+
+
+/****************************************************************************************/
 
 add_action( 'interface_footer', 'interface_socialnetworks', 25 );
 
@@ -68,6 +83,9 @@ function interface_footer_info() {
    $output = '<div class="copyright">'.__( 'Copyright &copy;', 'interface' ).' '.'[the-year] [site-link]'.' '.__( 'Theme by:', 'interface' ).' '.'[th-link]'.' '.__( 'Powered by:', 'interface' ).' '.'[wp-link] '.'</div><!-- .copyright -->';
    echo do_shortcode( $output );
 }
+
+
+
 /****************************************************************************************/
 
 add_action( 'interface_footer', 'interface_close_sitegenerator_div', 35 );
@@ -79,14 +97,20 @@ echo '</div><!-- .container -->
 			</div><!-- #site-generator -->';
 }
 
+
+
+
 /****************************************************************************************/
 
 add_action( 'interface_footer', 'interface_backtotop_html', 40 );
+
 /**
  * Shows the back to top icon to go to top.
  */
 function interface_backtotop_html() {
 	echo '<div class="back-to-top"><a href="#branding">'.__( ' ', 'interface' ).'</a></div>';
 }
+
+
 
 ?>

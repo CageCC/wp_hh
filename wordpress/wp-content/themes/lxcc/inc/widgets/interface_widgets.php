@@ -26,6 +26,7 @@ function interface_widgets_init() {
 		'after_title'   	=> '</h1>'
 	) );
 
+
 	// Registering main right sidebar
 	register_sidebar( array(
 		'name' 				=> __( 'Right Sidebar', 'interface' ),
@@ -36,6 +37,8 @@ function interface_widgets_init() {
 		'before_title'  	=> '<h1 class="widget-title">',
 		'after_title'   	=> '</h1>'
 	) );
+
+
 
 	// Registering Business Page template sidebar
 	register_sidebar( array(
@@ -49,6 +52,8 @@ function interface_widgets_init() {
 		
 	) );
 	
+
+
 	// Registering Business Page template for our clients sidebar
 	register_sidebar( array(
 		'name' 				=> __( 'Business Page Our Clients Section', 'interface' ),
@@ -61,6 +66,8 @@ function interface_widgets_init() {
 		
 	) );
 
+
+
 	// Registering contact Page sidebar
 	register_sidebar( array(
 		'name' 				=> __( 'Contact Page Sidebar', 'interface' ),
@@ -71,6 +78,8 @@ function interface_widgets_init() {
 		'before_title'  	=> '<h1 class="widget-title">',
 		'after_title'   	=> '</h1>'
 	) );
+
+
 
 	/** 
 	 * Registering footer sidebar 1
@@ -86,6 +95,8 @@ function interface_widgets_init() {
 		'after_title'   	=> '</h1>'
 	) );
 
+
+
 	// Registering footer sidebar 2
 	register_sidebar( array(
 		'name' 				=> __( 'Footer - Column2', 'interface' ),
@@ -96,6 +107,8 @@ function interface_widgets_init() {
 		'before_title'  	=> '<h1 class="widget-title">',
 		'after_title'   	=> '</h1>'
 	) );
+
+
 
 	// Registering footer sidebar 3
 	register_sidebar( array(
@@ -108,6 +121,8 @@ function interface_widgets_init() {
 		'after_title'   	=> '</h1>'
 	) );
 
+
+
 	// Registering widgets
 	register_widget( "interface_custom_tag_widget" );
 	register_widget( "interface_service_widget" );
@@ -117,7 +132,12 @@ function interface_widgets_init() {
 	register_widget( "interface_featured_image_widget" );
 }
 
+
+
 /****************************************************************************************/
+
+
+
 
 /** 
  * Extends class wp_widget
@@ -551,9 +571,15 @@ class interface_custom_tag_widget extends WP_Widget {
 
 /**************************************************************************************/
 
+
+
+
  /**
- * Testimonial widget
- */
+  * 证书 widget
+  *
+  *
+  * Testimonial widget
+  */
 class interface_Widget_Testimonial extends WP_Widget {
 
 	// function interface_Widget_Testimonial() {
@@ -563,31 +589,54 @@ class interface_Widget_Testimonial extends WP_Widget {
 	// }
 
 	function __construct() {
-		$widget_ops = array( 'classname' => 'widget_testimonial', 'description' => __( 'Display Testimonial( Business Layout )recommendation size (168 * 168)', 'interface' ) );
-		$control_ops = array( 'width' => 200, 'height' =>250 ); 
+		$widget_ops = array( 
+			'classname' => 'widget_testimonial', 
+			'description' => __( 'Display Testimonial( Business Layout )recommendation size (168 * 168)', 'interface' ) 
+		);
+
+		$control_ops = array( 
+			'width' => 200, 
+			'height' =>250 
+		); 
+
 		// parent::WP_Widget( false, $name = __( 'Theme Horse: Testimonial', 'interface' ), $widget_ops, $control_ops);
 		parent::__construct( false, $name = __( 'Theme Horse: Testimonial', 'interface' ), $widget_ops, $control_ops);
+
+
 	}
 
 	function widget( $args, $instance ) {
+
 		extract($args);
 		$title = apply_filters( 'title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
 		
 		$image1 = apply_filters( 'image1', empty( $instance['image1'] ) ? '' : $instance['image1'], $instance,  $this->id_base );
+
 		$text1 = apply_filters( 'text1', empty( $instance['text1'] ) ? '' : $instance['text1'], $instance );
+
 		$name1 = apply_filters( 'name1', empty( $instance['name1'] ) ? '' : $instance['name1'], $instance, $this->id_base );
+
+
 		$designation1 = apply_filters( 'designation1', empty( $instance['designation1'] ) ? '' : $instance['designation1'], $instance, $this->id_base );
+
 		$company_name1 = apply_filters( 'company_name1', empty( $instance['company_name1'] ) ? '' : $instance['company_name1'], $instance, $this->id_base );
+
 		$company_link1 = apply_filters( 'company_link1', empty( $instance['company_link1'] ) ? '' : $instance['company_link1'], $instance, $this->id_base );
+
 		
 		$image2 = apply_filters( 'image2', empty( $instance['image2'] ) ? '' : $instance['image2'], $instance,  $this->id_base );
 		$text2 = apply_filters( 'text2', empty( $instance['text2'] ) ? '' : $instance['text2'], $instance );
 		$name2 = apply_filters( 'name2', empty( $instance['name2'] ) ? '' : $instance['name2'], $instance, $this->id_base );
+
 		$designation2 = apply_filters( 'designation2', empty( $instance['designation2'] ) ? '' : $instance['designation2'], $instance, $this->id_base );
+
 		$company_name2 = apply_filters( 'company_name2', empty( $instance['company_name2'] ) ? '' : $instance['company_name2'], $instance, $this->id_base );
+
 		$company_link2 = apply_filters( 'company_link2', empty( $instance['company_link2'] ) ? '' : $instance['company_link2'], $instance, $this->id_base );
 
+
 		echo $before_widget;
+
 		if ( !empty( $title ) ) { echo $before_title . esc_html( $title ) . $after_title; } ?>
 <div class="column clearfix">
   <div class="one-half">
@@ -628,12 +677,17 @@ class interface_Widget_Testimonial extends WP_Widget {
 		$instance['company_name2'] = strip_tags($new_instance['company_name2']);
 		$instance['company_link2'] = strip_tags($new_instance['company_link2']);
 		
-		if ( current_user_can('unfiltered_html') )
+		if ( current_user_can('unfiltered_html') ) {
 			$instance['text1'] =  $new_instance['text1'];
-		else
+		} else {
 			$instance['text1'] = stripslashes( wp_filter_post_kses( addslashes($new_instance['text1']) ) ); // wp_filter_post_kses() expects slashed
+		}
+
+
+
 		$instance['filter'] = isset($new_instance['filter']);
 		return $instance;
+
 	}
 
 	function form( $instance ) {
@@ -724,11 +778,18 @@ class interface_Widget_Testimonial extends WP_Widget {
   </label>
   <input class="widefat" id="<?php echo $this->get_field_id('company_link2'); ?>" name="<?php echo $this->get_field_name('company_link2'); ?>" type="text" value="<?php echo esc_url_raw($company_link2); ?>" />
 </p>
+
 <?php
 	}
 }
 
+
+
+
+
 /*********************************************************************************************************/
+
+
 class interface_featured_image_widget extends WP_Widget {
 
 	// function interface_featured_image_widget() {
@@ -855,5 +916,7 @@ class interface_featured_image_widget extends WP_Widget {
 	}
 	
 }
+
+
 
 ?>

@@ -57,7 +57,7 @@ function interface_custom_header_setup() {
  */
 function interface_admin_header_style() {
 ?>
-    <style type="text/css">
+	<style type="text/css">
 .appearance_page_custom-header #headimg {
 	border: none;
 }
@@ -66,7 +66,7 @@ function interface_admin_header_style() {
 ?>px;
 }
 </style>
-    <?php
+	<?php
 }
 
 /**

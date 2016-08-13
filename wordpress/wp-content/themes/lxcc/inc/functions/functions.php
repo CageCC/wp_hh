@@ -13,17 +13,21 @@
 /****************************************************************************************/
 
 add_action( 'wp_enqueue_scripts', 'interface_scripts_styles_method' );
+
+
+
 /**
  * Register jquery scripts
  */
 function interface_scripts_styles_method() {
 
 	global $interface_theme_default;
-   $options = $interface_theme_default;
+	$options = $interface_theme_default;
 
-   /**
+	/**
 	 * Loads our main stylesheet.
 	 */
+
 	// Load our main stylesheet.
 	wp_enqueue_style( 'interface_style', get_stylesheet_uri());
 
@@ -32,15 +36,20 @@ function interface_scripts_styles_method() {
 	wp_style_add_data( 'interface-ie', 'conditional', 'lt IE 9' ); 
 	
 	if ('on' == $options['site_design']) {
-	//Css for responsive design
-	wp_enqueue_style( 'interface-responsive', get_template_directory_uri() . '/css/responsive.css');
+		//Css for responsive design
+		wp_enqueue_style( 'interface-responsive', get_template_directory_uri() . '/css/responsive.css');
 	}
+
+
 	/**
 	 * Adds JavaScript to pages with the comment form to support
 	 * sites with threaded comments (when in use).
 	 */
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) )
+	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
+	}
+
+
 
 	/**
 	 * Register JQuery cycle js file for slider.
@@ -48,7 +57,13 @@ function interface_scripts_styles_method() {
 	 */
 	wp_register_script( 'jquery_cycle', INTERFACE_JS_URL . '/jquery.cycle.all.min.js', array( 'jquery' ), '2.9999.5', true );
 
-   wp_register_style( 'google_fonts', 'http://fonts.googleapis.com/css?family=PT+Sans:400,700italic,700,400italic' ); 
+	/**
+	 * 需要将google 字体下载到本地，
+	 * 避免被墙导致加载变慢
+	 *
+	 *
+	 */
+	wp_register_style( 'google_fonts', 'http://fonts.googleapis.com/css?family=PT+Sans:400,700italic,700,400italic' ); 
 
 	
 	/**
@@ -62,7 +77,7 @@ function interface_scripts_styles_method() {
 	wp_enqueue_script( 'backtotop', INTERFACE_JS_URL. '/backtotop.js', array( 'jquery' ) );
 	wp_enqueue_script( 'scripts', INTERFACE_JS_URL. '/scripts.js', array('jquery') );
 
-   wp_enqueue_style( 'google_fonts' );
+	wp_enqueue_style( 'google_fonts' );
 
 } 
 
@@ -77,7 +92,7 @@ add_action( 'admin_print_scripts', 'interface_media_js',10 );
  */
 function interface_media_js() {
 	
-    wp_enqueue_script( 'interface_meta_upload_widget', INTERFACE_ADMIN_JS_URL . '/add-image-script-widget.js', array( 'jquery','media-upload','thickbox' ) );
+	wp_enqueue_script( 'interface_meta_upload_widget', INTERFACE_ADMIN_JS_URL . '/add-image-script-widget.js', array( 'jquery','media-upload','thickbox' ) );
 	
 	
 }
@@ -106,23 +121,23 @@ if ( ! function_exists( 'interface_pass_slider_effect_cycle_parameters' ) ) :
  *Functions that Passes slider effect  parameters from php files to jquery file.  
  */
 function interface_pass_slider_effect_cycle_parameters() {
-    
-    global $interface_theme_default;
-    $options = $interface_theme_default;
+	
+	global $interface_theme_default;
+	$options = $interface_theme_default;
 
-    $transition_effect = $options[ 'transition_effect' ];
-    $transition_delay = $options[ 'transition_delay' ] * 1000;
-    $transition_duration = $options[ 'transition_duration' ] * 1000;
-    wp_localize_script( 
-        'interface_slider',
-        'interface_slider_value',
-        array(
-            'transition_effect' => $transition_effect,
-            'transition_delay' => $transition_delay,
-            'transition_duration' => $transition_duration
-        )
-    );
-    
+	$transition_effect = $options[ 'transition_effect' ];
+	$transition_delay = $options[ 'transition_delay' ] * 1000;
+	$transition_duration = $options[ 'transition_duration' ] * 1000;
+	wp_localize_script( 
+		'interface_slider',
+		'interface_slider_value',
+		array(
+			'transition_effect' => $transition_effect,
+			'transition_delay' => $transition_delay,
+			'transition_duration' => $transition_duration
+		)
+	);
+	
 }
 endif;
 
@@ -185,7 +200,7 @@ function interface_body_class( $classes ) {
 		}
 	}
 	elseif( 'left-sidebar' == $layout ) {
-      $classes[] = 'left-sidebar-template';
+	  $classes[] = 'left-sidebar-template';
    }
    elseif( 'right-sidebar' == $layout ) {
 		$classes[] = ''; //css blank
@@ -275,7 +290,7 @@ if ( !function_exists('interface_wp_page_menu_filter') ) {
 	function interface_wp_page_menu_filter( $text ) {
 		$replace = array(
 			'current_page_item'     => 'current-menu-item'
-	 	);
+		);
 
 	  $text = str_replace(array_keys($replace), $replace, $text);
 	  return $text;
