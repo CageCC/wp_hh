@@ -15,6 +15,10 @@ add_action( 'interface_main_container', 'interface_content', 10 );
 
 
 /**
+ * 展现 内容
+ *
+ *
+ *
  * Function to display the content for the single post, single page, archive page, index page etc.
  */
 function interface_content() {
@@ -25,45 +29,51 @@ function interface_content() {
 
   
 	if( $post ) {
+
+		// 获取文章自定义栏目配置的 key=>value
 		$layout = get_post_meta( $post->ID, 'interface_sidebarlayout', true );
 	}
 
 
 	if( empty( $layout ) || is_archive() || is_search() || is_home() ) {
+
 		$layout = 'default';
 	}
 
-
+	// 后台是否配置 自定义字段
 	if( 'default' == $layout ) {   //checked from the themeoptions.
 
 		$themeoption_layout = $options[ 'default_layout' ];
 
 		if( 'left-sidebar' == $themeoption_layout ) {
-			get_template_part( 'content','leftsidebar' );  //used content-leftsidebar.php
-		}
-		elseif( 'right-sidebar' == $themeoption_layout ) {
 
-			get_template_part( 'content','rightsidebar' ); //used content-rightsidebar.php
+			//used content-leftsidebar.php
+			get_template_part( 'content','leftsidebar' );  
+
+		} elseif( 'right-sidebar' == $themeoption_layout ) {
+
+			//used content-rightsidebar.php
+			get_template_part( 'content','rightsidebar' ); 
 
 		} else {
-
-			get_template_part( 'content','nosidebar' ); //used content-nosidebar.php
+			//used content-nosidebar.php
+			get_template_part( 'content','nosidebar' ); 
 		}
 
 
-   } elseif( 'left-sidebar' == $layout ) { //checked from the particular page / post.
+	} elseif( 'left-sidebar' == $layout ) { //checked from the particular page / post.
 
-	  get_template_part( 'content','leftsidebar' ); //used content-leftsidebar.php
+		get_template_part( 'content','leftsidebar' ); //used content-leftsidebar.php
 
-   } elseif( 'right-sidebar' == $layout ) {
+	} elseif( 'right-sidebar' == $layout ) {
 
-	  get_template_part( 'content','rightsidebar' );//used content-rightsidebar.php
+		get_template_part( 'content','rightsidebar' );//used content-rightsidebar.php
 
-   }  else {
+	}  else {
 
-	  get_template_part( 'content','nosidebar' ); //used content-nosidebar.php
+		get_template_part( 'content','nosidebar' ); //used content-nosidebar.php
 
-   }
+	}
 
 }
 
@@ -84,6 +94,8 @@ function interface_loop_before() {
 /****************************************************************************************/
 
 add_action( 'interface_loop_content', 'interface_theloop', 10 );
+
+
 /**
  * Shows the loop content
  */
@@ -105,14 +117,17 @@ function interface_theloop() {
 			interface_theloop_for_template_blog_full_content();
 			
 		} else {
+
+			// 默认页面循环
 			interface_theloop_for_page();
 		}
 
 
 	} elseif( is_single() ) {
 
-
+		// 默认文章循环
 		interface_theloop_for_single();
+
 
 	} elseif( is_search() ) {
 
@@ -142,7 +157,7 @@ function interface_theloop_for_archive() {
 			do_action( 'interface_before_post' );
 ?>
 
-<!-- post -->
+<!-- post theloop_for_archive -->
 <section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
   <?php do_action( 'interface_before_post_header' ); ?>
   <article>
@@ -247,7 +262,7 @@ function interface_theloop_for_page() {
 
 			do_action( 'interface_before_post' );
 ?>
-<!-- post -->
+<!-- post theloop_for_page -->
 <section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
   <article>
 	<?php do_action( 'interface_before_post_header' ); ?>
@@ -314,7 +329,7 @@ function interface_theloop_for_single() {
 			do_action( 'interface_before_post' );
 ?>
 
-<!-- post single -->
+<!-- post theloop_for_single -->
 <section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
   <article>
 	<?php
@@ -434,7 +449,7 @@ function interface_theloop_for_search() {
 
 			do_action( 'interface_before_post' );
 ?>
-<!-- post search-->
+<!-- post theloop_for_search -->
 <section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
   <article>
 	<?php do_action( 'interface_before_post_header' ); ?>
@@ -497,7 +512,7 @@ function interface_theloop_for_template_blog_image_large() {
 
 			do_action( 'interface_before_post' );
 ?>
-<!-- post image_large -->
+<!-- post template_blog_image_large -->
 <section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
   <?php do_action( 'interface_before_post_header' ); ?>
   <article>
@@ -627,7 +642,7 @@ function interface_theloop_for_template_blog_image_medium() {
 			do_action( 'interface_before_post' );
 			
 ?>
-<!-- post image_medium -->
+<!-- post template_blog_image_medium -->
 <section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
   <?php do_action( 'interface_before_post_header' ); ?>
   <article>
@@ -754,7 +769,7 @@ function interface_theloop_for_template_blog_full_content() {
 			do_action( 'interface_before_post' );
 			
 ?>
-<!-- post full_content -->
+<!-- post template_blog_full_content -->
 <section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
   <?php do_action( 'interface_before_post_header' ); ?>
   <article>

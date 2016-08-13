@@ -7,7 +7,9 @@
  * @since Interface 1.0
  */
 ?>
+<!-- get_header -->
 <?php get_header(); ?>
+<!-- main_container -->
 <?php
 	/** 
 	 * interface_before_main_container hook
@@ -30,4 +32,5 @@
 	 */
 	do_action( 'interface_after_main_container' );
 ?>
+<!-- get_footer -->
 <?php get_footer(); ?>

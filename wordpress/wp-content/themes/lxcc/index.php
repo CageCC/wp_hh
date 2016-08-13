@@ -10,7 +10,7 @@
  */
 ?>
 
-
+<!-- get_header -->
 <?php 
 	/**
 	 * 头部
@@ -18,14 +18,20 @@
 	 */
 	get_header(); 
 ?>
+<!-- main_container -->
 <?php
 	/** 
+	 *
 	 * interface_before_main_container hook
+	 *
+	 * 没做任何事情
 	 */
 	do_action( 'interface_before_main_container' );
 ?>
 <?php
 	/** 
+	 * inc/structure/conten-extensions.php
+	 *
 	 * interface_main_container hook
 	 *
 	 * HOOKED_FUNCTION_NAME PRIORITY
@@ -36,12 +42,14 @@
 ?>
 <?php
 	/** 
+	 *
 	 * interface_after_main_container hook
 	 *
-	 *
+	 * 没做任何事情
 	 */
 	do_action( 'interface_after_main_container' );
 ?>
+<!-- get_footer -->
 <?php
 	/**
 	 *
