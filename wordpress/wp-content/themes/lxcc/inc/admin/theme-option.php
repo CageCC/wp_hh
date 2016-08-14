@@ -226,7 +226,7 @@ function interface_theme_options_add_theme_page() {
 		  <?php _e( 'Advance Options', 'interface' );?>
 		  </a></li>
 		<li><a href="#featuredpostslider">
-		  <?php _e( 'Featured Post/Page Slider', 'interface' );?>
+		  <?php _e( 'Featured Post/Page Slider(首页轮播图)', 'interface' );?>
 		  </a></li>
 		<li><a href="#sociallink">
 		  <?php _e( 'Contact / Social Links', 'interface' );?>
