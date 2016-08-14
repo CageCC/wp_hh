@@ -39,7 +39,15 @@
 		 */
 		do_action( 'interface_before_footer' );
 	?>
+<?php 
+	/**
+	 * interface_sidelink hook
+	 *
+	 * 咨询栏
+	 */
+	do_action( 'interface_sidelink' );
 
+?>
 <footer id="colophon" class="clearfix">
 	<?php
 	/** 
@@ -65,6 +73,7 @@
 
 ?>
 </footer>
+
 	<?php 
 	/**
 	 * interface_after_footer hook

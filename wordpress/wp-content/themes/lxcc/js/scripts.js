@@ -13,6 +13,16 @@ jQuery( function() {
 			}
 		} );
 
+
+		// common-sidelink
+		jQuery(".common-sidelink a").hover( function() {
+
+			jQuery(this).find("span").show(300);
+		},function(){
+
+			jQuery(this).find("span").hide(300);
+		});
+
 		// Enable menu toggle for small screens.
 		( function() {
 			var nav = jQuery( '#access' ), button, menu;

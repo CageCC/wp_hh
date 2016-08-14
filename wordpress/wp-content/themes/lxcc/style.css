@@ -2311,3 +2311,82 @@ div.bbp-search-form button {
 #site-generator .copyright a:hover {
 	color: #63c6ae;
 }
+
+/* sidelink 右侧边 */
+.common-sidelink {
+	_position:absolute;_top: expression(documentElement.scrollTop + 280 + "px");
+	position:fixed; 
+	top:20%; right:0px; 
+	z-index:999999;
+	
+}
+
+.common-sidelink a {
+	display:block; 
+	width:45px; 
+	height:45px; 
+	position:relative; 
+	background-color: rgba(99, 198, 174, 0.9); 
+	background-image:url('images/icon1.png');
+	background-repeat:no-repeat; 
+	margin-top:1px;
+}
+
+.common-sidelink a span{
+	display:none; 
+	position:absolute; 
+	right:0px; 
+	top:0px; 
+	height:45px; 
+	padding-left:50px; 
+	color:#fff;
+	line-height:45px; 
+	font-size:14px;
+	background-color:#262626;
+}
+
+.common-sidelink a.HomeQQ{ 
+	background-position:-362px -186px;
+}
+
+.common-sidelink a.Homedianhua{ 
+	background-position:-362px -231px;
+}
+
+.common-sidelink a.Homexuqiu{ 
+	background-position:-362px -275px;
+}
+
+.common-sidelink a.Homeweixin{ 
+	background-position:-362px -322px;
+}
+
+.common-sidelink a.Hometop{ 
+	background-position:-362px -370px; 
+	background-color:#4e4e4e;
+}
+
+.common-sidelink a span.QQbggray{
+	background-position:-360px -186px;
+	background-image:url('images/icon1.png');
+	background-repeat:no-repeat; 
+	width:90px;
+}
+
+.common-sidelink a span.weixinerweima{
+	right:45px; 
+	padding:0px;
+}
+
+.common-sidelink a span.dianhuabggray{
+	background-position:-362px -231px;
+	background-image:url('images/icon1.png');
+	background-repeat:no-repeat;
+	width:120px;}
+
+.common-sidelink a span.Homexuqiu{ 
+	background-position:-362px -275px;
+	background-image:url('images/icon1.png');
+	background-repeat:no-repeat;
+	width:120px;
+}

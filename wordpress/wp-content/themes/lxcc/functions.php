@@ -142,6 +142,9 @@ function interface_load_files() {
 	require_once( INTERFACE_STRUCTURE_DIR . '/footer-extensions.php' );
 	require_once( INTERFACE_STRUCTURE_DIR . '/content-extensions.php' );
 
+	// 咨询栏
+	require_once( INTERFACE_STRUCTURE_DIR . '/sidelink-extensions.php' );
+
 	/** Load Widgets and Widgetized Area */
 	require_once( INTERFACE_WIDGETS_DIR . '/interface_widgets.php' );
 }

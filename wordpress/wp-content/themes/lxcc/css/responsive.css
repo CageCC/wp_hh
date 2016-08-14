@@ -402,6 +402,11 @@
 		padding-top: 10px;
 		text-align: center;
 	}
+
+	/* .common-sidelink */
+	.common-sidelink { 
+		display: none; 
+	}
 }
 
 /* All Mobile landscape size and All Mini Tablet Portrait size smaller than standard 768 and larger than 480 (devices and browsers) */
@@ -447,6 +452,11 @@
 		margin-left: 14px;
 		width: 203px;
 	}
+
+	/* .common-sidelink */
+	.common-sidelink { 
+		display: none; 
+	}
 }
 
 /* All Mobile size smaller than standard 320 (devices and browsers) */
@@ -460,5 +470,10 @@
 	.custom-gallery #main .one-third,
 	.custom-gallery #main .one-fourth {
 		width: 100%;
+	}
+
+	/* .common-sidelink */
+	.common-sidelink { 
+		display: none; 
 	}
 }
