@@ -47,6 +47,7 @@ $interface_default = array(
 	'slider_quantity' 						=> '4',
 	'slider_type'								=> 'image-slider',
 	'featured_text_position'				=> 'default-position',
+	// 轮播图
 	'featured_post_slider'					=> array(),
 	'featured_image_slider_image'			=> array(),
 	'featured_image_slider_link'			=> array(),

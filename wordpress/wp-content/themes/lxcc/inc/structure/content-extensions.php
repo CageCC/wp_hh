@@ -15,7 +15,10 @@ add_action( 'interface_main_container', 'interface_content', 10 );
 
 
 /**
- * 展现 内容
+ * 引入展现内容 的模板
+ *
+ * 由文章自定义扩展字段决定引入的模板
+ * 
  *
  *
  *
@@ -34,7 +37,7 @@ function interface_content() {
 		$layout = get_post_meta( $post->ID, 'interface_sidebarlayout', true );
 	}
 
-
+	// 默认布局
 	if( empty( $layout ) || is_archive() || is_search() || is_home() ) {
 
 		$layout = 'default';
@@ -76,7 +79,7 @@ function interface_content() {
 	}
 
 }
-
+/* end interface_content */
 /****************************************************************************************/
 
 add_action( 'interface_before_loop_content', 'interface_loop_before', 10 );     
@@ -88,7 +91,7 @@ add_action( 'interface_before_loop_content', 'interface_loop_before', 10 );
 function interface_loop_before() {
 	echo '<div id="content">';
 }
-
+/* end interface_loop_before*/
 
 
 /****************************************************************************************/
@@ -97,9 +100,12 @@ add_action( 'interface_loop_content', 'interface_theloop', 10 );
 
 
 /**
+ * 循环 输出内容
+ *
  * Shows the loop content
  */
 function interface_theloop() {
+	// 页面
 	if( is_page() ) {
 
 		if( is_page_template( 'page-templates/page-template-blog-image-large.php' ) ) {
@@ -138,6 +144,7 @@ function interface_theloop() {
 		interface_theloop_for_archive();
 	}
 }
+/* end interface_theloop */
 
 /****************************************************************************************/
 
@@ -486,26 +493,33 @@ endif;
 
 if ( ! function_exists( 'interface_theloop_for_template_blog_image_large' ) ) :
 /**
+ * 大图片 page模板
+ *
+ *
  * Fuction to show the content of page template blog image large content.
  */
 function interface_theloop_for_template_blog_image_large() {
 	global $post;
 
-   global $wp_query, $paged;
+	global $wp_query, $paged;
+
+	// 分页页数
 	if( get_query_var( 'paged' ) ) {
 		$paged = get_query_var( 'paged' );
-	}
-	elseif( get_query_var( 'page' ) ) {
+
+	} elseif( get_query_var( 'page' ) ) {
 		$paged = get_query_var( 'page' );
-	}
-	else {
+	} else {
 		$paged = 1;
 	}
+
+
 	$blog_query = new WP_Query( array( 'post_type' => 'post', 'paged' => $paged ) );
 	$temp_query = $wp_query;
 	$wp_query = null;
 	$wp_query = $blog_query;
 
+	// 还有 post/page
 	if( $blog_query->have_posts() ) {
 		while( $blog_query->have_posts() ) {
 			$blog_query->the_post();
@@ -514,9 +528,9 @@ function interface_theloop_for_template_blog_image_large() {
 ?>
 <!-- post template_blog_image_large -->
 <section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-  <?php do_action( 'interface_before_post_header' ); ?>
-  <article>
-	<?php
+			<?php do_action( 'interface_before_post_header' ); ?>
+	<article>
+			<?php
 				if( has_post_thumbnail() ) {
 					$image = '';        			
 					$title_attribute = apply_filters( 'the_title', get_the_title( $post->ID ) );
@@ -527,31 +541,34 @@ function interface_theloop_for_template_blog_image_large() {
 					$image .= '</figure>';
 
 					echo $image;
-				}
-				?>
+				} /* end has_post_thumbnail */
+			?>
 	<header class="entry-header">
-	  <div class="entry-meta"> <span class="cat-links">
+		<!-- 分类 -->
+		<div class="entry-meta"> <span class="cat-links">
 		<?php the_category(', '); ?>
 		</span><!-- .cat-links --> 
-	  </div>
-	  <!-- .entry-meta -->
-	  <h1 class="entry-title"> <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute();?>">
+		</div>
+		<!-- .entry-meta -->
+		<h1 class="entry-title"> <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute();?>">
 		<?php the_title();?>
 		</a> </h1>
-	  <!-- .entry-title -->
-	  <div class="entry-meta clearfix">
-		<div class="by-author"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"  title="<?php  esc_attr(the_author()); ?>">
-		  <?php the_author(); ?>
-		  </a></div>
-		<div class="date"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_time() ); ?>">
-		  <?php the_time( get_option( 'date_format' ) ); ?>
-		  </a></div>
+		<!-- .entry-title -->
+		<div class="entry-meta clearfix">
+		<div class="by-author">
+			<a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"  title="<?php  esc_attr(the_author()); ?>">
+			<?php the_author(); ?>
+		  	</a></div>
+		<div class="date">
+			<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_time() ); ?>">
+		  	<?php the_time( get_option( 'date_format' ) ); ?>
+			</a></div>
 		<?php if ( comments_open() ) { ?>
 		<div class="comments">
 		  <?php comments_popup_link( __( 'No Comments', 'interface' ), __( '1 Comment', 'interface' ), __( '% Comments', 'interface' ), '', __( 'Comments Off', 'interface' ) ); ?>
 		</div>
-		<?php } ?>
-	  </div>
+		<?php } /* end comments_open */ ?>
+		</div>
 	  <!-- .entry-meta --> 
 	</header>
 	<!-- .entry-header -->
@@ -560,31 +577,35 @@ function interface_theloop_for_template_blog_image_large() {
 	</div>
 	<!-- .entry-content -->
 	<footer class="entry-meta clearfix"> <span class="tag-links">
-	  <?php $tag_list = get_the_tag_list( '', __( ' ', 'interface' ) );
-						if(!empty($tag_list)){
-					echo $tag_list;
-					
-						}?>
-	  </span><!-- .tag-links -->
-	  <?php
-						echo '<a class="readmore" href="' . get_permalink() . '" title="'.the_title( '', '', false ).'">'.__( 'Read more', 'interface' ).'</a>';
-						?>
+		<?php 
+			$tag_list = get_the_tag_list( '', __( ' ', 'interface' ) );
+			if(!empty($tag_list)){
+				echo $tag_list;
+			}
+		?>
+		</span><!-- .tag-links -->
+		<?php
+			/* 显示：更多 */
+			echo '<a class="readmore" href="' . get_permalink() . '" title="'.the_title( '', '', false ).'">'.__( 'Read more', 'interface' ).'</a>';
+		?>
 	</footer>
 	<!-- .entry-meta --> 
   </article>
 </section>
 <!-- .post -->
 
-<?php
+	<?php
 			do_action( 'interface_after_post' );
 
-		}
+		} /* end while */
+
 		if ( function_exists('wp_pagenavi' ) ) { 
 			wp_pagenavi();
-		}
-		else {
+		} else {
 			if ( $wp_query->max_num_pages > 1 ) {
-			?>
+	?>
+
+<!-- 默认上下文章 -->
 <ul class="default-wp-page clearfix">
   <li class="previous">
 	<?php next_posts_link( __( '&laquo; Previous', 'interface' ), $wp_query->max_num_pages ); ?>
@@ -595,20 +616,22 @@ function interface_theloop_for_template_blog_image_large() {
 </ul>
 <?php 
 			}
-		}
-	}
-	else {
-		?>
+		} /* end  wp_pagenavi */
+
+	} else {
+
+	?>
 <h1 class="entry-title">
-  <?php _e( 'No Posts Found.', 'interface' ); ?>
+	<?php _e( 'No Posts Found.', 'interface' ); ?>
 </h1>
 <?php
-   }
-   $wp_query = $temp_query;
+	} /* end if have_posts */
+	$wp_query = $temp_query;
 	wp_reset_postdata();
+
 }
 endif;
-
+/* end interface_theloop_for_template_blog_image_large*/
 /****************************************************************************************/
 
 
@@ -630,6 +653,7 @@ function interface_theloop_for_template_blog_image_medium() {
 	else {
 		$paged = 1;
 	}
+
 	$blog_query = new WP_Query( array( 'post_type' => 'post', 'paged' => $paged ) );
 	$temp_query = $wp_query;
 	$wp_query = null;
@@ -644,74 +668,78 @@ function interface_theloop_for_template_blog_image_medium() {
 ?>
 <!-- post template_blog_image_medium -->
 <section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-  <?php do_action( 'interface_before_post_header' ); ?>
-  <article>
+	<?php do_action( 'interface_before_post_header' ); ?>
+	<article>
 	<header class="entry-header">
-	  <div class="entry-meta"> <span class="cat-links">
-		<?php the_category(', '); ?>
-		</span><!-- .cat-links --> 
-	  </div>
-	  <!-- .entry-meta -->
-	  <h1 class="entry-title"> <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute();?>">
-		<?php the_title();?>
-		</a> </h1>
-	  <!-- .entry-title -->
-	  <div class="entry-meta clearfix">
-		<div class="by-author"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>" title="<?php  esc_attr(the_author()); ?>">
-		  <?php the_author(); ?>
-		  </a></div>
-		<div class="date"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_time() ); ?>">
-		  <?php the_time( get_option( 'date_format' ) ); ?>
-		  </a></div>
-		<?php if ( comments_open() ) { ?>
-		<div class="comments">
-		  <?php comments_popup_link( __( 'No Comments', 'interface' ), __( '1 Comment', 'interface' ), __( '% Comments', 'interface' ), '', __( 'Comments Off', 'interface' ) ); ?>
+		<div class="entry-meta"> <span class="cat-links">
+			<?php the_category(', '); ?>
+			</span><!-- .cat-links --> 
 		</div>
-		<?php } ?>
-	  </div>
-	  <!-- .entry-meta --> 
+		<!-- .entry-meta -->
+		<h1 class="entry-title"> <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute();?>">
+			<?php the_title();?>
+		</a> 
+		</h1>
+		<!-- .entry-title -->
+		<div class="entry-meta clearfix">
+			<div class="by-author">
+				<a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>" title="<?php  esc_attr(the_author()); ?>" >
+		  		<?php the_author(); ?>
+		  		</a>
+		  	</div>
+			<div class="date"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_time() ); ?>">
+			<?php the_time( get_option( 'date_format' ) ); ?>
+			</a></div>
+			<?php if ( comments_open() ) { ?>
+			<div class="comments">
+		 	 <?php comments_popup_link( __( 'No Comments', 'interface' ), __( '1 Comment', 'interface' ), __( '% Comments', 'interface' ), '', __( 'Comments Off', 'interface' ) ); ?>
+				</div>
+			<?php } ?>
+		</div>
+		<!-- .entry-meta --> 
 	</header>
 	<!-- .entry-header -->
 	<?php
-					if( has_post_thumbnail() ) {
-						$image = '';        			
-							$title_attribute = apply_filters( 'the_title', get_the_title( $post->ID ) );
-							$image .= '<figure class="post-featured-image">';
-							$image .= '<a href="' . get_permalink() . '" title="'.the_title( '', '', false ).'">';
-							$image .= get_the_post_thumbnail( $post->ID, 'featured-medium', array( 'title' => esc_attr( $title_attribute ), 'alt' => esc_attr( $title_attribute ) ) ).'</a>';
-						$image .='<span class="arrow"></span>';
-							$image .= '</figure>';
+		if( has_post_thumbnail() ) {
+			$image = '';        			
+				$title_attribute = apply_filters( 'the_title', get_the_title( $post->ID ) );
+				$image .= '<figure class="post-featured-image">';
+				$image .= '<a href="' . get_permalink() . '" title="'.the_title( '', '', false ).'">';
+				$image .= get_the_post_thumbnail( $post->ID, 'featured-medium', array( 'title' => esc_attr( $title_attribute ), 'alt' => esc_attr( $title_attribute ) ) ).'</a>';
 
-							echo $image;
-						}
-						?>
+				$image .='<span class="arrow"></span>';
+				$image .= '</figure>';
+
+				echo $image;
+			}
+	?>
 	<div class="entry-content clearfix">
 	  <?php the_excerpt(); ?>
 	</div>
 	<!-- .entry-content -->
 	<footer class="entry-meta clearfix"> <span class="tag-links">
-	  <?php $tag_list = get_the_tag_list( '', __( ' ', 'interface' ) );
-					if(!empty($tag_list)){
-				echo $tag_list;
-				
-					}?>
-	  </span><!-- .tag-links --> 
-	  <?php echo '<a class="readmore" href="' . get_permalink() . '" title="'.the_title( '', '', false ).'">'.__( 'Read more', 'interface' ).'</a>';
+	<?php 
+		$tag_list = get_the_tag_list( '', __( ' ', 'interface' ) );
+		if(!empty($tag_list)){
+			echo $tag_list;	
+		}
+	?>
+		</span><!-- .tag-links --> 
+		<?php echo '<a class="readmore" href="' . get_permalink() . '" title="'.the_title( '', '', false ).'">'.__( 'Read more', 'interface' ).'</a>';
 				?> </footer>
 	<!-- .entry-meta --> 
   </article>
 </section>
 <!-- .post -->
-<?php
+	<?php
 			do_action( 'interface_after_post' );
 
-		}
+		} /* end while */
 		if ( function_exists('wp_pagenavi' ) ) { 
 			wp_pagenavi();
-		}
-		else {
+		} else {
 			if ( $wp_query->max_num_pages > 1 ) {
-			?>
+	?>
 <ul class="default-wp-page clearfix">
   <li class="previous">
 	<?php next_posts_link( __( '&laquo; Previous', 'interface' ), $wp_query->max_num_pages ); ?>
@@ -723,18 +751,18 @@ function interface_theloop_for_template_blog_image_medium() {
 <?php 
 			}
 		}
-	}
-	else {
-		?>
+	} else {
+?>
 <h1 class="entry-title">
   <?php _e( 'No Posts Found.', 'interface' ); ?>
 </h1>
 <?php
    }
-   $wp_query = $temp_query;
+	$wp_query = $temp_query;
 	wp_reset_postdata();
 }
 endif;
+/* end interface_theloop_for_template_blog_image_medium */
 /****************************************************************************************/
 
 
@@ -746,15 +774,15 @@ function interface_theloop_for_template_blog_full_content() {
 	global $post;
 
 	global $wp_query, $paged;
+
 	if( get_query_var( 'paged' ) ) {
 		$paged = get_query_var( 'paged' );
-	}
-	elseif( get_query_var( 'page' ) ) {
+	}elseif( get_query_var( 'page' ) ) {
 		$paged = get_query_var( 'page' );
-	}
-	else {
+	} else {
 		$paged = 1;
 	}
+
 	$blog_query = new WP_Query( array( 'post_type' => 'post', 'paged' => $paged ) );
 	$temp_query = $wp_query;
 	$wp_query = null;
@@ -771,70 +799,77 @@ function interface_theloop_for_template_blog_full_content() {
 ?>
 <!-- post template_blog_full_content -->
 <section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-  <?php do_action( 'interface_before_post_header' ); ?>
-  <article>
+	<?php do_action( 'interface_before_post_header' ); ?>
+	<article>
 	<header class="entry-header">
-	  <div class="entry-meta"> <span class="cat-links">
-		<?php the_category(', '); ?>
-		</span><!-- .cat-links --> 
-	  </div>
-	  <!-- .entry-meta -->
-	  <h1 class="entry-title"> <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute();?>">
-		<?php the_title();?>
+		<div class="entry-meta"> <span class="cat-links">
+			<?php the_category(', '); ?>
+			</span><!-- .cat-links --> 
+		</div>
+		<!-- .entry-meta -->
+		<h1 class="entry-title"> <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute();?>">
+			<?php the_title();?>
 		</a> </h1>
-	  <!-- .entry-title -->
-	  <div class="entry-meta clearfix">
-		<div class="by-author"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"  title="<?php  esc_attr(the_author()); ?>">
-		  <?php the_author(); ?>
-		  </a></div>
+		<!-- .entry-title -->
+		<div class="entry-meta clearfix">
+			<div class="by-author"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"  title="<?php  esc_attr(the_author()); ?>">
+		  	<?php the_author(); ?>
+			</a>
+		</div>
 		<div class="date"><a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( get_the_time() ); ?>">
 		  <?php the_time( get_option( 'date_format' ) ); ?>
-		  </a></div>
+			</a>
+		</div>
+
 		<?php if ( comments_open() ) { ?>
 		<div class="comments">
 		  <?php comments_popup_link( __( 'No Comments', 'interface' ), __( '1 Comment', 'interface' ), __( '% Comments', 'interface' ), '', __( 'Comments Off', 'interface' ) ); ?>
 		</div>
-		<?php } ?>
-	  </div>
-	  <!-- .entry-meta --> 
+		<?php } /* end comments_open */ ?>
+		</div>
+		<!-- .entry-meta --> 
 	</header>
 	<!-- .entry-header -->
 	<div class="entry-content clearfix">
-	  <?php
-						$more = 0;       // Set (inside the loop) to display content above the more tag.
+		<?php
+			$more = 0;       // Set (inside the loop) to display content above the more tag.
+			// 分页
+			the_content( __( 'Read more', 'interface' ) );
 
-						the_content( __( 'Read more', 'interface' ) );
-
-						wp_link_pages( array( 
-							'before'            => '<div style="clear: both;"></div><div class="pagination clearfix">'.__( 'Pages:', 'interface' ),
-							'after'             => '</div>',
-							'link_before'       => '<span>',
-							'link_after'        => '</span>',
-							'pagelink'          => '%',
-							'echo'              => 1 
-				   ) );
-					 ?>
+			// 内容
+			wp_link_pages( array( 
+				'before'            => '<div style="clear: both;"></div><div class="pagination clearfix">'.__( 'Pages:', 'interface' ),
+				'after'             => '</div>',
+				'link_before'       => '<span>',
+				'link_after'        => '</span>',
+				'pagelink'          => '%',
+				'echo'              => 1 
+			) );
+		?>
 	</div>
 	<!-- .entry-content -->
-	<?php $tag_list = get_the_tag_list( '', __( ' ', 'interface' ) );
-						if(!empty($tag_list)){ ?>
-	<footer class="entry-meta clearfix"> <span class="tag-links"> <?php echo $tag_list; ?> </span><!-- .tag-links --> 
-	</footer>
-	<!-- .entry-meta -->
-	
+	<?php 
+		$tag_list = get_the_tag_list( '', __( ' ', 'interface' ) );
+		if(!empty($tag_list)) { 
+	?>
+			<footer class="entry-meta clearfix"> <span class="tag-links"> <?php echo $tag_list; ?> </span><!-- .tag-links --> 
+			</footer>
+			<!-- .entry-meta -->
 	<?php } ?>
+
   </article>
 </section>
 <!-- .post -->
 <?php
-						do_action( 'interface_after_post' );
-					}
-					if ( function_exists('wp_pagenavi' ) ) { 
-						wp_pagenavi();
-					}
-					else {
-						if ( $wp_query->max_num_pages > 1 ) {
-						?>
+			do_action( 'interface_after_post' );
+		} /* end while */
+
+		if ( function_exists('wp_pagenavi' ) ) { 
+			wp_pagenavi();
+		}else {
+			if ( $wp_query->max_num_pages > 1 ) {
+?>
+
 <ul class="default-wp-page clearfix">
   <li class="previous">
 	<?php next_posts_link( __( '&laquo; Previous', 'interface' ), $wp_query->max_num_pages ); ?>
@@ -844,26 +879,28 @@ function interface_theloop_for_template_blog_full_content() {
   </li>
 </ul>
 <?php 
-						}
-					}
-				}
-				else {
-					?>
+			}
+		}
+
+	}else {
+?>
 <h1 class="entry-title">
   <?php _e( 'No Posts Found.', 'interface' ); ?>
 </h1>
 <?php
-			   }
-			   $wp_query = $temp_query;
-				wp_reset_postdata();
-			}
-			endif;
-
+	}
+	$wp_query = $temp_query;
+	wp_reset_postdata();
+}
+endif;
+/* end interface_theloop_for_template_blog_full_content */
 /****************************************************************************************/
 
 add_action( 'interface_after_loop_content', 'interface_next_previous', 5 );
 
 /**
+ * 分页
+ *
  * Shows the next or previous posts
  */
 function interface_next_previous() {
@@ -877,7 +914,7 @@ function interface_next_previous() {
 		else: 
 			global $wp_query;
 			if ( $wp_query->max_num_pages > 1 ) : 
-			?>
+?>
 <ul class="default-wp-page clearfix">
   <li class="previous">
 	<?php next_posts_link( __( '&laquo; Previous', 'interface' ) ); ?>
@@ -891,19 +928,26 @@ function interface_next_previous() {
 		endif;
 	}
 }
+/* end interface_next_previous */
 
 /****************************************************************************************/
 
 
 
 add_action( 'interface_after_post_content', 'interface_next_previous_post_link', 10 );
+
 /**
+ * 前一篇、后一篇
+ *
+ * is_single
+ * is_attachment
+ *
  * Shows the next or previous posts link with respective names.
  */
 function interface_next_previous_post_link() {
 	if ( is_single() ) {
 		if( is_attachment() ) {
-		?>
+?>
 <ul class="default-wp-page clearfix">
   <li class="previous">
 	<?php previous_image_link( false, __( '&larr; Previous', 'interface' ) ); ?>
@@ -913,9 +957,8 @@ function interface_next_previous_post_link() {
   </li>
 </ul>
 <?php
-		}
-		else {
-		?>
+		} else {
+?>
 <ul class="default-wp-page clearfix">
   <li class="previous">
 	<?php previous_post_link( '%link', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', 'interface' ) . '</span> %title' ); ?>
@@ -925,15 +968,17 @@ function interface_next_previous_post_link() {
   </li>
 </ul>
 <?php
-		}	
+		} /* end is_attachment*/
 	}
 }
+/* end interface_next_previous_post_link */
 
 
 /****************************************************************************************/
 
 
 add_action( 'interface_after_loop_content', 'interface_loop_after', 10 );
+
 /**
  * Contains the closing div
  */
@@ -945,6 +990,8 @@ function interface_loop_after() {
 
 if ( ! function_exists( 'interface_comment' ) ) :
 /**
+ * 评论
+ *
  * Template for comments and pingbacks.
  *
  * To override this walker in a child theme without modifying the comments template
@@ -955,66 +1002,71 @@ if ( ! function_exists( 'interface_comment' ) ) :
  * @since Interface 1.0
  */
 function interface_comment( $comment, $args, $depth ) {
+
 	$GLOBALS['comment'] = $comment;
+
 	switch ( $comment->comment_type ) :
 		case 'pingback' :
 		case 'trackback' :
 		// Display trackbacks differently than normal comments.
-	?>
+?>
 <li <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>">
-  <p>
+	<p>
 	<?php _e( 'Pingback:', 'interface' ); ?>
 	<?php comment_author_link(); ?>
 	<?php edit_comment_link( __( '(Edit)', 'interface' ), '<span class="edit-link">', '</span>' ); ?>
-  </p>
-  <?php
+	</p>
+	<?php
 			break;
 		default :
 		// Proceed with normal comments.
 		global $post;
 	?>
 <li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
-  <article id="comment-<?php comment_ID(); ?>" class="comment">
-	<header class="comment-meta comment-author vcard">
-	  <?php
-					echo get_avatar( $comment, 44 );
-					printf( '<cite class="fn">%1$s %2$s</cite>',
-						get_comment_author_link(),
-						// If current post author is also comment author, make it known visually.
-						( $comment->user_id === $post->post_author ) ? '<span> ' . __( 'Post author', 'interface' ) . '</span>' : ''
-					);
-					printf( '<a href="%1$s"><time pubdate datetime="%2$s">%3$s</time></a>',
-						esc_url( get_comment_link( $comment->comment_ID ) ),
-						get_comment_time( 'c' ),
-						/* translators: 1: date, 2: time */
-						sprintf( __( '%1$s at %2$s', 'interface' ), get_comment_date(), get_comment_time() )
-					);
-				?>
-	</header>
+	<article id="comment-<?php comment_ID(); ?>" class="comment">
+		<header class="comment-meta comment-author vcard">
+		<?php
+			echo get_avatar( $comment, 44 );
+			printf( '<cite class="fn">%1$s %2$s</cite>',
+				get_comment_author_link(),
+				// If current post author is also comment author, make it known visually.
+				( $comment->user_id === $post->post_author ) ? '<span> ' . __( 'Post author', 'interface' ) . '</span>' : ''
+			);
+			printf( '<a href="%1$s"><time pubdate datetime="%2$s">%3$s</time></a>',
+				esc_url( get_comment_link( $comment->comment_ID ) ),
+				get_comment_time( 'c' ),
+				/* translators: 1: date, 2: time */
+				sprintf( __( '%1$s at %2$s', 'interface' ), get_comment_date(), get_comment_time() )
+			);
+		?>
+		</header>
 	<!-- .comment-meta -->
-	
-	<?php if ( '0' == $comment->comment_approved ) : ?>
+	<?php 
+		if ( '0' == $comment->comment_approved ) : 
+	?>
 	<p class="comment-awaiting-moderation">
-	  <?php _e( 'Your comment is awaiting moderation.', 'interface' ); ?>
+		<?php _e( 'Your comment is awaiting moderation.', 'interface' ); ?>
 	</p>
 	<?php endif; ?>
 	<section class="comment-content comment">
-	  <?php comment_text(); ?>
-	  <?php edit_comment_link( __( 'Edit', 'interface' ), '<p class="edit-link">', '</p>' ); ?>
+		<?php comment_text(); ?>
+		<?php edit_comment_link( __( 'Edit', 'interface' ), '<p class="edit-link">', '</p>' ); ?>
 	</section>
 	<!-- .comment-content -->
-	
 	<div class="reply">
-	  <?php comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Reply <span>&darr;</span>', 'interface' ), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+		<?php 
+			comment_reply_link( array_merge( $args, array( 'reply_text' => __( 'Reply <span>&darr;</span>', 'interface' ), 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); 
+		?>
 	</div>
 	<!-- .reply --> 
-  </article>
-  <!-- #comment-## -->
+	</article>
+  	<!-- #comment-## -->
   <?php
 		break;
 	endswitch; // end comment_type check
 }
 endif;
+/* end interface_comment */
 
 
 
@@ -1023,7 +1075,11 @@ endif;
 
 
 add_action( 'interface_contact_page_template_content', 'interface_display_contact_page_template_content', 10 );
+
 /**
+ * 联系我 page模板
+ *
+ *
  * Displays the contact page template content.
  */
 function interface_display_contact_page_template_content() {
@@ -1035,94 +1091,97 @@ function interface_display_contact_page_template_content() {
 
 			do_action( 'interface_before_post' );
 ?>
-  <!-- post page_template_content -->
-  <div id="primary" class="no-margin-left">
+<!-- post page_template_content -->
+<div id="primary" class="no-margin-left">
 	<div id="content">
-	  <?php do_action( 'interface_before_post_content' ); ?>
-	  <div class="entry-content clearfix">
-		<?php the_content(); ?>
+		<?php do_action( 'interface_before_post_content' ); ?>
+		<div class="entry-content clearfix">
+			<?php the_content(); ?>
 		<?php
-							wp_link_pages( array( 
-								'before'            => '<div style="clear: both;"></div><div class="pagination clearfix">'.__( 'Pages:', 'interface' ),
-								'after'             => '</div>',
-								'link_before'       => '<span>',
-								'link_after'        => '</span>',
-								'pagelink'          => '%',
-								'echo'              => 1 
-					   ) );
-						?>
-	  </div>
-	  <?php 
+			wp_link_pages( array( 
+				'before'            => '<div style="clear: both;"></div><div class="pagination clearfix">'.__( 'Pages:', 'interface' ),
+				'after'             => '</div>',
+				'link_before'       => '<span>',
+				'link_after'        => '</span>',
+				'pagelink'          => '%',
+				'echo'              => 1 
+	   		) );
+		?>
+	  	</div>
+	<?php 
 
-					do_action( 'interface_after_post_content' );
+			do_action( 'interface_after_post_content' );
+			do_action( 'interface_before_comments_template' ); 
 
-					do_action( 'interface_before_comments_template' ); 
+			comments_template(); 
+			do_action ( 'interface_after_comments_template' );
 
-				 comments_template(); 
+			do_action( 'interface_after_post' );
 
-				 do_action ( 'interface_after_comments_template' );
-
-					do_action( 'interface_after_post' );
-
-				}
-			}
-			else {
-				?>
-	  <h1 class="entry-title">
-		<?php _e( 'No Posts Found.', 'interface' ); ?>
-	  </h1>
-	  <?php
-		   }
-		   ?>
+		} /* end while */
+	} else {
+		// else have_posts
+	?>
+		<h1 class="entry-title">
+			<?php _e( 'No Posts Found.', 'interface' ); ?>
+		</h1>
+		<?php } /* end if have_posts*/ ?>
+		</div>
+		<!-- #content --> 
 	</div>
-	<!-- #content --> 
-  </div>
   <!-- #primary -->
   
-  <div id="secondary">
-	<?php get_sidebar( 'contact-page' ); ?>
-  </div>
+	<div id="secondary">
+		<?php get_sidebar( 'contact-page' ); ?>
+	</div>
   <!-- #secondary -->
-  <?php		   
+<?php		   
 }
+/* en interface_display_contact_page_template_content */
+
+
 
 /****************************************************************************************/
 
 add_action( 'interface_404_content', 'interface_display_404_page_content', 10 );
+
 /**
+ * 404 模板
+ *
  * Function to show the content for 404 page.
  */
 function interface_display_404_page_content() {
 ?>
-  <div id="content">
+<div id="content">
 	<header class="entry-header">
-	  <h1 class="entry-title">
+		<h1 class="entry-title"> <a>
 		<?php _e( 'Error 404-Page NOT Found', 'interface' ); ?>
 		</a></h1>
 	</header>
 	<div class="entry-content clearfix" >
-	  <p>
-		<?php _e( 'It seems we can\'t find what you\'re looking for.', 'interface' ); ?>
-	  </p>
-	  <h3>
-		<?php _e( 'This might be because:', 'interface' ); ?>
-	  </h3>
-	  <p>
+		<p>
+			<?php _e( 'It seems we can\'t find what you\'re looking for.', 'interface' ); ?>
+		</p>
+		<h3>
+			<?php _e( 'This might be because:', 'interface' ); ?>
+		</h3>
+		<p>
 		<?php _e( 'You have typed the web address incorrectly, or the page you were looking for may have been moved, updated or deleted.', 'interface' ); ?>
-	  </p>
-	  <h3>
-		<?php _e( 'Please try the following instead:', 'interface' ); ?>
-	  </h3>
-	  <p>
-		<?php _e( 'Check for a mis-typed URL error, then press the refresh button on your browser.', 'interface' ); ?>
-	  </p>
+		</p>
+		<h3>
+			<?php _e( 'Please try the following instead:', 'interface' ); ?>
+		</h3>
+		<p>
+			<?php _e( 'Check for a mis-typed URL error, then press the refresh button on your browser.', 'interface' ); ?>
+		</p>
 	</div>
 	<!-- .entry-content --> 
   </div>
+
   <!-- #content -->
   <?php
 }
-
+/* end interface_display_404_page_content */
 /****************************************************************************************/
 
 
@@ -1130,35 +1189,48 @@ function interface_display_404_page_content() {
 add_action( 'interface_business_template_content', 'interface_business_template_widgetized_content');
 
 /**
+ * 注册的自定义 侧边栏
+ * interface_business_page_sidebar
+ *
+ *
  * Displays the widget as contents
  */
 function interface_business_template_widgetized_content() { ?>
-  <?php if( is_active_sidebar( 'interface_business_page_sidebar' ) ) {
-			echo '<div id="content">';
+<?php 
+	if( is_active_sidebar( 'interface_business_page_sidebar' ) ) {
+		echo '<div id="content"><!-- interface_business_page_sidebar -->';
 
-			// Calling the footer sidebar
-			dynamic_sidebar( 'interface_business_page_sidebar' );
+		// Calling the footer sidebar
+		// 注册的自定义 侧边栏
+		dynamic_sidebar( 'interface_business_page_sidebar' );
 				
 		echo '</div><!-- #content -->';
-		}
-		?>
-  <?php
+	}
+?>
+<?php
 }
+/* end interface_business_template_widgetized_content */
+
+
 /****************************************************************************************/
 
 add_action( 'interface_business_template_ourclients', 'interface_business_template_featured_image', 20 );
 
 
 /**
+ * 注册自定义 侧边栏 interface_business_page_our_client_sidebar
+ *
  * Displays the widget of our clients
  */
 function interface_business_template_featured_image() { ?>
-  <?php if( is_active_sidebar( 'interface_business_page_our_client_sidebar' ) ) {
+<?php 
+ 	if( is_active_sidebar( 'interface_business_page_our_client_sidebar' ) ) {
 
-			// Calling the footer sidebar
-			dynamic_sidebar( 'interface_business_page_our_client_sidebar' );
+		// Calling the footer sidebar
+		dynamic_sidebar( 'interface_business_page_our_client_sidebar' );
 			
-		}
+	}
 }
+/* end interface_business_page_our_client_sidebar */
 
 ?>

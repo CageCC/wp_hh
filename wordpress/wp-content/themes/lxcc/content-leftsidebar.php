@@ -1,5 +1,8 @@
 <?php
 /**
+ * 左侧边栏
+ *
+ *
  * This file displays page with left sidebar.
  *
  * @package Theme Horse

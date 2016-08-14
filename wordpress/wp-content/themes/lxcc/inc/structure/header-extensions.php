@@ -652,6 +652,7 @@ function interface_featured_sliders() {
 			$title_attribute = apply_filters( 'the_title', get_the_title( $post->ID ) );
 
 			$excerpt = get_the_excerpt();
+
 			if ( 1 == $i ) { 
 				$classes = "slides displayblock"; 
 			} else { 
@@ -660,6 +661,7 @@ function interface_featured_sliders() {
 
 			$interface_featured_sliders .= '<div class="'.$classes.'">';
 
+			// 缩略图
 			if( has_post_thumbnail() ) {
 				$interface_featured_sliders .= '<figure><a href="' . get_permalink() . '" title="'.the_title('','',false).'">';
 
@@ -670,10 +672,12 @@ function interface_featured_sliders() {
 			if( $title_attribute != '' || $excerpt !='' ) {
 				$interface_featured_sliders .= '<div class="container"><article class="featured-text">';
 
+				// 标题
 				if( $title_attribute !='' ) {
 					$interface_featured_sliders .= '<div class="featured-title"><a href="' . get_permalink() . '" title="'.the_title('','',false).'">'. get_the_title() . '</a></div><!-- .featured-title -->';
 				}
 				
+				// 摘要
 				if( $excerpt !='' ) {	
 					if(strlen($excerpt) >120){
 

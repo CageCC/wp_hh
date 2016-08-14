@@ -11,6 +11,8 @@
 ?>
 <?php 
 	/**
+	 * inc/structure/header-extensions.php
+	 *
 	 * 头部
 	 *
 	 */
@@ -29,6 +31,8 @@
 <?php
 	/** 
 	 * inc/structure/conten-extensions.php
+	 * 
+	 * 主体内容
 	 *
 	 * interface_main_container hook
 	 *
@@ -50,6 +54,9 @@
 <!-- get_footer -->
 <?php
 	/**
+	 * footer-extensions.php
+	 *
+	 * 尾部
 	 *
 	 */
 	get_footer(); 

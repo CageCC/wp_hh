@@ -74,6 +74,17 @@ define('WP_DEBUG', true);
 
 预约挂号|yygh
 
+### 首页轮播图
+
+创建一个分类，标记为：轮播图
+创建文章，并归类为轮播图，同时设置页面显示：
+编辑主题--> Featured Post/Page Slider --> 添加 post id
+
+### 开启摘要
+在写文章界面中，点击左上角‘显示选项’，点击摘要即可
+
+
+
 
 ### 编辑站点 域名
 编辑后台--> 设置 -- 常规设置
@@ -87,6 +98,20 @@ define('WP_DEBUG', true);
 
 安装插件： Disable Updates Manager
 
+
+### 分页插件
+
+Wp-PageNavi 
+
+Text For Number Of Pages 总页数
+Text For Current Page 当前页
+Text For Page 页数
+Text For First Post 首页
+Text For Last Post 尾页
+Text For Next Post 下一页
+Text For Previous Post 上一页
+Text For Next … 下
+Text For Previous … 上
 
 
 
