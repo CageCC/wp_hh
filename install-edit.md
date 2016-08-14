@@ -15,3 +15,5 @@
 		'homeindex' =>__( 'Home index Links Menu', 'twentysixteen' ), // 可任意添加
 	) );
 ```
+
+### 主题配置

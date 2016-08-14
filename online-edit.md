@@ -7,6 +7,8 @@ define('WP_DEBUG', true);
 ```
 
 ### 菜单创建
+
+创建分类类目：
 先创建一级、再创建子类二级，以此类推：
 
 首页
@@ -18,7 +20,7 @@ define('WP_DEBUG', true);
     医院动态|yydt
     媒体报道|mtbd
 
-专家库
+专家库|zjia
 
 科室导航|ksdh
 
@@ -33,7 +35,7 @@ define('WP_DEBUG', true);
             心力衰竭|xlsj
             心肌梗塞|xjgs
 
-        心外科|xnk
+        心外科|xwk
             先天性心脏病|xtxxzb
             后天性心脏瓣膜病|htxxzbmb
             缺血性心脏病|qxxxzb
@@ -52,13 +54,13 @@ define('WP_DEBUG', true);
             癫痫|dx
             帕金森病|pjsb
 
-先进设备
+先进设备|xjsb
 
-经典案例
+经典案例|jdal
 
-体检中心
+体检中心|tjzx
 
-就诊指南
+就诊指南|jyzn
 
         专家出诊|zjcz
         挂号须知|ghxz
@@ -70,5 +72,21 @@ define('WP_DEBUG', true);
         来院路线|lylx
         住院流程|zylc
 
-预约挂号
+预约挂号|yygh
+
+
+### 编辑站点 域名
+编辑后台--> 设置 -- 常规设置
+
+
+### 去掉副标题
+编辑后台--> 设置 -- 常规设置
+
+
+### 禁止wp更新
+
+安装插件： Disable Updates Manager
+
+
+
 

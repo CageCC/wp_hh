@@ -439,7 +439,7 @@ if (1 != $options['disable_top']) {
 <!-- header -->
 <div class="hgroup-wrap">
   <div class="container clearfix">
-  	<!-- logo -->
+	<!-- logo -->
 	<section id="site-logo" class="clearfix">
 	<?php 
 
@@ -470,7 +470,7 @@ if (1 != $options['disable_top']) {
 	<section class="hgroup-right">
 	<?php
 
-	  	// if there is nav menu then content displayed from nav menu else from pages
+		// if there is nav menu then content displayed from nav menu else from pages
 		if ( has_nav_menu( 'primary' ) ) { 
 			$args = array(
 				'theme_location'    => 'primary',
@@ -532,7 +532,7 @@ if (1 != $options['disable_top']) {
 ?>
 
 		<div class="page-title-wrap">
- 			<div class="container clearfix">
+			<div class="container clearfix">
 		<?php
 			if( function_exists( 'interface_breadcrumb' ) ) {
 				interface_breadcrumb();
@@ -604,7 +604,7 @@ endif;
 
 if ( ! function_exists( 'interface_featured_sliders' ) ) :
 /**
- *
+ * 首页轮播图
  *
  * displaying the featured image in home page
  *
@@ -630,10 +630,15 @@ function interface_featured_sliders() {
 		$interface_featured_sliders .= '<section class="featured-slider"><div class="slider-cycle">';
 
 		$get_featured_posts = new WP_Query( array(
+				// 分页pagesize
 				'posts_per_page' 			=> $options[ 'slider_quantity' ],
+				// 类型
 				'post_type'					=> array( 'post', 'page' ),
+				// post id
 				'post__in'		 			=> $options[ 'featured_post_slider' ],
+				// 排序
 				'orderby' 		 			=> 'post__in',
+				// 忽略post id
 				'ignore_sticky_posts' 	=> 1 	
 		));
 
