@@ -223,6 +223,9 @@ function interface_core_functionality() {
 
 	// Adding excerpt option box for pages as well
 	add_post_type_support( 'page', 'excerpt' );
+
+	// 添加友情链接
+	add_filter( 'pre_option_link_manager_enabled', '__return_true' );
 }
 /* end interface_core_functionality */
 

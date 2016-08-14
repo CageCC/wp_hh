@@ -92,7 +92,7 @@
 	/**
 	 * 执行 wp_footer action
 	 *
-	 * 一般是wp使用
+	 * 一般是wp使用,引入一些js文件兼容一些插件或主题
 	 *
 	 */
 	wp_footer(); 

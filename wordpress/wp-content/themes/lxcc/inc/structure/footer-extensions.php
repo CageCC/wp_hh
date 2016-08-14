@@ -40,7 +40,9 @@ if ((1 != $options['disable_bottom']) && (!empty($options['social_phone'] ) || !
  */
 /****************************************************************************************/
 
-	add_action( 'interface_footer', 'interface_footer_div_close', 15 );
+add_action( 'interface_footer', 'interface_footer_div_close', 15 );
+
+
 /**
  * Opens the site generator div.
  */
@@ -80,6 +82,8 @@ add_action( 'interface_footer', 'interface_socialnetworks', 25 );
 /****************************************************************************************/
 
 add_action( 'interface_footer', 'interface_footer_info', 30 );
+
+
 /**
  * function to show the footer info, copyright information
  */
