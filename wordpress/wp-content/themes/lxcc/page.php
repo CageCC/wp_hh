@@ -2,15 +2,29 @@
 /**
  * Displays the page section of the theme.
  *
+ *
+ *
  * @package Theme Horse
  * @subpackage Interface
  * @since Interface 1.0
  */
 ?>
-<?php get_header(); ?>
+<?php 
+	/**
+	 * inc/structure/header-extensions.php
+	 *
+	 * 头部
+	 *
+	 */
+	get_header(); 
+?>
 <?php
 	/** 
+	 * inc/structure/header-extensions.php
 	 * interface_before_main_container hook
+	 *
+	 * 头部
+	 *
 	 */
 	do_action( 'interface_before_main_container' );
 ?>
@@ -30,4 +44,14 @@
 	 */
 	do_action( 'interface_after_main_container' );
 ?>
-<?php get_footer(); ?>
+<?php 
+	/**
+	 * footer-extensions.php
+	 *
+	 * 尾部
+	 *
+	 */
+	get_footer(); 
+
+	// end 
+?>

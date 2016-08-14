@@ -113,5 +113,12 @@ Text For Previous Post 上一页
 Text For Next … 下
 Text For Previous … 上
 
+### 中文链接出现 404
+需要修改wp的核心文件：wp-includes/class-wp.php
+186行：添加需要解码一下中文字符
+```php
+    $req_uri=urldecode($req_uri);
+```
+
 
 
