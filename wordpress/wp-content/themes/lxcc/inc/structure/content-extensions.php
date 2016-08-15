@@ -1189,6 +1189,8 @@ function interface_display_404_page_content() {
 add_action( 'interface_business_template_content', 'interface_business_template_widgetized_content');
 
 /**
+ * 读取 interface_business_page_sidebar 的内容
+ *
  * 注册的自定义 侧边栏
  * interface_business_page_sidebar
  *

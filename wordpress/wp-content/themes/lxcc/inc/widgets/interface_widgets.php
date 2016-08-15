@@ -432,7 +432,7 @@ class interface_custom_tag_widget extends WP_Widget {
 
 		$control_ops = array( 'width' => 200, 'height' =>250 ); 
 		// parent::WP_Widget( false, $name = __( 'Theme Horse: PromoBox', 'interface' ), $widget_ops, $control_ops);
-		parent::__construct( false, $name = __( 'Theme Horse: PromoBox', 'interface' ), $widget_ops, $control_ops);
+		parent::__construct( false, $name = __( 'Theme Horse: PromoBox:公告', 'interface' ), $widget_ops, $control_ops);
 	}
 
 	/**
@@ -533,7 +533,7 @@ class interface_custom_tag_widget extends WP_Widget {
 		$widget_ops = array( 'classname' => 'widget_recent_work', 'description' => __( 'Use this widget to show recent work, portfolio or any pages as your wish ( Business Layout )', 'interface' ) );
 		$control_ops = array( 'width' => 200, 'height' =>250 ); 
 		// parent::WP_Widget( false, $name = __( 'Theme Horse: Featured Recent Work', 'interface' ), $widget_ops, $control_ops);
-		parent::__construct( false, $name = __( 'Theme Horse: Featured Recent Work', 'interface' ), $widget_ops, $control_ops);
+		parent::__construct( false, $name = __( 'Theme Horse: Featured Recent Work：四格子', 'interface' ), $widget_ops, $control_ops);
 	}
 
 	function form( $instance ) {
@@ -703,7 +703,7 @@ class interface_Widget_Testimonial extends WP_Widget {
 		); 
 
 		// parent::WP_Widget( false, $name = __( 'Theme Horse: Testimonial', 'interface' ), $widget_ops, $control_ops);
-		parent::__construct( false, $name = __( 'Theme Horse: Testimonial', 'interface' ), $widget_ops, $control_ops);
+		parent::__construct( false, $name = __( 'Theme Horse: Testimonial：证书', 'interface' ), $widget_ops, $control_ops);
 
 
 	}
@@ -717,6 +717,8 @@ class interface_Widget_Testimonial extends WP_Widget {
 		extract($args);
 		// 
 		$title = apply_filters( 'title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
+
+		$titlelink = apply_filters( 'title_link', empty( $instance['title_link'] ) ? '' : $instance['title_link'], $instance, $this->id_base );
 		
 		$image1 = apply_filters( 'image1', empty( $instance['image1'] ) ? '' : $instance['image1'], $instance,  $this->id_base );
 
@@ -746,7 +748,12 @@ class interface_Widget_Testimonial extends WP_Widget {
 		echo $before_widget;
 
 		if ( !empty( $title ) ) { 
-			echo $before_title . esc_html( $title ) . $after_title; 
+			if(!empty($titlelink)) {
+				echo $before_title .'<a href="'. esc_url(trim($titlelink)) .'">' . esc_html( $title ) . $after_title . '</a>';
+			} else {
+				echo $before_title . esc_html( $title ) . $after_title;
+			}
+			 
 		} 
 ?>
 <div class="column clearfix">
@@ -780,8 +787,10 @@ class interface_Widget_Testimonial extends WP_Widget {
 	 *
 	 */
 	function update( $new_instance, $old_instance ) {
+		
 		$instance = $old_instance;
 		$instance['title'] = strip_tags($new_instance['title']);
+		$instance['title_link'] = strip_tags($new_instance['title_link']);
 		
 		$instance['image1'] = strip_tags($new_instance['image1']);
 		$instance['text1'] = strip_tags($new_instance['text1']);
@@ -798,12 +807,16 @@ class interface_Widget_Testimonial extends WP_Widget {
 		$instance['company_link2'] = strip_tags($new_instance['company_link2']);
 		
 		if ( current_user_can('unfiltered_html') ) {
+
 			$instance['text1'] =  $new_instance['text1'];
 		} else {
-			$instance['text1'] = stripslashes( wp_filter_post_kses( addslashes($new_instance['text1']) ) ); // wp_filter_post_kses() expects slashed
+
+			// wp_filter_post_kses() expects slashed
+			$instance['text1'] = stripslashes( wp_filter_post_kses( addslashes($new_instance['text1']) ) ); 
 		}
 
 
+		
 
 		$instance['filter'] = isset($new_instance['filter']);
 		return $instance;
@@ -817,8 +830,28 @@ class interface_Widget_Testimonial extends WP_Widget {
 	 *
 	 */
 	function form( $instance ) {
-		$instance = wp_parse_args( (array) $instance, array( 'title' => '', 'image1' => '', 'text1' => '', 'name1' =>'', 'designation1'=>'','company_name1'=>'','company_name1'=>'','company_link1'=>'', 'image2'=>'', 'text2'=>'','name2'=>'','designation2'=>'','company_name2'=>'','company_link2'=>'' ) );
+		$instance = wp_parse_args( 
+			(array) $instance, 
+			array( 
+				'title' => '', 
+				'title_link' => '',
+				'image1' => '', 
+				'text1' => '', 
+				'name1' =>'', 
+				'designation1'=>'',
+				'company_name1'=>'',
+				// 'company_name1'=>'',
+				'company_link1'=>'', 
+				'image2'=>'', 
+				'text2'=>'',
+				'name2'=>'',
+				'designation2'=>'',
+				'company_name2'=>'',
+				'company_link2'=>'' 
+			) 
+		);
 		$title = strip_tags($instance['title']);
+		$title_link = strip_tags($instance['title_link']);
 		
 		$image1 = strip_tags($instance['image1']);
 		$text1 = strip_tags($instance['text1']);
@@ -841,6 +874,12 @@ class interface_Widget_Testimonial extends WP_Widget {
     	<?php _e( 'Title:', 'interface' ); ?>
 	</label>
 	<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" />
+</p>
+<p>
+	<label for="<?php echo $this->get_field_id('title_link'); ?>">
+    	<?php _e( 'Title Link:', 'interface' ); ?>
+	</label>
+	<input class="widefat" id="<?php echo $this->get_field_id('title_link'); ?>" name="<?php echo $this->get_field_name('title_link'); ?>" type="text" value="<?php echo esc_attr($title_link); ?>" />
 </p>
 <p>&nbsp; </p>
 <p>
@@ -880,7 +919,7 @@ class interface_Widget_Testimonial extends WP_Widget {
 <p>&nbsp; </p>
 <p>
 	<input class="upload1" type="text"  name="<?php echo $this->get_field_name('image2'); ?>" value="<?php echo esc_url($image2); ?>" />
-	<input class="upload-button1" name="<?php echo $this->get_field_name('image2'); ?>" type="button" value="<?php esc_attr_e( 'Upload Image 2', 'interface' ); ?>" />
+	<input class="upload-button1" name="<?php echo 'up_'. $this->get_field_name('image2'); ?>" type="button" value="<?php esc_attr_e( 'Upload Image 2', 'interface' ); ?>" />
 </p>
 <?php _e( 'Testimonial Description 2','interface'); ?>
 <textarea class="widefat" rows="8" cols="20" id="<?php echo $this->get_field_id('text2'); ?>" name="<?php echo $this->get_field_name('text2'); ?>"><?php echo $text2; ?>
@@ -939,7 +978,7 @@ class interface_featured_image_widget extends WP_Widget {
 		$control_ops = array('width' => 200, 'height' => 250);
 		// parent::WP_Widget( false, $name='Theme Horse: Featured Image', $widget_ops, $control_ops );
 
-		parent::__construct( false, $name='Theme Horse: Featured Image', $widget_ops, $control_ops );
+		parent::__construct( false, $name='Theme Horse: Featured Image：大图片', $widget_ops, $control_ops );
 	}
 
 

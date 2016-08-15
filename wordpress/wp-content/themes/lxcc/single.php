@@ -1,5 +1,7 @@
 <?php
 /**
+ * 显示单独的一篇文章时被调用
+ *
  * Displays the single section of the theme.
  *
  * @package Theme Horse
@@ -7,8 +9,14 @@
  * @since Interface 1.0
  */
 ?>
-<!-- get_header -->
-<?php get_header(); ?>
+<?php 
+	/**
+	 * header.php
+	 *
+	 *
+	 *
+	 */
+	get_header(); ?>
 <!-- main_container -->
 <?php
 	/** 
@@ -32,5 +40,4 @@
 	 */
 	do_action( 'interface_after_main_container' );
 ?>
-<!-- get_footer -->
 <?php get_footer(); ?>

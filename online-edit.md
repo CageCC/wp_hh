@@ -11,7 +11,7 @@ define('WP_DEBUG', true);
 创建分类类目：
 先创建一级、再创建子类二级，以此类推：
 
-首页
+首页（不创建分类，使用url即可，并将主站的url赋值）
 
 关于龙心|about
 
@@ -74,6 +74,13 @@ define('WP_DEBUG', true);
 
 预约挂号|yygh
 
+### 后台创建一个空白page
+标题： home
+
+选择 Business Template 模板，
+
+管理界面>设置>阅读菜单下, 将 home页面作为“静态首页”
+
 ### 首页轮播图
 
 创建一个分类，标记为：轮播图
@@ -121,4 +128,5 @@ Text For Previous … 上
 ```
 
 
-
+### 可以选择安装图片插件
+image-widget

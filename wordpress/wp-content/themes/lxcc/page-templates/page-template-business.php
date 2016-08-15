@@ -13,11 +13,18 @@
 <?php
 	/** 
 	 * interface_before_main_container hook
+	 *
+	 *
+	 * 没做任何事情
 	 */
 	do_action( 'interface_before_main_container' );
 ?>
 <?php
 		/** 
+		 *
+		 * content-extensions.php
+		 *
+		 *
 		 * interface_business_template_content hook
 		 *
 		 * HOOKED_FUNCTION_NAME PRIORITY
@@ -29,6 +36,9 @@
 <?php
 	/** 
 	 * interface_after_main_container hook
+	 *
+	 * 没做任何事情
+	 *
 	 */
 	do_action( 'interface_after_main_container' );
 ?>

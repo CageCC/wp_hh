@@ -10,6 +10,7 @@
  */
 ?>
 <?php 
+	
 	/**
 	 * inc/structure/header-extensions.php
 	 *
