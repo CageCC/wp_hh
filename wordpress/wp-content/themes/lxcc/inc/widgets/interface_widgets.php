@@ -1,5 +1,8 @@
 <?php
 /**
+ * pw 小工具
+ *
+ *
  * Contains all the functions related to sidebar and widget.
  *
  * @package Theme Horse
@@ -10,7 +13,14 @@
 /****************************************************************************************/
 
 add_action( 'widgets_init', 'interface_widgets_init');
+
+
 /**
+ * 注册 小工具
+ *
+ *　interface_left_sidebar 
+ *
+ *
  * Function to register the widget areas(sidebar) and widgets.
  */
 function interface_widgets_init() {
@@ -83,6 +93,8 @@ function interface_widgets_init() {
 
 	/** 
 	 * Registering footer sidebar 1
+	 *
+	 *
 	 * For upgrade compatible reason footer id not kept interface_footer_column1
 	 */
 	register_sidebar( array(
@@ -125,11 +137,17 @@ function interface_widgets_init() {
 
 	// Registering widgets
 	register_widget( "interface_custom_tag_widget" );
+
 	register_widget( "interface_service_widget" );
+
 	register_widget( "interface_promobox_widget" );
+
 	register_widget( "interface_recent_work_widget" );
+
 	register_widget( "interface_Widget_Testimonial" );
+
 	register_widget( "interface_featured_image_widget" );
+
 }
 
 
@@ -146,6 +164,7 @@ function interface_widgets_init() {
  * $widget_ops option array passed to wp_register_sidebar_widget().
  * $control_ops option array passed to wp_register_widget_control().
  * $name, Name for this widget which appear on widget bar.
+ *
  */
 class interface_custom_tag_widget extends WP_Widget {
 	// function interface_custom_tag_widget() {
@@ -155,13 +174,22 @@ class interface_custom_tag_widget extends WP_Widget {
 	// }
 
 	function __construct() {
-		$widget_ops = array( 'classname' => 'widget_custom-tagcloud', 'description' => __( 'Displays Custom Tag Cloud', 'interface' ) );
-		$control_ops = array('width' => 200, 'height' => 250);
+		$widget_ops = array( 
+			'classname' => 'widget_custom-tagcloud', 
+			'description' => __( 'Displays Custom Tag Cloud', 'interface' ) 
+		);
+
+		$control_ops = array(
+			'width' => 200, 
+			'height' => 250
+		);
 		// parent::WP_Widget( false, $name = __( 'Theme Horse: Custom Tag Cloud', 'interface' ), $widget_ops, $control_ops );
 
 		parent::__construct( false, $name = __( 'Theme Horse: Custom Tag Cloud', 'interface' ), $widget_ops, $control_ops );
 	}
 	
+
+
 	/** Displays the Widget in the front-end.
 	 * 
 	 * $args Display arguments including before_title, after_title, before_widget, and after_widget.
@@ -170,6 +198,7 @@ class interface_custom_tag_widget extends WP_Widget {
 	function widget( $args, $instance ) {
 		extract( $args );
 		extract( $instance );
+
 		$title = empty( $instance[ 'title' ] ) ? 'Tags' : $instance[ 'title' ];
 		
 		echo $before_widget;
@@ -178,11 +207,15 @@ class interface_custom_tag_widget extends WP_Widget {
 			echo $before_title . $title . $after_title;
 		endif;
 
+
+
 		wp_tag_cloud('smallest=13&largest=13px&unit=px');
 
 		echo $after_widget;
 	}
 	
+
+
 	/**
 	 * update the particular instant  
 	 * 
@@ -195,20 +228,25 @@ class interface_custom_tag_widget extends WP_Widget {
 	 * Settings to save or bool false to cancel saving
 	 */
 	function update( $new_instance, $old_instance ) {
+
 		$instance = $old_instance;
 		$instance['title'] = strip_tags($new_instance['title']);
 		
 		return $instance;
 	}	
 	
+
+
 	/**
 	 * Creates the form for the widget in the back-end which includes the Title 
+	 *
+	 *
 	 * $instance Current settings
 	 */
 	function form($instance) {
 		$instance = wp_parse_args( ( array ) $instance, array( 'title'=>'Tags' ) );
 		$title = esc_attr( $instance[ 'title' ] );
-		?>
+?>
 
 <p>
   <label for="<?php echo $this->get_field_id('title'); ?>">
@@ -217,8 +255,10 @@ class interface_custom_tag_widget extends WP_Widget {
   <input id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
 </p>
 <?php			
-	}
+	} /* end form */
 }
+/* end interface_custom_tag_widget */
+
 
 /**
  * Widget for business layout that shows selected page content,title and featured image.
@@ -232,37 +272,56 @@ class interface_custom_tag_widget extends WP_Widget {
 	// 	parent::WP_Widget( false, $name = __( 'Theme Horse: Services', 'interface' ), $widget_ops, $control_ops);
 	// }
 	function __construct() {
-		$widget_ops = array( 'classname' => 'widget_service', 'description' => __( 'Display Services( Business Layout )', 'interface' ) );
+		$widget_ops = array( 
+			'classname' => 'widget_service', 
+			'description' => __( 'Display Services( Business Layout )', 'interface' ) 
+		);
+
 		$control_ops = array( 'width' => 200, 'height' =>250 ); 
+
 		// parent::WP_Widget( false, $name = __( 'Theme Horse: Services', 'interface' ), $widget_ops, $control_ops);
 		parent::__construct( false, $name = __( 'Theme Horse: Services', 'interface' ), $widget_ops, $control_ops);
+
 	}
 
+	/**
+	 * form 
+	 */
 	function form( $instance ) {
 		for ( $i=0; $i<8; $i++ ) {
+
 			$var = 'page_id'.$i;
 			$defaults[$var] = '';
 		}
+
 		$instance = wp_parse_args( (array) $instance, $defaults );
+
 		for ( $i=0; $i<8; $i++ ) {
 			$var = 'page_id'.$i;
 			$var = absint( $instance[ $var ] );
 		}
-	?>
+
+?>
 <?php for( $i=0; $i<8; $i++) { ?>
 <p>
-  <label for="<?php echo $this->get_field_id( key($defaults) ); ?>">
-    <?php _e( 'Page', 'interface' ); ?>
+	<label for="<?php echo $this->get_field_id( key($defaults) ); ?>">
+		<?php _e( 'Page', 'interface' ); ?>
     :</label>
-  <?php wp_dropdown_pages( array( 'show_option_none' =>' ','name' => $this->get_field_name( key($defaults) ), 'selected' => $instance[key($defaults)] ) ); ?>
+	<?php wp_dropdown_pages( array( 'show_option_none' =>' ','name' => $this->get_field_name( key($defaults) ), 'selected' => $instance[key($defaults)] ) ); ?>
 </p>
 <?php
 		next( $defaults );// forwards the key of $defaults array
-		}
-	}
 
+		} /* end for */
+	} /* end form */
+
+
+	/**
+	 * update
+	 */
 	function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
+
 		for( $i=0; $i<8; $i++ ) {
 			$var = 'page_id'.$i;
 			$instance[ $var] = absint( $new_instance[ $var ] );
@@ -271,28 +330,38 @@ class interface_custom_tag_widget extends WP_Widget {
 		return $instance;
 	}
 
+	/**
+	 * 
+	 */
 	function widget( $args, $instance ) {
 		extract( $args );
 		extract( $instance );
 
 		global $post;
 		$page_array = array();
+
+
 		for( $i=0; $i<8; $i++ ) {
 			$var = 'page_id'.$i;
 			$page_id = isset( $instance[ $var ] ) ? $instance[ $var ] : '';
 			
-			if( !empty( $page_id ) )
+			if( !empty( $page_id ) ) {
 				array_push( $page_array, $page_id );// Push the page id in the array
+			}
 		}
+
+
 		$get_featured_pages = new WP_Query( array(
 			'posts_per_page' 			=> -1,
 			'post_type'					=>  array( 'page' ),
 			'post__in'		 			=> $page_array,
 			'orderby' 		 			=> 'post__in'
 		) ); 
-		echo $before_widget; ?>
+
+		echo $before_widget; 
+?>
 <div class="column clearfix">
-  <?php 
+<?php 
 				$j = 1;
 				while( $get_featured_pages->have_posts() ):$get_featured_pages->the_post();
 					$page_title = get_the_title();
@@ -330,12 +399,20 @@ class interface_custom_tag_widget extends WP_Widget {
 				?>
 </div>
 <!-- .column --> 
-<?php echo $after_widget;
-		}
+<?php 
+	echo $after_widget;
+		
 	}
+}
+/* end interface_service_widget*/
 
 /**************************************************************************************/
+
+
 /**
+ *
+ *
+ *
  * Widget for business layout that shows Promo Box.
  * Construct the widget. 
  * i.e. Home Page PromoBox1, Home Page PromoBox2, Redirect Button Text and Redirect Button Link
@@ -348,15 +425,24 @@ class interface_custom_tag_widget extends WP_Widget {
 	// }
 
 	function __construct() {
-		$widget_ops = array( 'classname' => 'widget_promotional_bar clearfix', 'description' => __( 'Display PromoBox( Business Layout )', 'interface' ) );
+		$widget_ops = array( 
+			'classname' => 'widget_promotional_bar clearfix', 
+			'description' => __( 'Display PromoBox( Business Layout )', 'interface' ) 
+		);
+
 		$control_ops = array( 'width' => 200, 'height' =>250 ); 
 		// parent::WP_Widget( false, $name = __( 'Theme Horse: PromoBox', 'interface' ), $widget_ops, $control_ops);
 		parent::__construct( false, $name = __( 'Theme Horse: PromoBox', 'interface' ), $widget_ops, $control_ops);
 	}
 
-
+	/**
+	 * 前端显示
+	 *
+	 *
+	 */
 	function widget( $args, $instance ) {
 		extract($args);
+
 		$widget_primary = apply_filters( 'widget_primary', empty( $instance['widget_primary'] ) ? '' : $instance['widget_primary'], $instance, $this->id_base );
 		$widget_secondary = apply_filters( 'widget_secondary', empty( $instance['widget_secondary'] ) ? '' : $instance['widget_secondary'], $instance, $this->id_base );
 		$redirect_text = apply_filters( 'redirect_text', empty( $instance['redirect_text'] ) ? '' : $instance['redirect_text'], $instance );
@@ -364,11 +450,23 @@ class interface_custom_tag_widget extends WP_Widget {
 		$widget_redirecturl = apply_filters( 'widget_redirecturl', empty( $instance['widget_redirecturl'] ) ? '' : $instance['widget_redirecturl'], $instance, $this->id_base );
 
 		echo $before_widget;
-		if ( !empty( $widget_primary ) ) { echo '<div class="promotional-text">' . esc_html( $widget_primary ); } ?> <span> <?php echo esc_html( $widget_secondary ); ?> </span> <?php echo '</div>';?> <a class="call-to-action" href="<?php echo esc_html($widget_redirecturl); ?>" title="<?php echo $redirect_text; ?>"><?php echo esc_html( $redirect_text ); ?></a>
+
+		if ( !empty( $widget_primary ) ) { 
+			echo '<div class="promotional-text">' . esc_html( $widget_primary ); 
+		} 
+
+?> 
+<span> <?php echo esc_html( $widget_secondary ); ?> </span> 
+<?php echo '</div>';?> 
+<a class="call-to-action" href="<?php echo esc_html($widget_redirecturl); ?>" title="<?php echo $redirect_text; ?>"><?php echo esc_html( $redirect_text ); ?></a>
+
 <?php
 		echo $after_widget;
-	}
+	} /* end  widget*/
 
+	/**
+	 * 表单更新
+	 */
 	function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
 		$instance['widget_primary'] = esc_textarea($new_instance['widget_primary']);
@@ -380,19 +478,24 @@ class interface_custom_tag_widget extends WP_Widget {
 		return $instance;
 	}
 
-		function form( $instance ) {
-			$instance = wp_parse_args( (array) $instance, array( 'widget_primary' => '', 'widget_secondary' => '', 'redirect_text' =>'', 'widget_redirecturl'=>'' ) );
-			$widget_primary = esc_textarea($instance['widget_primary']);
-			$widget_secondary = esc_textarea($instance['widget_secondary']);
-			$redirect_text = strip_tags($instance['redirect_text']);
-			$widget_redirecturl = esc_url($instance['widget_redirecturl']);
+	/**
+	 * 后台表单
+	 *
+	 *
+	 */
+	function form( $instance ) {
+		$instance = wp_parse_args( (array) $instance, array( 'widget_primary' => '', 'widget_secondary' => '', 'redirect_text' =>'', 'widget_redirecturl'=>'' ) );
+		$widget_primary = esc_textarea($instance['widget_primary']);
+		$widget_secondary = esc_textarea($instance['widget_secondary']);
+		$redirect_text = strip_tags($instance['redirect_text']);
+		$widget_redirecturl = esc_url($instance['widget_redirecturl']);
 			
-	?>
+?>
 <p>
-  <label for="<?php echo $this->get_field_id('widget_primary'); ?>">
-    <?php _e( 'Primary Promotional:', 'interface' ); ?>
-  </label>
-  <textarea class="widefat" rows="8" cols="20" id="<?php echo $this->get_field_id('widget_primary'); ?>" name="<?php echo $this->get_field_name('widget_primary'); ?>"><?php echo $widget_primary; ?></textarea>
+	<label for="<?php echo $this->get_field_id('widget_primary'); ?>">
+		<?php _e( 'Primary Promotional:', 'interface' ); ?>
+	</label>
+	<textarea class="widefat" rows="8" cols="20" id="<?php echo $this->get_field_id('widget_primary'); ?>" name="<?php echo $this->get_field_name('widget_primary'); ?>"><?php echo $widget_primary; ?></textarea>
 </p>
 <?php _e( 'Secondary Promotional','interface'); ?>
 <textarea class="widefat" rows="8" cols="20" id="<?php echo $this->get_field_id('widget_secondary'); ?>" name="<?php echo $this->get_field_name('widget_secondary'); ?>"><?php echo $widget_secondary; ?></textarea>
@@ -605,9 +708,14 @@ class interface_Widget_Testimonial extends WP_Widget {
 
 	}
 
+	/**
+	 * 前端输出
+	 *
+	 */
 	function widget( $args, $instance ) {
 
 		extract($args);
+		// 
 		$title = apply_filters( 'title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
 		
 		$image1 = apply_filters( 'image1', empty( $instance['image1'] ) ? '' : $instance['image1'], $instance,  $this->id_base );
@@ -623,7 +731,7 @@ class interface_Widget_Testimonial extends WP_Widget {
 
 		$company_link1 = apply_filters( 'company_link1', empty( $instance['company_link1'] ) ? '' : $instance['company_link1'], $instance, $this->id_base );
 
-		
+		// 
 		$image2 = apply_filters( 'image2', empty( $instance['image2'] ) ? '' : $instance['image2'], $instance,  $this->id_base );
 		$text2 = apply_filters( 'text2', empty( $instance['text2'] ) ? '' : $instance['text2'], $instance );
 		$name2 = apply_filters( 'name2', empty( $instance['name2'] ) ? '' : $instance['name2'], $instance, $this->id_base );
@@ -637,28 +745,40 @@ class interface_Widget_Testimonial extends WP_Widget {
 
 		echo $before_widget;
 
-		if ( !empty( $title ) ) { echo $before_title . esc_html( $title ) . $after_title; } ?>
+		if ( !empty( $title ) ) { 
+			echo $before_title . esc_html( $title ) . $after_title; 
+		} 
+?>
 <div class="column clearfix">
-  <div class="one-half">
-    <div class="testimonial-image"> <img src="<?php echo esc_url($image1)?>" title="<?php echo esc_attr($name1); ?>" alt="<?php echo esc_attr($name1); ?>" /> </div>
-    <div class="testimonial-content">
-      <p><?php echo esc_html( $text1 ); ?></p>
-      <div class="testimonial-meta"> <strong><?php echo esc_html( $name1 ); ?></strong> <?php echo esc_html( $designation1 ); if(!empty($company_name1)){  echo ' - '; } ?> <a href="<?php echo esc_url($company_link1); ?>" title="<?php echo $company_name1; ?>" target="_blank"> <?php echo esc_html( $company_name1 ); ?></a> </div>
-    </div>
-  </div>
-  <div class="one-half">
-    <div class="testimonial-image"> <img src="<?php echo esc_url($image2);?>" title="<?php echo esc_attr($name2); ?>" alt="<?php echo esc_attr($name2); ?>"/> </div>
-    <div class="testimonial-content">
-      <p><?php echo esc_html( $text2 ); ?></p>
-      <div class="testimonial-meta"> <strong><?php echo esc_html( $name2 ); ?></strong> <?php echo esc_html( $designation2 ); if(!empty($company_name2)){ echo ' - '; } ?> <a href="<?php echo esc_url($company_link2); ?>" title="<?php echo $company_name2; ?>" target="_blank"> <?php echo esc_html( $company_name2 ); ?></a> </div>
-    </div>
-  </div>
+	<div class="one-half">
+		<div class="testimonial-image"> <img src="<?php echo esc_url($image1)?>" title="<?php echo esc_attr($name1); ?>" alt="<?php echo esc_attr($name1); ?>" /> </div>
+		<div class="testimonial-content">
+      		<p><?php echo esc_html( $text1 ); ?></p>
+			<div class="testimonial-meta"> <strong><?php echo esc_html( $name1 ); ?></strong> <?php echo esc_html( $designation1 ); if(!empty($company_name1)){  echo ' - '; } ?> <a href="<?php echo esc_url($company_link1); ?>" title="<?php echo $company_name1; ?>" target="_blank"> <?php echo esc_html( $company_name1 ); ?></a> 
+			</div>
+    	</div>
+	</div>
+
+	<div class="one-half">
+		<div class="testimonial-image"> <img src="<?php echo esc_url($image2);?>" title="<?php echo esc_attr($name2); ?>" alt="<?php echo esc_attr($name2); ?>"/> </div>
+		<div class="testimonial-content">
+			<p><?php echo esc_html( $text2 ); ?></p>
+			<div class="testimonial-meta"> <strong><?php echo esc_html( $name2 ); ?></strong> <?php echo esc_html( $designation2 ); if(!empty($company_name2)){ echo ' - '; } ?> <a href="<?php echo esc_url($company_link2); ?>" title="<?php echo $company_name2; ?>" target="_blank"> <?php echo esc_html( $company_name2 ); ?></a> 
+			</div>
+		</div>
+	</div>
+
 </div>
 <?php 
 		
 		echo $after_widget;
-	}
+	} /* end widget */
 
+
+	/**
+	 * 后台保存表单
+	 *
+	 */
 	function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
 		$instance['title'] = strip_tags($new_instance['title']);
@@ -690,6 +810,12 @@ class interface_Widget_Testimonial extends WP_Widget {
 
 	}
 
+
+	/**
+	 * 后台 表单
+	 *
+	 *
+	 */
 	function form( $instance ) {
 		$instance = wp_parse_args( (array) $instance, array( 'title' => '', 'image1' => '', 'text1' => '', 'name1' =>'', 'designation1'=>'','company_name1'=>'','company_name1'=>'','company_link1'=>'', 'image2'=>'', 'text2'=>'','name2'=>'','designation2'=>'','company_name2'=>'','company_link2'=>'' ) );
 		$title = strip_tags($instance['title']);
@@ -708,80 +834,86 @@ class interface_Widget_Testimonial extends WP_Widget {
 		$company_name2 = strip_tags($instance['company_name2']);
 		$company_link2 = strip_tags($instance['company_link2']);
 		
-		
 ?>
+
 <p>
-  <label for="<?php echo $this->get_field_id('title'); ?>">
-    <?php _e( 'Title:', 'interface' ); ?>
-  </label>
-  <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" />
+	<label for="<?php echo $this->get_field_id('title'); ?>">
+    	<?php _e( 'Title:', 'interface' ); ?>
+	</label>
+	<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" />
 </p>
 <p>&nbsp; </p>
 <p>
-  <input class="upload1" type="text"  name="<?php echo $this->get_field_name('image1'); ?>" value="<?php echo esc_url($image1); ?>" />
-  <input class="upload-button1" name="<?php echo $this->get_field_name('image1'); ?>" type="button" value="<?php esc_attr_e( 'Upload Image 1', 'interface' ); ?>" />
+	<input class="upload1" type="text"  name="<?php echo $this->get_field_name('image1'); ?>" value="<?php echo esc_url($image1); ?>" />
+	<input class="upload-button1" name="<?php echo $this->get_field_name('image1'); ?>" type="button" value="<?php esc_attr_e( 'Upload Image 1', 'interface' ); ?>" />
 </p>
+
 <?php _e( 'Testimonial Description 1','interface'); ?>
-<textarea class="widefat" rows="8" cols="20" id="<?php echo $this->get_field_id('text1'); ?>" name="<?php echo $this->get_field_name('text1'); ?>"><?php echo $text1; ?></textarea>
+<textarea class="widefat" rows="8" cols="20" id="<?php echo $this->get_field_id('text1'); ?>" name="<?php echo $this->get_field_name('text1'); ?>"><?php echo $text1; ?>
+</textarea>
+
 <p>
-  <label for="<?php echo $this->get_field_id('name1'); ?>">
-    <?php _e( 'Name 1:', 'interface' ); ?>
-  </label>
-  <input class="widefat" id="<?php echo $this->get_field_id('name1'); ?>" name="<?php echo $this->get_field_name('name1'); ?>" type="text" value="<?php echo esc_attr($name1); ?>" />
+	<label for="<?php echo $this->get_field_id('name1'); ?>">
+		<?php _e( 'Name 1:', 'interface' ); ?>
+	</label>
+	<input class="widefat" id="<?php echo $this->get_field_id('name1'); ?>" name="<?php echo $this->get_field_name('name1'); ?>" type="text" value="<?php echo esc_attr($name1); ?>" />
+</p>
+
+<p>
+	<label for="<?php echo $this->get_field_id('designation1'); ?>">
+		<?php _e( 'Designation 1:', 'interface' ); ?>
+	</label>
+	<input class="widefat" id="<?php echo $this->get_field_id('designation1'); ?>" name="<?php echo $this->get_field_name('designation1'); ?>" type="text" value="<?php echo esc_attr($designation1); ?>" />
 </p>
 <p>
-  <label for="<?php echo $this->get_field_id('designation1'); ?>">
-    <?php _e( 'Designation 1:', 'interface' ); ?>
-  </label>
-  <input class="widefat" id="<?php echo $this->get_field_id('designation1'); ?>" name="<?php echo $this->get_field_name('designation1'); ?>" type="text" value="<?php echo esc_attr($designation1); ?>" />
+	<label for="<?php echo $this->get_field_id('company_name1'); ?>">
+		<?php _e( 'Comapany Name 1:', 'interface' ); ?>
+	</label>
+	<input class="widefat" id="<?php echo $this->get_field_id('company_name1'); ?>" name="<?php echo $this->get_field_name('company_name1'); ?>" type="text" value="<?php echo esc_attr($company_name1); ?>" />
 </p>
 <p>
-  <label for="<?php echo $this->get_field_id('company_name1'); ?>">
-    <?php _e( 'Comapany Name 1:', 'interface' ); ?>
-  </label>
-  <input class="widefat" id="<?php echo $this->get_field_id('company_name1'); ?>" name="<?php echo $this->get_field_name('company_name1'); ?>" type="text" value="<?php echo esc_attr($company_name1); ?>" />
-</p>
-<p>
-  <label for="<?php echo $this->get_field_id('company_link1'); ?>">
-    <?php _e( 'Company Link 1:', 'interface' ); ?>
-  </label>
-  <input class="widefat" id="<?php echo $this->get_field_id('company_link1'); ?>" name="<?php echo $this->get_field_name('company_link1'); ?>" type="text" value="<?php echo esc_url_raw($company_link1); ?>" />
+	<label for="<?php echo $this->get_field_id('company_link1'); ?>">
+		<?php _e( 'Company Link 1:', 'interface' ); ?>
+	</label>
+	<input class="widefat" id="<?php echo $this->get_field_id('company_link1'); ?>" name="<?php echo $this->get_field_name('company_link1'); ?>" type="text" value="<?php echo esc_url_raw($company_link1); ?>" />
 </p>
 <p>&nbsp; </p>
 <p>
-  <input class="upload1" type="text"  name="<?php echo $this->get_field_name('image2'); ?>" value="<?php echo esc_url($image2); ?>" />
-  <input class="upload-button1" name="<?php echo $this->get_field_name('image2'); ?>" type="button" value="<?php esc_attr_e( 'Upload Image 2', 'interface' ); ?>" />
+	<input class="upload1" type="text"  name="<?php echo $this->get_field_name('image2'); ?>" value="<?php echo esc_url($image2); ?>" />
+	<input class="upload-button1" name="<?php echo $this->get_field_name('image2'); ?>" type="button" value="<?php esc_attr_e( 'Upload Image 2', 'interface' ); ?>" />
 </p>
 <?php _e( 'Testimonial Description 2','interface'); ?>
-<textarea class="widefat" rows="8" cols="20" id="<?php echo $this->get_field_id('text2'); ?>" name="<?php echo $this->get_field_name('text2'); ?>"><?php echo $text2; ?></textarea>
+<textarea class="widefat" rows="8" cols="20" id="<?php echo $this->get_field_id('text2'); ?>" name="<?php echo $this->get_field_name('text2'); ?>"><?php echo $text2; ?>
+</textarea>
 <p>
-  <label for="<?php echo $this->get_field_id('name2'); ?>">
-    <?php _e( 'Name 2:', 'interface' ); ?>
-  </label>
-  <input class="widefat" id="<?php echo $this->get_field_id('name2'); ?>" name="<?php echo $this->get_field_name('name2'); ?>" type="text" value="<?php echo esc_attr($name2); ?>" />
+	<label for="<?php echo $this->get_field_id('name2'); ?>">
+		<?php _e( 'Name 2:', 'interface' ); ?>
+	</label>
+	<input class="widefat" id="<?php echo $this->get_field_id('name2'); ?>" name="<?php echo $this->get_field_name('name2'); ?>" type="text" value="<?php echo esc_attr($name2); ?>" />
 </p>
 <p>
-  <label for="<?php echo $this->get_field_id('designation2'); ?>">
-    <?php _e( 'Designation 2:', 'interface' ); ?>
-  </label>
-  <input class="widefat" id="<?php echo $this->get_field_id('designation2'); ?>" name="<?php echo $this->get_field_name('designation2'); ?>" type="text" value="<?php echo esc_attr($designation2); ?>" />
+	<label for="<?php echo $this->get_field_id('designation2'); ?>">
+		<?php _e( 'Designation 2:', 'interface' ); ?>
+	</label>
+	<input class="widefat" id="<?php echo $this->get_field_id('designation2'); ?>" name="<?php echo $this->get_field_name('designation2'); ?>" type="text" value="<?php echo esc_attr($designation2); ?>" />
 </p>
 <p>
-  <label for="<?php echo $this->get_field_id('company_name2'); ?>">
-    <?php _e( 'Comapany Name 2:', 'interface' ); ?>
-  </label>
-  <input class="widefat" id="<?php echo $this->get_field_id('company_name2'); ?>" name="<?php echo $this->get_field_name('company_name2'); ?>" type="text" value="<?php echo esc_attr($company_name2); ?>" />
+	<label for="<?php echo $this->get_field_id('company_name2'); ?>">
+		<?php _e( 'Comapany Name 2:', 'interface' ); ?>
+	</label>
+	<input class="widefat" id="<?php echo $this->get_field_id('company_name2'); ?>" name="<?php echo $this->get_field_name('company_name2'); ?>" type="text" value="<?php echo esc_attr($company_name2); ?>" />
 </p>
 <p>
-  <label for="<?php echo $this->get_field_id('company_link2'); ?>">
-    <?php _e( 'Company Link 2:', 'interface' ); ?>
-  </label>
-  <input class="widefat" id="<?php echo $this->get_field_id('company_link2'); ?>" name="<?php echo $this->get_field_name('company_link2'); ?>" type="text" value="<?php echo esc_url_raw($company_link2); ?>" />
+	<label for="<?php echo $this->get_field_id('company_link2'); ?>">
+		<?php _e( 'Company Link 2:', 'interface' ); ?>
+	</label>
+	<input class="widefat" id="<?php echo $this->get_field_id('company_link2'); ?>" name="<?php echo $this->get_field_name('company_link2'); ?>" type="text" value="<?php echo esc_url_raw($company_link2); ?>" />
 </p>
 
 <?php
-	}
+	} /* end form */
 }
+/* end interface_Widget_Testimonial */
 
 
 
@@ -799,7 +931,11 @@ class interface_featured_image_widget extends WP_Widget {
 	// }
 
 	function __construct() {
-		$widget_ops = array( 'classname' => 'widget_ourclients', 'description' => __( 'Use to show your clients logos or any thing.', 'interface') );
+		$widget_ops = array( 
+			'classname' => 'widget_ourclients', 
+			'description' => __( 'Use to show your clients logos or any thing.', 'interface') 
+		);
+
 		$control_ops = array('width' => 200, 'height' => 250);
 		// parent::WP_Widget( false, $name='Theme Horse: Featured Image', $widget_ops, $control_ops );
 
@@ -807,49 +943,76 @@ class interface_featured_image_widget extends WP_Widget {
 	}
 
 
+	/**
+	 * 后台表单
+	 *
+	 */
 	function form( $instance ) {		
-		$instance = wp_parse_args( (array) $instance, array( 'title' => '', 'number' => '5', 'path0' => '', 'path1' => '', 'path2' => '', 'path3' => '', 'path4' => '', 'redirectlink0' => '', 'redirectlink1' => '', 'redirectlink2' => '', 'redirectlink3' => '', 'redirectlink4' => '') );	
+		$instance = wp_parse_args( 
+			(array) $instance, 
+			array( 'title' => '', 
+				'number' => '5', 
+				'path0' => '', 
+				'path1' => '', 
+				'path2' => '', 
+				'path3' => '', 
+				'path4' => '', 
+				'redirectlink0' => '', 
+				'redirectlink1' => '', 
+				'redirectlink2' => '', 
+				'redirectlink3' => '', 
+				'redirectlink4' => ''
+			)
+		);	
+
 		$title = strip_tags($instance['title']);
+
 		$number = absint( $instance[ 'number' ] );	 
+
 		for ( $i=0; $i<$number; $i++ ) {
 			$var = 'path'.$i;
 			$var1 = 'redirectlink'.$i;
 			$instance[ $var ] = esc_url( $instance[ $var ] );
 			$instance[ $var1 ] = esc_url( $instance[ $var1 ] );
-		}		
-	?>
+		}
+
+?>
 <p class="description">
-  <?php _e( 'Note: Recommended size for the image is 400px (width) and 150px (height). If you want more image adding fields then first enter the number and click on Save, this will allow you more image adding fields', 'interface' ); ?>
+	<?php _e( 'Note: Recommended size for the image is 400px (width) and 150px (height). If you want more image adding fields then first enter the number and click on Save, this will allow you more image adding fields', 'interface' ); ?>
 </p>
 <p>
-  <label for="<?php echo $this->get_field_id('title'); ?>">
-    <?php _e('Image Title:', 'interface'); ?>
-  </label>
-  <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" />
+	<label for="<?php echo $this->get_field_id('title'); ?>">
+		<?php _e('Image Title:', 'interface'); ?>
+	</label>
+	<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" />
 </p>
 <p>
-  <label for="<?php echo $this->get_field_id('number'); ?>">
-    <?php _e( 'Number of Images:', 'interface' ); ?>
-  </label>
-  <input id="<?php echo $this->get_field_id('number'); ?>" name="<?php echo $this->get_field_name('number'); ?>" type="text" value="<?php echo $number; ?>" size="3" />
+	<label for="<?php echo $this->get_field_id('number'); ?>">
+		<?php _e( 'Number of Images:', 'interface' ); ?>
+	</label>
+	<input id="<?php echo $this->get_field_id('number'); ?>" name="<?php echo $this->get_field_name('number'); ?>" type="text" value="<?php echo $number; ?>" size="3" />
 </p>
 <?php for ( $i=0; $i<$number; $i++ ) {
 			$var = 'path'.$i;
 			$var1 = 'redirectlink'.$i;
-		?>
-<p>
-  <input type="text" class="upload1" name="<?php echo $this->get_field_name( $var ); ?>" value="<?php if(isset ( $instance[$var] ) ) echo esc_url( $instance[$var] ); ?>" />
-  <input class="upload-button1" name="image-add" type="button" value="<?php echo esc_attr( 'Add Image'); ?>" />
-  <br />
-</p>
-<p>
-  <?php _e('Redirect Link:', 'interface'); ?>
-  <input class="widefat" name="<?php echo $this->get_field_name($var1); ?>" type="text" value="<?php if(isset ( $instance[$var1] ) ) echo esc_url( $instance[$var1] ); ?>" />
-</p>
-<?php } ?>
+?>
+	<p>
+		<input type="text" class="upload1" name="<?php echo $this->get_field_name( $var ); ?>" value="<?php if(isset ( $instance[$var] ) ) echo esc_url( $instance[$var] ); ?>" />
+		<input class="upload-button1" name="image-add" type="button" value="<?php echo esc_attr( 'Add Image'); ?>" />
+		<br />
+	</p>
+	<p>
+		<?php _e('Redirect Link:', 'interface'); ?>
+		<input class="widefat" name="<?php echo $this->get_field_name($var1); ?>" type="text" value="<?php if(isset ( $instance[$var1] ) ) echo esc_url( $instance[$var1] ); ?>" />
+	</p>
+<?php } /* end for */ ?>
 <?php
-	}
+	} /* end form */
 
+	/**
+	 * 后台保存
+	 * 
+	 */
 	function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
 		$instance['title'] = strip_tags($new_instance['title']);
@@ -862,29 +1025,44 @@ class interface_featured_image_widget extends WP_Widget {
 			$instance[ $var1] = esc_url_raw( $new_instance[ $var1 ] );
 		}
 		return $instance;
-	}	
+	}
 
+
+	/**
+	 * 
+	 * 前端输出
+	 *
+	 */
 	function widget( $args, $instance ) {
 		extract($args);
+
 		$title = empty( $instance['title'] ) ? '' : $instance['title'];
 		$number = empty( $instance['number'] ) ? 5 : $instance['number'];
+
 		$path_array = array();
 		$redirectlink_array = array();
 
 		for( $i=0; $i<$number; $i++ ) {
 			$var = 'path'.$i;
 			$var1 = 'redirectlink'.$i;
+
 			$path = isset( $instance[ $var ] ) ? $instance[ $var ] : '';
 			$redirectlink = isset( $instance[ $var1 ] ) ? $instance[ $var1 ] : '';
+
 			if( !empty( $path )  || !empty( $redirectlink ))  {			
 				if( !empty( $path ) ){
+
 					array_push( $path_array, $path ); // Push the page id in the array
 				}else{
+
 					array_push($path_array, "");
 				}
+
 				if( !empty( $redirectlink ) ){
+
 					array_push( $redirectlink_array, $redirectlink ); // Push the page id in the array
 				}else{
+
 					array_push($redirectlink_array, "");
 				}
 			}
@@ -916,7 +1094,7 @@ class interface_featured_image_widget extends WP_Widget {
 	}
 	
 }
-
+/* end interface_featured_image_widget */
 
 
 ?>
