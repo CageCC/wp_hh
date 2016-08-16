@@ -8,6 +8,10 @@
  */
 
 /**
+ * searchform-extensions.php
+ *
+ *
+ *
  * interface_searchform hook
  *
  * HOOKED_FUNCTION_NAME PRIORITY

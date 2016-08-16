@@ -1059,7 +1059,8 @@ a.more-link:hover {
 	padding: 15px;
 	background-color: #fff;
 	border: 1px solid rgba(0, 0, 0, 0.1);
-	width: 221px;
+	/* width: 221px; */
+	width: 80%;
 	-webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 	-moz-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
@@ -1097,6 +1098,28 @@ a.more-link:hover {
 	border-radius: 0;
 	margin: 0;
 }
+#search-box input.s  {
+	width: 80%;
+}
+
+#search-box .search-list,
+#search-box .search-list-word {
+	line-height: 36px;
+	height: 36px;
+	font-size: 14px;
+}
+
+#search-box .search-hot-tip {
+
+	width: 80%;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
 
 /* =Content
 ----------------------------------------------- */

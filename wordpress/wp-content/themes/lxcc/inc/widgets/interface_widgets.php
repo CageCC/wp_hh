@@ -133,6 +133,17 @@ function interface_widgets_init() {
 		'after_title'   	=> '</h1>'
 	) );
 
+	// 搜索分类推荐
+	register_sidebar( array(
+		'name' 				=> __( '搜索分类栏', 'interface' ),
+		'id' 					=> 'interface_search_hothit_sidebar',
+		'description'   	=> __( 'Shows widgets at search tip.', 'interface' ),
+		'before_widget' 	=> '<div id="%1$s" class="search-list search-hot-tip %2$s">',
+		'after_widget'  	=> '</div>',
+		'before_title'  	=> '<em class="widget-title">',
+		'after_title'   	=> '</em>'
+	) );
+
 
 
 	// Registering widgets
@@ -147,6 +158,9 @@ function interface_widgets_init() {
 	register_widget( "interface_Widget_Testimonial" );
 
 	register_widget( "interface_featured_image_widget" );
+
+	// my widget
+	register_widget( "interface_search_hot_widget" );
 
 }
 
@@ -1135,5 +1149,114 @@ class interface_featured_image_widget extends WP_Widget {
 }
 /* end interface_featured_image_widget */
 
+/* ========================================================== */
 
+class interface_search_hot_widget extends WP_Widget {
+	function __construct(){
+		$widget_ops = array( 
+			'classname' => 'widget_search_hit', 
+			'description' => __( '按分类搜索', 'interface') 
+		);
+
+		$control_ops = array('width' => 200, 'height' => 250);
+		// parent::WP_Widget( false, $name='Theme Horse: Featured Image', $widget_ops, $control_ops );
+
+		parent::__construct( false, $name='Theme Horse: 分类搜索', $widget_ops, $control_ops );
+	}
+
+
+	function form( $instance ) {		
+		$instance = wp_parse_args( 
+			(array) $instance, 
+			array( 
+				'title' => '热门搜索', 
+				'cat_list' => '', 
+			)
+		);	
+
+		$title = strip_tags($instance['title']);
+
+		$cat_list = strip_tags( $instance[ 'cat_list' ] );	 
+
+?>
+<p class="description">
+	<?php _e( '建议发表文章时选择某个分类，有利于搜索推荐。', 'interface' ); ?>
+</p>
+<p>
+	<label for="<?php echo $this->get_field_id('title'); ?>">
+		<?php _e('标题:', 'interface'); ?>
+	</label>
+	<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" />
+</p>
+<p>
+	<label for="<?php echo $this->get_field_id('cat_list'); ?>">
+		<?php _e('分类列表(逗号分隔：, ):', 'interface'); ?>
+	</label>
+	<input class="widefat" id="<?php echo $this->get_field_id('cat_list'); ?>" name="<?php echo $this->get_field_name('cat_list'); ?>" type="text" value="<?php echo esc_attr($cat_list); ?>" />
+</p>
+
+<?php
+	} /* end form */
+
+	/**
+	 * 更新保存
+	 */
+	function update( $new_instance, $old_instance ){
+		$instance = $old_instance;
+		$instance['title'] = strip_tags($new_instance['title']);
+		$instance['cat_list'] = strip_tags($new_instance['cat_list']);
+		
+		$instance['filter'] = isset($new_instance['filter']);
+		return $instance;
+	}
+
+	/**
+	 * 页面 输出
+	 */
+	function widget( $args, $instance ){
+		extract( $args );
+		extract( $instance );
+
+		$title = empty( $instance[ 'title' ] ) ? '' : $instance[ 'title' ];
+		$cat_list = empty( $instance[ 'cat_list' ] ) ? '' : $instance[ 'cat_list' ];
+
+		$mainReturn = '';
+		$pattern = '/((\s?,\s?)|(\s?，\s?))/i';
+		$ls = preg_replace($pattern, '##', $cat_list);
+		$keyW = explode('##', $ls);
+	
+		$tmp = array();
+
+		$baseUrl = site_url();
+
+		if(!empty($keyW)) {
+			$catIns = get_categories(array('orderby' => 'name','order' => 'ASC'));
+			foreach($catIns as $item) {
+				if(in_array($item->name, $keyW)) {
+					$tmp[$item->name] = $item->cat_ID;
+				}
+			}
+
+			foreach($keyW as $k => $v) {
+				
+				if(isset($tmp[$v])) {
+					$mainReturn .= '<a class="search-list-word" href="'.$baseUrl.'?cat='.$tmp[$v].'&s='.$v.'">'.$v.'</a>&nbsp;';
+				} else {
+					$mainReturn .= '<a class="search-list-word" href="'.$baseUrl.'?s='.$v.'">'.$v.'</a>&nbsp;';
+				}
+			}
+
+		}
+
+	
+
+		
+
+		echo ''.$title.':&nbsp;&nbsp;'.$mainReturn;
+
+		echo $after_widget;
+
+	}
+}
+/* end */
 ?>
