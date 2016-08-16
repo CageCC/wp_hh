@@ -130,3 +130,9 @@ Text For Previous … 上
 
 ### 可以选择安装图片插件
 image-widget
+
+
+### footer 个性化设置
+
+![](./_image/2016-08-17 00-05-07.jpg)
+
