@@ -2424,6 +2424,11 @@ div.bbp-search-form button {
 	margin-bottom: 10px;
 }
 
+#content .tip-list img {
+	border-radius: 0px;
+	-webkit-border-radius: 0px;
+}
+
 #content .mod-tit {
     font-size: 16px;
     font-size: 1.6rem;

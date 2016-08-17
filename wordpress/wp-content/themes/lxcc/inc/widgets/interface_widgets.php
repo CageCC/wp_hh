@@ -160,7 +160,12 @@ function interface_widgets_init() {
 	register_widget( "interface_featured_image_widget" );
 
 	// my widget
+
+	// 搜索推荐
 	register_widget( "interface_search_hot_widget" );
+
+	// 分类栏目
+	register_widget( "interface_testimonial_cat_widget" );
 
 }
 
@@ -1259,4 +1264,224 @@ class interface_search_hot_widget extends WP_Widget {
 	}
 }
 /* end */
+/* ========================================================== */
+
+
+
+class interface_testimonial_cat_widget  extends WP_Widget {
+	function __construct(){
+		$widget_ops = array( 
+			'classname' => 'widget_testimonial', 
+			'description' => __( '栏目文章推荐  (图片大小：168 * 168)', 'interface' ) 
+		);
+
+		$control_ops = array( 
+			'width' => 200, 
+			'height' =>250 
+		); 
+
+		// parent::WP_Widget( false, $name = __( 'Theme Horse: Testimonial', 'interface' ), $widget_ops, $control_ops);
+		parent::__construct( false, $name = __( 'Theme Horse: 栏目文章推荐(建议文章数目一致)', 'interface' ), $widget_ops, $control_ops);
+	}
+
+
+	function form( $instance ){
+		$instance = wp_parse_args( 
+			(array) $instance, 
+			array( 
+				'title1' => '', 
+				'title1_link' => '',
+				'title1_ids' => '',
+
+				'title2' =>'', 
+				'title2_link'=>'',
+				'title2_ids'=>'',
+			) 
+		);
+		$title1 = strip_tags($instance['title1']);
+		$title1_link = strip_tags($instance['title1_link']);
+		$title1_ids = strip_tags($instance['title1_ids']);
+		
+		$title2 = strip_tags($instance['title2']);
+		$title2_link = strip_tags($instance['title2_link']);
+		$title2_ids = strip_tags($instance['title2_ids']);
+
+
+
+		
+?>
+
+<p>
+	<label for="<?php echo $this->get_field_id('title1'); ?>">
+    	<?php _e( '栏目1 标题:', 'interface' ); ?>
+	</label>
+	<input class="widefat" id="<?php echo $this->get_field_id('title1'); ?>" name="<?php echo $this->get_field_name('title1'); ?>" type="text" value="<?php echo esc_attr($title1); ?>" />
+</p>
+<p>
+	<label for="<?php echo $this->get_field_id('title1_link'); ?>">
+    	<?php _e( '栏目1 链接:', 'interface' ); ?>
+	</label>
+	<input class="widefat" id="<?php echo $this->get_field_id('title1_link'); ?>" name="<?php echo $this->get_field_name('title1_link'); ?>" type="text" value="<?php echo esc_attr($title1_link); ?>" />
+</p>
+<p>
+	<label for="<?php echo $this->get_field_id('title1_ids'); ?>">
+    	<?php _e( '栏目1 推荐文章ID:( 逗号分隔 , )', 'interface' ); ?>
+	</label>
+	<input class="widefat" id="<?php echo $this->get_field_id('title1_ids'); ?>" name="<?php echo $this->get_field_name('title1_ids'); ?>" type="text" value="<?php echo esc_attr($title1_ids); ?>" />
+</p>
+<p>&nbsp; </p>
+<p>
+	<label for="<?php echo $this->get_field_id('title2'); ?>">
+    	<?php _e( '栏目2 标题:', 'interface' ); ?>
+	</label>
+	<input class="widefat" id="<?php echo $this->get_field_id('title2'); ?>" name="<?php echo $this->get_field_name('title2'); ?>" type="text" value="<?php echo esc_attr($title2); ?>" />
+</p>
+<p>
+	<label for="<?php echo $this->get_field_id('title2_link'); ?>">
+    	<?php _e( '栏目2 链接:', 'interface' ); ?>
+	</label>
+	<input class="widefat" id="<?php echo $this->get_field_id('title2_link'); ?>" name="<?php echo $this->get_field_name('title2_link'); ?>" type="text" value="<?php echo esc_attr($title2_link); ?>" />
+</p>
+<p>
+	<label for="<?php echo $this->get_field_id('title2_ids'); ?>">
+    	<?php _e( '栏目2 推荐文章ID:( 逗号分隔 , )', 'interface' ); ?>
+	</label>
+	<input class="widefat" id="<?php echo $this->get_field_id('title2_ids'); ?>" name="<?php echo $this->get_field_name('title2_ids'); ?>" type="text" value="<?php echo esc_attr($title2_ids); ?>" />
+</p>
+<?php
+	} /* end form */
+
+
+	/**
+	 * 后台编辑保存
+	 */
+	function update( $new_instance, $old_instance ){
+		$instance = $old_instance;
+		$instance['title1'] = strip_tags($new_instance['title1']);
+		$instance['title1_link'] = strip_tags($new_instance['title1_link']);
+		$instance['title1_ids'] = strip_tags($new_instance['title1_ids']);
+		
+		
+		$instance['title2'] = strip_tags($new_instance['title2']);
+		$instance['title2_link'] = strip_tags($new_instance['title2_link']);
+		$instance['title2_ids'] = strip_tags($new_instance['title2_ids']);
+
+		
+
+		$instance['filter'] = isset($new_instance['filter']);
+		return $instance;
+	}
+
+
+	/**
+	 * 页面输出
+	 *
+	 */
+	function widget( $args, $instance ){
+		global $post;
+		global $wp_query, $paged;
+		extract( $args );
+		extract( $instance );
+
+		$title1 = empty( $instance[ 'title1' ] ) ? '' : $instance[ 'title1' ];
+		$title1_link = empty( $instance[ 'title1_link' ] ) ? '' : $instance[ 'title1_link' ];
+
+		$cat_list = empty( $instance[ 'title1_ids' ] ) ? '' : $instance[ 'title1_ids' ];
+
+		$pattern = '/((\s?,\s?)|(\s?，\s?))/i';
+		$ls = preg_replace($pattern, '##', $cat_list);
+		$title1_ids = explode('##', $ls);
+	
+
+		$title2 = empty( $instance[ 'title2' ] ) ? '' : $instance[ 'title2' ];
+		$title1_link = empty( $instance[ 'title2_link' ] ) ? '' : $instance[ 'title2_link' ];
+
+		$cat_list = empty( $instance[ 'title2_ids' ] ) ? '' : $instance[ 'title2_ids' ];
+
+		$pattern = '/((\s?,\s?)|(\s?，\s?))/i';
+		$ls = preg_replace($pattern, '##', $cat_list);
+		$title2_ids = explode('##', $ls);
+
+		if(empty($title1_ids) && empty($title2_ids)) {
+			return '';
+		}
+
+		$ids[1] = $title1_ids;
+		$ids[2] = $title2_ids;
+
+		$titles[1] = $title1;
+		$titles[2] = $title2;
+
+		$links[1] = $title1_link;
+		$links[2] = $title2_link;
+
+		unset($title1_ids);
+		unset($title2_ids);
+
+		echo $before_widget .'<div class="column clearfix">';
+
+		for($i=1; $i<3; $i++) {
+			$blog_query = new WP_Query( array( 'post_type' => 'post', 'post__in' => $ids[$i] ) );
+			$temp_query = $wp_query;
+			$wp_query = null;
+			$wp_query = $blog_query;
+			if( $blog_query->have_posts() ) {
+	
+?>
+
+	<div class="one-half">
+	<div class="mod-tit">
+        <a href="<?php echo esc_url($links[$i])?>"  title="<?php echo esc_html( $titles[$i] ); ?>">
+        <h5><?php echo esc_html( $titles[$i] ); ?></h5>
+       	</a>
+    </div>
+    <?php
+    			while( $blog_query->have_posts() ) {
+					$blog_query->the_post();
+    ?>
+
+    <div class="tip-list">
+    <?php 
+    		if( has_post_thumbnail() ) {
+				$image = '';        			
+				$title_attribute = apply_filters( 'the_title', get_the_title( $post->ID ) );
+
+				$image .= '<div class="testimonial-image">';
+				$image .= get_the_post_thumbnail( $post->ID, 'featured-medium', array( 'title' => esc_attr( $title_attribute ), 'alt' => esc_attr( $title_attribute ) ) );
+
+				
+				$image .= '</div>';
+
+				echo $image;
+			} /*end if*/
+    ?>
+    <div class="testimonial-content">
+		<h6 class="title">
+	        <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
+	    </h6>
+		<p><?php  the_excerpt();  ?></p>
+		<div class="testimonial-meta"> 
+		<span class="cat-links">
+			<?php the_category(', '); ?>
+			</span><!-- .cat-links --> 
+		
+		</div>
+	</div>
+	</div>
+
+
+	<?php
+				} /* end while */
+			?>
+			</div><?php
+			} /* end if */
+
+			$wp_query = $temp_query;
+			wp_reset_postdata();
+		} /* end for */
+		echo '</div>'.$after_widget;
+	}
+	/* end widget*/
+}
+/* end interface_testimonial_cat_widget */
 ?>
