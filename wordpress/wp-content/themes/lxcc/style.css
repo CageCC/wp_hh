@@ -2413,3 +2413,22 @@ div.bbp-search-form button {
 	background-repeat:no-repeat;
 	width:120px;
 }
+
+/* add ====*/
+#content .mod-tit h5,
+#content .tip-list h6 {
+	padding-bottom: 0px;
+}
+	
+#content .tip-list {
+	margin-bottom: 10px;
+}
+
+#content .mod-tit {
+    font-size: 16px;
+    font-size: 1.6rem;
+    font-weight: bold;
+   	padding-bottom: 2px;
+    border-bottom: 1px solid #E5E5E5;
+    margin-bottom: 10px;
+}
