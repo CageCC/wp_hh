@@ -24,9 +24,14 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @var $this WPBakeryShortCode_VC_Row
  */
 $el_class = $full_height = $full_width = $equal_height = $flex_row = $columns_placement = $content_placement = $parallax = $parallax_image = $css = $el_id = $video_bg = $video_bg_url = $video_bg_parallax = '';
+
 $output = $after_output = '';
+
+
 $atts = vc_map_get_attributes( $this->getShortcode(), $atts );
 extract( $atts );
+
+
 
 wp_enqueue_script( 'wpb_composer_front_js' );
 
@@ -39,6 +44,8 @@ $css_classes = array(
 	$el_class,
 	vc_shortcode_custom_css_class( $css ),
 );
+
+
 if (vc_shortcode_custom_css_has_property( $css, array('border', 'background') ) || $video_bg || $parallax) {
 	$css_classes[]='vc_row-has-fill';
 }
@@ -122,11 +129,19 @@ if ( ! empty( $parallax_image ) ) {
 	}
 	$wrapper_attributes[] = 'data-vc-parallax-image="' . esc_attr( $parallax_image_src ) . '"';
 }
+
+
 if ( (!isset($parallax) || ! $parallax) && $has_video_bg ) {
 	$wrapper_attributes[] = 'data-vc-video-bg="' . esc_attr( $video_bg_url ) . '"';
 }
+
+
 $css_class = preg_replace( '/\s+/', ' ', apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, implode( ' ', array_filter( $css_classes ) ), $this->settings['base'], $atts ) );
+
+
 $wrapper_attributes[] = 'class="' . esc_attr( trim( $css_class ) ) . '"';
+
+
 $output .= '<div ' . implode( ' ', $wrapper_attributes ) . '>';
 $output .= wpb_js_remove_wpautop( $content );
 $output .= '</div>';

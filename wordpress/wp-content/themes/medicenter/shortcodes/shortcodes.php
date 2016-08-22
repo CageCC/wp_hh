@@ -1,24 +1,51 @@
 <?php
+/**
+ * 短代码
+ *
+ * 引入 shortcodes 下面的首页短代码文件
+ *
+ *
+ *
+ *
+ */
 global $medicenter_posts_array;
+
 $medicenter_posts_array = array();
+
+// 文章数量
 $count_posts = wp_count_posts();
-if($count_posts->publish<100)
+
+
+if($count_posts->publish < 100)
 {
-	$medicenter_posts_list = get_posts(array(
+
+
+	$medicenter_posts_list = get_posts(
+		array(
 		'posts_per_page' => -1,
 		'nopaging' => true,
 		'orderby' => 'title',
 		'order' => 'ASC',
 		'post_type' => 'post'
 	));
+
 	$medicenter_posts_array[__("All", 'medicenter')] = "-";
-	foreach($medicenter_posts_list as $post)
+
+	foreach($medicenter_posts_list as $post) {
+
 		$medicenter_posts_array[$post->post_title . " (id:" . $post->ID . ")"] = $post->ID;
+	}
 }
 
 global $medicenter_pages_array;
+
+
 $medicenter_pages_array = array();
+
+// 页面数量
 $count_pages = wp_count_posts('page');
+
+
 if($count_pages->publish<100)
 {
 	$pages_list = get_posts(array(
@@ -27,50 +54,77 @@ if($count_pages->publish<100)
 		'order' => 'ASC',
 		'post_type' => 'page'
 	));
+
+
 	$medicenter_pages_array = array();
 	$medicenter_pages_array[__("none", 'medicenter')] = "-";
-	foreach($pages_list as $single_page)
+
+
+	foreach($pages_list as $single_page) {
 		$medicenter_pages_array[$single_page->post_title . " (id:" . $single_page->ID . ")"] = $single_page->ID;
+	}
 }
+
+
 
 //slider
 mc_get_theme_file("/shortcodes/slider.php");
+
 //home box
 mc_get_theme_file("/shortcodes/home_box.php");
+
 //blog
 mc_get_theme_file("/shortcodes/blog.php");
+
 //post
 mc_get_theme_file("/shortcodes/single-post.php");
+
 //items_list
 mc_get_theme_file("/shortcodes/items_list.php");
+
 //columns
 mc_get_theme_file("/shortcodes/columns.php");
+
 //timetable
 mc_get_theme_file("/shortcodes/timetable.php");
+
 //map
 mc_get_theme_file("/shortcodes/map.php");
+
+
+
 //accordion
 //require_once("accordion.php");
 //nested tabs
 //require_once("nested_tabs.php");
 //carousel
 mc_get_theme_file("/shortcodes/carousel.php");
+
 //small slider
 mc_get_theme_file("/shortcodes/small_slider.php");
+
 //photostream
 mc_get_theme_file("/shortcodes/photostream.php");
+
 //announcement box
 mc_get_theme_file("/shortcodes/announcement_box.php");
+
 //testimonials
 mc_get_theme_file("/shortcodes/testimonials.php");
+
 //notification box
 mc_get_theme_file("/shortcodes/notification_box.php");
+
 //icon
 mc_get_theme_file("/shortcodes/icon.php");
+
 //cart icon
 mc_get_theme_file("/shortcodes/cart_icon.php");
+
 //pricing table
 mc_get_theme_file("/shortcodes/pricing_table.php");
+
+
 
 //row inner
 $attributes = array(
@@ -83,10 +137,15 @@ $attributes = array(
 		"description" => __("Select top margin value for your row", "medicenter")
 	)
 );
+
+
 vc_add_params('vc_row_inner', $attributes);
 
-//row
-vc_map( array(
+
+
+// row
+vc_map( 
+	array(
 	'name' => __( 'Row', 'js_composer' ),
 	'base' => 'vc_row',
 	'is_container' => true,
@@ -224,8 +283,11 @@ vc_map( array(
 			'group' => __( 'Design Options', 'js_composer' ),
 		)
 	),
+
 	'js_view' => 'VcRowView'
 ) );
+
+
 
 //column
 $vc_column_width_list = array(
@@ -242,6 +304,9 @@ $vc_column_width_list = array(
 	__('11 columns - 11/12', 'js_composer') => '11/12',
 	__('12 columns - 1/1', 'js_composer') => '1/1'
 );
+
+
+
 vc_map( array(
 	'name' => __( 'Column', 'js_composer' ),
 	'base' => 'vc_column',
@@ -289,6 +354,9 @@ vc_map( array(
 	'js_view' => 'VcColumnView'
 ) );
 
+
+
+
 //widgetised sidebar
 vc_map( array(
 	'name' => __( 'Widgetised Sidebar', 'js_composer' ),
@@ -297,6 +365,8 @@ vc_map( array(
 	'icon' => 'icon-wpb-layout_sidebar',
 	'category' => __( 'Structure', 'js_composer' ),
 	'description' => __( 'WordPress widgetised sidebar', 'js_composer' ),
+
+
 	'params' => array(
 		array(
 			'type' => 'textfield',
@@ -327,8 +397,47 @@ vc_map( array(
 	)
 ) );
 
-$mc_colors_arr = array(__("Dark blue", "js_composer") => "#3156a3", __("Blue", "js_composer") => "#0384ce", __("Light blue", "js_composer") => "#42b3e5", __("Black", "js_composer") => "#000000", __("Gray", "js_composer") => "#AAAAAA", __("Dark gray", "js_composer") => "#444444", __("Light gray", "js_composer") => "#CCCCCC", __("Green", "js_composer") => "#43a140", __("Dark green", "js_composer") => "#008238", __("Light green", "js_composer") => "#7cba3d", __("Orange", "js_composer") => "#f17800", __("Dark orange", "js_composer") => "#cb451b", __("Light orange", "js_composer") => "#ffa800", __("Red", "js_composer") => "#db5237", __("Dark red", "js_composer") => "#c03427", __("Light red", "js_composer") => "#f37548", __("Turquoise", "js_composer") => "#0097b5", __("Dark turquoise", "js_composer") => "#006688", __("Light turquoise", "js_composer") => "#00b6cc", __("Violet", "js_composer") => "#6969b3", __("Dark violet", "js_composer") => "#3e4c94", __("Light violet", "js_composer") => "#9187c4", __("White", "js_composer") => "#FFFFFF", __("Yellow", "js_composer") => "#fec110", __("Light", "js_composer") => "transparent");
-$mc_size_arr = array(__("Medium", 'medicenter') => "medium", __("Tiny", 'medicenter') => "tiny", __("Small", 'medicenter') => "small", __("Large", 'medicenter') => "large");
+
+
+
+$mc_colors_arr = array(
+
+	__("Dark blue", "js_composer") => "#3156a3", 
+	__("Blue", "js_composer") => "#0384ce", 
+	__("Light blue", "js_composer") => "#42b3e5", 
+	__("Black", "js_composer") => "#000000", 
+	__("Gray", "js_composer") => "#AAAAAA", 
+	__("Dark gray", "js_composer") => "#444444",
+	__("Light gray", "js_composer") => "#CCCCCC", 
+	__("Green", "js_composer") => "#43a140",
+	__("Dark green", "js_composer") => "#008238", 
+	__("Light green", "js_composer") => "#7cba3d", 
+	__("Orange", "js_composer") => "#f17800", 
+	__("Dark orange", "js_composer") => "#cb451b", 
+	__("Light orange", "js_composer") => "#ffa800",
+	__("Red", "js_composer") => "#db5237", 
+	__("Dark red", "js_composer") => "#c03427", 
+	__("Light red", "js_composer") => "#f37548", 
+	__("Turquoise", "js_composer") => "#0097b5", 
+	__("Dark turquoise", "js_composer") => "#006688", 
+	__("Light turquoise", "js_composer") => "#00b6cc", 
+	__("Violet", "js_composer") => "#6969b3",
+	__("Dark violet", "js_composer") => "#3e4c94", 
+	__("Light violet", "js_composer") => "#9187c4", 
+	__("White", "js_composer") => "#FFFFFF", 
+	__("Yellow", "js_composer") => "#fec110",
+	__("Light", "js_composer") => "transparent"
+);
+
+
+$mc_size_arr = array(
+	__("Medium", 'medicenter') => "medium", 
+	__("Tiny", 'medicenter') => "tiny", 
+	__("Small", 'medicenter') => "small", 
+	__("Large", 'medicenter') => "large"
+);
+
+
 $mc_icons_arr = array(
 		__("None", "js_composer") => "none",
 		__("Small arrow", "medicenter") => "icon_small_arrow",
@@ -365,12 +474,15 @@ $mc_icons_arr = array(
 		__("Shield icon", "js_composer") => "wpb_shield",
 		__("Video icon", "js_composer") => "wpb_video"
 	);
+
+
 $target_arr = array(
 	__( 'Same window', 'js_composer' ) => '_self',
 	__( 'New window', 'js_composer' ) => '_blank'
 );
 
-vc_map( array(
+vc_map( 
+	array(
 	'name' => __( 'Button', 'js_composer' ) . " 1",
 	'base' => 'vc_button',
 	'icon' => 'icon-wpb-ui-button',
@@ -488,12 +600,19 @@ vc_map( array(
 	'js_view' => 'VcButtonView'
 ) );
 
-//page layout
+
+
+// 注册各种 do_shortcode 钩子 theme_ ====================================================
+
+// page layout
 function theme_page_layout($atts, $content)
 {
 	return '<div class="page_layout clearfix">' . do_shortcode($content) . '</div>';
 }
 add_shortcode("page_layout", "theme_page_layout");
+
+
+
 
 //page left
 function theme_page_left($atts, $content)
@@ -507,7 +626,10 @@ function theme_page_left($atts, $content)
 	}
 	return '<div class="page_left">' . $sidebar_left_top . do_shortcode($content) . '</div>';
 }
+
 add_shortcode("page_left", "theme_page_left");
+
+
 
 //page right
 function theme_page_right($atts, $content)
@@ -519,9 +641,12 @@ function theme_page_right($atts, $content)
 		$sidebar_right_top = ob_get_contents();
 		ob_end_clean();
 	}
+
 	return '<div class="page_right">' . $sidebar_right_top . do_shortcode($content) . '</div>';
 }
 add_shortcode("page_right", "theme_page_right");
+
+
 
 //button more
 function theme_button_more($atts, $content)
@@ -537,6 +662,8 @@ function theme_button_more($atts, $content)
 }
 add_shortcode("button_more", "theme_button_more");
 
+
+
 //box_header
 function theme_box_header($atts)
 {
@@ -548,11 +675,17 @@ function theme_box_header($atts)
 		"animation" => 0,
 		"top_margin" => "none"
 	), $atts));
+
+
 	return '<' . $type . ' class="box_header' . ($class!="" ? ' ' . $class : '') . (!(int)$bottom_border ? ' no_border' : ((int)$animation ? ' animation-slide' : '')) . ($top_margin!="none" ? ' ' . $top_margin : '') . '">' . do_shortcode($title) . '</' . $type . '>';
 }
 add_shortcode("box_header", "theme_box_header");
+
+
+
 //visual composer
-vc_map( array(
+vc_map( 
+	array(
 	"name" => __("Box header", 'medicenter'),
 	"base" => "box_header",
 	"class" => "",
@@ -609,7 +742,7 @@ vc_map( array(
 	)
 ));
 
-//dropcap
+//dropcap 效果
 function theme_dropcap($atts, $content)
 {
 	extract(shortcode_atts(array(
@@ -624,12 +757,43 @@ function theme_dropcap($atts, $content)
 	), $atts));
 	
 	$label_background_color = ($custom_label_background_color!="" ? $custom_label_background_color : $label_background_color);
+
 	return ($content_text_color!="" && $id!="" ? '<style type="text/css">#' . $id . ' p{color:' . $content_text_color . ';}</style>': '') . '<div' . ($id!="" ? ' id="' . $id . '"' : '') . ' class="dropcap' . ($top_margin!="none" ? ' ' . $top_margin : '') . ($class!="" ? ' '. $class : '') . '"><div class="dropcap_label"' . ($label_background_color!="" ? ' style="background-color:' . $label_background_color . ';"' : '') . '><h3' . ($label_color!="" ? ' style="color:' . $label_color . ';"' : '') . '>' . $label . '</h3></div>' . wpb_js_remove_wpautop($content) . '</div>';
 }
 add_shortcode("dropcap", "theme_dropcap");
+
+
 //visual composer
-$mc_colors_arr = array(__("Dark blue", "js_composer") => "#3156a3", __("Blue", "js_composer") => "#0384ce", __("Light blue", "js_composer") => "#42b3e5", __("Black", "js_composer") => "#000000", __("Gray", "js_composer") => "#AAAAAA", __("Dark gray", "js_composer") => "#444444", __("Light gray", "js_composer") => "#CCCCCC", __("Green", "js_composer") => "#43a140", __("Dark green", "js_composer") => "#008238", __("Light green", "js_composer") => "#7cba3d", __("Orange", "js_composer") => "#f17800", __("Dark orange", "js_composer") => "#cb451b", __("Light orange", "js_composer") => "#ffa800", __("Red", "js_composer") => "#db5237", __("Dark red", "js_composer") => "#c03427", __("Light red", "js_composer") => "#f37548", __("Turquoise", "js_composer") => "#0097b5", __("Dark turquoise", "js_composer") => "#006688", __("Light turquoise", "js_composer") => "#00b6cc", __("Violet", "js_composer") => "#6969b3", __("Dark violet", "js_composer") => "#3e4c94", __("Light violet", "js_composer") => "#9187c4", __("White", "js_composer") => "#FFFFFF", __("Yellow", "js_composer") => "#fec110");
-vc_map( array(
+$mc_colors_arr = array(
+	__("Dark blue", "js_composer") => "#3156a3", 
+	__("Blue", "js_composer") => "#0384ce", 
+	__("Light blue", "js_composer") => "#42b3e5", 
+	__("Black", "js_composer") => "#000000", 
+	__("Gray", "js_composer") => "#AAAAAA", 
+	__("Dark gray", "js_composer") => "#444444", 
+	__("Light gray", "js_composer") => "#CCCCCC", 
+	__("Green", "js_composer") => "#43a140", 
+	__("Dark green", "js_composer") => "#008238", 
+	__("Light green", "js_composer") => "#7cba3d", 
+	__("Orange", "js_composer") => "#f17800", 
+	__("Dark orange", "js_composer") => "#cb451b", 
+	__("Light orange", "js_composer") => "#ffa800", 
+	__("Red", "js_composer") => "#db5237", 
+	__("Dark red", "js_composer") => "#c03427", 
+	__("Light red", "js_composer") => "#f37548", 
+	__("Turquoise", "js_composer") => "#0097b5", 
+	__("Dark turquoise", "js_composer") => "#006688", 
+	__("Light turquoise", "js_composer") => "#00b6cc", 
+	__("Violet", "js_composer") => "#6969b3", 
+	__("Dark violet", "js_composer") => "#3e4c94", 
+	__("Light violet", "js_composer") => "#9187c4", 
+	__("White", "js_composer") => "#FFFFFF", 
+	__("Yellow", "js_composer") => "#fec110"
+);
+
+
+vc_map( 
+	array(
 	"name" => __("Dropcap text", 'medicenter'),
 	"base" => "dropcap",
 	"class" => "",
@@ -712,16 +876,22 @@ vc_map( array(
 	)
 ));
 
-//show all
+
+
+// show all
 function theme_show_all_button($atts)
 {
 	extract(shortcode_atts(array(
 		"url" => "blog",
 		"title" => __("Show all &rarr;", 'medicenter')
 	), $atts));
+
+
 	return '<div class="show_all clearfix"><a href="' . $url . '" title="' . esc_attr($title) . '">' . $title . '</a></div>';
 }
 add_shortcode("show_all_button", "theme_show_all_button");
+
+
 //visual composer
 vc_map( array(
 	"name" => __("Show all button", 'medicenter'),
@@ -751,7 +921,9 @@ vc_map( array(
 	)
 ));
 
-//sentence
+
+
+// sentence
 function theme_sentence($atts)
 {
 	extract(shortcode_atts(array(
@@ -765,9 +937,12 @@ function theme_sentence($atts)
 		"author_animation_delay" => 0
 	), $atts));
 	
+
 	return '<h3 class="sentence' . ($title_animation!='' ? ' animated_element animation-' . $title_animation . ((int)$title_animation_duration>0 && (int)$title_animation_duration!=600 ? ' duration-' . (int)$title_animation_duration : '') . ((int)$title_animation_delay>0 ? ' delay-' . (int)$title_animation_delay : '') : '') . '">' . do_shortcode($title) . '</h3>' . ($author!="" ? '<div class="clearfix"><span class="sentence_author' . ($author_animation!='' ? ' animated_element animation-' . $author_animation . ((int)$author_animation_duration>0 && (int)$author_animation_duration!=600 ? ' duration-' . (int)$author_animation_duration : '') . ((int)$author_animation_delay>0 ? ' delay-' . (int)$author_animation_delay : '') : '') . '">' . $author . '</span></div>' : '');
 }
 add_shortcode("sentence", "theme_sentence");
+
+
 //visual composer
 vc_map( array(
 	"name" => __("Sentence", 'medicenter'),
@@ -859,15 +1034,21 @@ vc_map( array(
 	)
 ));
 
+
+
 //sidebar box
 function theme_sidebar_box($atts, $content)
 {
 	extract(shortcode_atts(array(
 		"first" => false
 	), $atts));
+
+
 	return '<div class="sidebar_box' . ($first ? ' first' : '') . '">' . do_shortcode($content) . '</div>';
 }
 add_shortcode("sidebar_box", "theme_sidebar_box");
+
+
 
 //scroll top
 function theme_scroll_top($atts, $content)
@@ -881,6 +1062,8 @@ function theme_scroll_top($atts, $content)
 }
 add_shortcode("scroll_top", "theme_scroll_top");
 
+
+
 //box_header
 function theme_info_text($atts, $content)
 {
@@ -891,6 +1074,9 @@ function theme_info_text($atts, $content)
 	return '<h4 class="info_' . $color . ' ' . $class . '">' . do_shortcode($content) . '</h4>';
 }
 add_shortcode("info_text", "theme_info_text");
+
+
+
 
 //header_icon
 function theme_header_icon($atts, $content)
@@ -905,4 +1091,7 @@ function theme_header_icon($atts, $content)
 	return '<' . ($url!="" ? 'a' : 'span') . ($url!="" ? ' href="' . esc_attr($url) . '"' . ($url_target=="new_window" ? ' target="_blank"' : '') : '') . ' class="header_icon ' . $type . ($content=="" ? ' empty_icon' : '') . ($class!="" ? ' ' . $class : '') . '">' . $content . '</' . ($url!="" ? 'a' : 'span') . '>';
 }
 add_shortcode("header_icon", "theme_header_icon");
+
+
+// end file
 ?>
