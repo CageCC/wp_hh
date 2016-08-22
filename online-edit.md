@@ -105,6 +105,8 @@ define('WP_DEBUG', true);
 
 安装插件： Disable Updates Manager
 
+###  优化google 字体
+Disable Google Fonts Plus 插件
 
 ### 分页插件
 

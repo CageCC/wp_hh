@@ -47,14 +47,14 @@ define('DB_COLLATE', '');
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         '#,WnqO@SVA%r<c&0;0qH~JQ23>&p(;hPT2)TvS;T3g+5H0x<Z$XH~i~HYCI)yL23');
-define('SECURE_AUTH_KEY',  '4AMXd`FMvWBIN2Sk=bUxI&PjCm}7ou0n6 nqO0U,Y-u,Y~R7_?lX/a0XBy#XNP-@');
-define('LOGGED_IN_KEY',    '?2vgFlj+6f*.{n%jp8R_i)6!9_7z,6OjLRxP<bio@m)x(}IG8)~`hwcMNe@Wwejq');
-define('NONCE_KEY',        'eMpf$S_1wfatu18[N)BbL@$]Yzt$+3-w1q3:!)iHEfMg*g!NBVe&^_[P7MIr&DjH');
-define('AUTH_SALT',        'vG?t7;=rVq!--~`2_d!V:u)E5S5(c,cr%QJlON;v28pQi:?#w@}@jVIEo6=s `sX');
-define('SECURE_AUTH_SALT', '#)[$C :tI:o%V!A^l=[v7>0/*<Qk<;z}e)*SO[(qv6)-|]bg.s!j=Vz7itSnjaNS');
-define('LOGGED_IN_SALT',   ' {OhH&|+Ng~~B}Vc[BNJJkfKxLCl-U?txAy/)G_TkR}upczxhV~5`0b|fgBgTyz1');
-define('NONCE_SALT',       'FxX*Egv0*r@J}N;!{*Jl;7n5f]?7{[g:`HDlA<W)KLm!9mC38ykxOLOd;]cqY>u}');
+define('AUTH_KEY',         'GE !7[O=WQ8s5KXV.v%Z1:SM-5PC^9ne:Q}YUhA,Z;[U%3SgcG)8C{|$cZ1H@$[4');
+define('SECURE_AUTH_KEY',  'te~-6$*dRZVym+rK<SGP ir8~7L/z9)L>$r3S%e_Usg-|@)a8RH{nSQG|,eK*Ad^');
+define('LOGGED_IN_KEY',    'JIs|5F8&uFMCP:9nb}ALm:RcF,$?qEa27G7v-;o]Nwa&QuN|F42e]|REDZI>eE0s');
+define('NONCE_KEY',        'p:N7|Re%RO<aL $H;`>zKe_`@?-{}6fdY#6$Wp,l55~xTXFzNQ>6Tu6uddw`~Q!u');
+define('AUTH_SALT',        'Zs3Ci3LX{[_W?@)LY.OfJEEhR8t*tc)O,F~sio~X@zEgw;(}rXpd>S~u8I?k6boU');
+define('SECURE_AUTH_SALT', 'L64bInmr0HQRYufYz-%_W?NX$/6(w*c]MADm`=D.eW Tr]wchL,HX.1sLr_c{:;I');
+define('LOGGED_IN_SALT',   'SZ]-DVP0vFO!+jt%Gdg!`:?;Zj+)(Z%S;.b}6ee4]($q{8.]FRiVl4vZEiuQy!(_');
+define('NONCE_SALT',       '9<4nO`^^Pl9np|8fTI^Z2;J=<NzBZ9^ne1tZoTflS#mlnBm!)>XR9Q-4`%nh:VKA');
 
 /**#@-*/
 
@@ -64,7 +64,7 @@ define('NONCE_SALT',       'FxX*Egv0*r@J}N;!{*Jl;7n5f]?7{[g:`HDlA<W)KLm!9mC38ykx
  * 如果您有在同一数据库内安装多个WordPress的需求，请为每个WordPress设置
  * 不同的数据表前缀。前缀名只能为数字、字母加下划线。
  */
-$table_prefix  = 'wp_';
+$table_prefix  = 't_';
 
 /**
  * 开发者专用：WordPress调试模式。
@@ -76,7 +76,7 @@ $table_prefix  = 'wp_';
  *
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
-define('WP_DEBUG', true);
+define('WP_DEBUG', false);
 
 /**
  * zh_CN本地化设置：启用ICP备案号显示
