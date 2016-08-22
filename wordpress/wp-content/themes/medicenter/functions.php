@@ -1,15 +1,19 @@
 <?php
+/**
+ * 主题名称
+ */
 $themename = "medicenter";
 
-//plugins activator
+// plugins activator
 require_once("plugins_activator.php");
 
-//vc_remove_element("vc_row_inner");
+// vc_remove_element("vc_row_inner");
 if(function_exists("vc_remove_element"))
 {
 	vc_remove_element("vc_gmaps");
 	vc_remove_element("vc_tour");
 }
+
 
 //theme options
 mc_get_theme_file("/theme-options.php");
@@ -19,15 +23,22 @@ mc_get_theme_file("/meta-box.php");
 
 //dropdown menu
 mc_get_theme_file("/nav-menu-dropdown-walker.php");
+
+
 //mobile menu
 mc_get_theme_file("/mobile-menu-walker.php");
 
 //gallery functions
 mc_get_theme_file("/gallery-functions.php");
+
+
 //weekdays
 mc_get_theme_file("/post-type-weekdays.php");
+
 //departments
 mc_get_theme_file("/post-type-departments.php");
+
+
 if(function_exists("vc_map"))
 {
 	//doctors
@@ -59,15 +70,24 @@ mc_get_theme_file("/widgets/widget-scrolling-most-commented.php");
 mc_get_theme_file("/widgets/widget-scrolling-most-viewed.php");
 
 //shortcodes
-if(function_exists("vc_map"))
+if(function_exists("vc_map")) {
 	mc_get_theme_file("/shortcodes/shortcodes.php");
+}
 
 //admin functions
 mc_get_theme_file("/admin/functions.php");
 
+// include 主题的文件 ========================================
+
+/**
+ * 主题配置信息
+ *
+ *
+ */
 function theme_after_setup_theme()
 {
 	global $themename;
+
 	if(!get_option($themename . "_installed") || !get_option("wpb_js_content_types"))
 	{
 		$theme_options = array(
@@ -192,6 +212,9 @@ function theme_after_setup_theme()
 	</body>
 </html>"
 		);
+
+
+
 		add_option($themename . "_options", $theme_options);
 		
 		add_option($themename . "_slider_settings_home-slider", array('slider_image_url' => array (0 => get_template_directory_uri() . "/images/slider/img1.jpg", 1 => get_template_directory_uri() . "/images/slider/img2.jpg", 2 => get_template_directory_uri() . "/images/slider/img3.jpg"), 'slider_image_title' => array(0 => 'Top notch<br>experience', 1 => 'Show your<br>schedule', 2 => 'Build it<br>your way'), 'slider_image_subtitle' => array (0 => 'Medicenter is a responsive template<br>perfect for all screen sizes', 1 => 'Organize and visualize your week<br>with build-in timetable', 2 => 'Limitless possibilities with multiple<br>page layouts and different shortcodes'), 'slider_image_link' => array (), 'slider_autoplay' => '1', 'slider_navigation' => '1', 'slider_pause_on_hover' => NULL, 'slider_height' => 670, 'slide_interval' => 5000, 'slider_effect' => 'scroll', 'slider_transition' => 'easeInOutQuint', 'slider_transition_speed' => 750));
@@ -204,32 +227,49 @@ function theme_after_setup_theme()
 			"features")
 		);
 		
+
+
 		global $wp_rewrite;
+
+
 		$wp_rewrite->flush_rules();
 		add_option($themename . "_installed", 1);
-	}
-	//Make theme available for translation
-	//Translations can be filed in the /languages/ directory
+
+
+	} /* end if */
+
+	// Make theme available for translation
+	// Translations can be filed in the /languages/ directory
 	load_theme_textdomain('medicenter', get_template_directory() . '/languages');
 	
-	//register blog post thumbnail & portfolio thumbnail
+	// 缩略图 大小
+	// register blog post thumbnail & portfolio thumbnail
 	add_theme_support("post-thumbnails");
+
 	add_image_size("blog-post-thumb", 540, 280, true);
 	add_image_size($themename . "-gallery-image", 480, 300, true);
 	add_image_size($themename . "-gallery-thumb-type-1", 310, 200, true);
 	add_image_size($themename . "-gallery-thumb-type-2", 225, 150, true);
 	add_image_size($themename . "-small-thumb", 96, 96, true);
 	
+
+
 	//posts order
 	add_post_type_support('post', 'page-attributes');
 	
-	//woocommerce
+	// woocommerce
 	add_theme_support("woocommerce");
+
+
 	//enable custom background
 	add_theme_support("custom-background"); //3.4
+
+
 	//add_custom_background(); //deprecated
 	//title tag
 	add_theme_support("title-tag");
+
+
 	//register menu
 	add_theme_support("menus");
 	
@@ -238,43 +278,68 @@ function theme_after_setup_theme()
 		register_nav_menu("main-menu", "Main Menu");
 	}
 	
+
+
 	//custom theme filters
 	add_filter('wp_title', 'cs_wp_title_filter', 10, 2);
+
 	add_filter("image_size_names_choose", "theme_image_sizes");
+
 	add_filter('upload_mimes', 'custom_upload_files');
+
 	add_filter('excerpt_more', 'theme_excerpt_more', 99);
+
 	add_filter('site_transient_update_plugins', 'medicenter_filter_update_vc_plugin', 10, 2);
 	//using shortcodes in sidebar
 	add_filter("widget_text", "do_shortcode");
 	
 	//custom theme woocommerce filters
 	add_filter('woocommerce_pagination_args' , 'mc_woo_custom_override_pagination_args');
+
 	add_filter('woocommerce_product_single_add_to_cart_text', 'mc_woo_custom_cart_button_text');
+
 	add_filter('woocommerce_product_add_to_cart_text', 'mc_woo_custom_cart_button_text');
+
 	add_filter('loop_shop_columns', 'mc_woo_custom_loop_columns');
+
 	add_filter('woocommerce_product_description_heading', 'mc_woo_custom_product_description_heading');
+
 	add_filter('woocommerce_checkout_fields' , 'mc_woo_custom_override_checkout_fields');
+
 	add_filter('woocommerce_show_page_title', 'mc_woo_custom_show_page_title');
+
 	add_filter('loop_shop_per_page', create_function( '$cols', 'return 6;' ), 20);
+
 	add_filter('woocommerce_review_gravatar_size', 'mc_woo_custom_review_gravatar_size');
 	
-	//custom theme actions
-	if(!function_exists('_wp_render_title_tag')) 
+	// custom theme actions
+	if(!function_exists('_wp_render_title_tag')) {
 		add_action('wp_head', 'cs_theme_slug_render_title');
+	}
 	
 	//custom theme woocommerce actions
 	remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_title', 5);
+
 	remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10);
+
 	remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_price', 10);
+
 	remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5);
+
 	//remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
+
 	add_action('woocommerce_single_product_summary', 'woocommerce_template_single_rating', 5);
+
 	add_action('woocommerce_single_product_summary', 'woocommerce_template_single_title', 10);
+
 	add_action('woocommerce_single_product_summary', 'woocommerce_template_single_price', 10);
-	
+
+	// 侧边栏
 	//register sidebars
 	if(function_exists("register_sidebar"))
 	{
+
+		// 按文章类型注册 侧边栏
 		//register custom sidebars
 		query_posts(array( 
 			'post_type' => $themename . '_sidebars',
@@ -283,26 +348,39 @@ function theme_after_setup_theme()
 			'orderby' => 'menu_order',
 			'order' => 'ASC'
 		));
-		if(have_posts()) : while (have_posts()) : the_post();
-			global $post;
-			$before_widget = get_post_meta($post->ID, "before_widget", true);
-			$after_widget = get_post_meta($post->ID, "after_widget", true);
-			$before_title = get_post_meta($post->ID, "before_title", true);
-			$after_title = get_post_meta($post->ID, "after_title", true);
-			register_sidebar(array(
-				"id" => $post->post_name,
-				"name" => get_the_title(),
-				'before_widget' => ($before_widget!='' && $before_widget!='empty' ? $before_widget : ''),
-				'after_widget' => ($after_widget!='' && $after_widget!='empty' ? $after_widget : ''),
-				'before_title' => ($before_title!='' && $before_title!='empty' ? $before_title : ''),
-				'after_title' => ($after_title!='' && $after_title!='empty' ? $after_title : '')
-			));
-		endwhile; endif;
-		//Reset Query
+
+		if(have_posts()) : 
+			while (have_posts()) : the_post();
+				global $post;
+				$before_widget = get_post_meta($post->ID, "before_widget", true);
+				$after_widget = get_post_meta($post->ID, "after_widget", true);
+				$before_title = get_post_meta($post->ID, "before_title", true);
+				$after_title = get_post_meta($post->ID, "after_title", true);
+
+
+				register_sidebar(array(
+					"id" => $post->post_name,
+					"name" => get_the_title(),
+					'before_widget' => ($before_widget!='' && $before_widget!='empty' ? $before_widget : ''),
+					'after_widget' => ($after_widget!='' && $after_widget!='empty' ? $after_widget : ''),
+					'before_title' => ($before_title!='' && $before_title!='empty' ? $before_title : ''),
+					'after_title' => ($after_title!='' && $after_title!='empty' ? $after_title : '')
+				));
+
+			endwhile; 
+
+		endif;
+		// Reset Query
 		wp_reset_query();
+
 	}
 }
+
+
 add_action("after_setup_theme", "theme_after_setup_theme");
+
+
+// 切换主题，删除主题选项
 function theme_switch_theme($theme_template)
 {
 	global $themename;
@@ -310,7 +388,10 @@ function theme_switch_theme($theme_template)
 }
 add_action("switch_theme", "theme_switch_theme");
 
-//theme options
+
+
+
+// theme options
 global $theme_options;
 $theme_options = array(
 	"favicon_url" => '',
@@ -498,6 +579,8 @@ function theme_enqueue_scripts()
 }
 add_action("wp_enqueue_scripts", "theme_enqueue_scripts");
 
+
+
 //function to display number of posts
 function getPostViews($postID)
 {
@@ -510,6 +593,8 @@ function getPostViews($postID)
     }
     return (int)$count;
 }
+
+
 
 //function to count views
 function setPostViews($postID) 
@@ -527,12 +612,16 @@ function setPostViews($postID)
         update_post_meta($postID, $count_key, $count);
     }
 }
+
+
 //add new mimes for upload dummy content files (code can be removed after dummy content import)
 function custom_upload_files($mimes) 
 {
     $mimes = array_merge($mimes, array('xml' => 'application/xml'), array('json' => 'application/json'), array('zip' => 'application/zip'), array('gz' => 'application/x-gzip'), array('ico' => 'image/x-icon'));
     return $mimes;
 }
+
+
 function theme_image_sizes($sizes)
 {
 	global $themename;
@@ -545,6 +634,8 @@ function theme_image_sizes($sizes)
 	$newsizes = array_merge($sizes, $addsizes);
 	return $newsizes;
 }
+
+
 if(!function_exists('_wp_render_title_tag')) 
 {
     function cs_theme_slug_render_title() 
@@ -552,16 +643,22 @@ if(!function_exists('_wp_render_title_tag'))
 		echo '<title>'. wp_title('-', true, 'right') . '</title>';
     }
 }
+
+
 function cs_wp_title_filter($title, $sep)
 {
 	//$title = get_bloginfo('name') . " | " . (is_home() || is_front_page() ? get_bloginfo('description') : $title);
 	return $title;
 }
+
+
 //excerpt
 function theme_excerpt_more($more) 
 {
 	return '';
 }
+
+
 function medicenter_filter_update_vc_plugin($date) 
 {
     if(!empty($date->checked["js_composer/js_composer.php"]))
@@ -571,6 +668,8 @@ function medicenter_filter_update_vc_plugin($date)
     return $date;
 }
 
+
+
 /* --- Theme WooCommerce Custom Filters Functions --- */
 function mc_woo_custom_override_pagination_args($args) 
 {
@@ -578,10 +677,14 @@ function mc_woo_custom_override_pagination_args($args)
 	$args['next_text'] = __('&rsaquo;', 'medicenter');
 	return $args;
 }
+
+
 function mc_woo_custom_cart_button_text() 
 {
 	return __('Add to cart', 'woocommerce');
 }
+
+
 if(!function_exists('loop_columns')) 
 {
 	function mc_woo_custom_loop_columns() 
@@ -589,14 +692,20 @@ if(!function_exists('loop_columns'))
 		return 3; // 3 products per row
 	}
 }
+
+
 function mc_woo_custom_product_description_heading() 
 {
     return '';
 }
+
+
 function mc_woo_custom_show_page_title()
 {
 	return false;
 }
+
+
 function mc_woo_custom_override_checkout_fields($fields) 
 {
 	$fields['billing']['billing_first_name']['placeholder'] = 'First Name';
@@ -606,10 +715,13 @@ function mc_woo_custom_override_checkout_fields($fields)
 	$fields['billing']['billing_phone']['placeholder'] = 'Phone';
 	return $fields;
 }
+
+
 function mc_woo_custom_review_gravatar_size()
 {
 	return 100;
 }
+
 
 function get_time_iso8601() 
 {
@@ -617,6 +729,7 @@ function get_time_iso8601()
 	$timezone = ($offset < 0 ? '-' : '+') . (abs($offset)<10 ? '0'.abs($offset) : abs($offset)) . '00' ;
 	return get_the_time('Y-m-d\TH:i:s') . $timezone;					
 }
+
 
 function theme_direction() 
 {
@@ -630,21 +743,33 @@ function theme_direction()
 }
 add_action("after_setup_theme", "theme_direction");
 
-// default locate_template() method returns file PATH, we need file URL for javascript and css
-//function locate_template_uri($file)
-//{
-//    $website_path = str_replace("\\", "/", realpath(dirname($_SERVER["SCRIPT_FILENAME"])));
-//    $site_url = site_url();
-//    $file_path = str_replace("\\", "/", locate_template(ltrim($file, "/")));
-//    $file_url = str_replace($website_path, $site_url, $file_path);
-//    return $file_url;
-//}
+// 
+
+/**
+ * default locate_template() method returns file PATH, we need file URL for javascript and css
+ * 
+ *
+ * @example [code] 
+ *	function locate_template_uri($file)
+ *	{
+ * 		$website_path = str_replace("\\", "/", realpath(dirname($_SERVER["SCRIPT_FILENAME"])));
+ *  		$site_url = site_url();
+ *  		$file_path = str_replace("\\", "/", locate_template(ltrim($file, "/")));
+ *  		$file_url = str_replace($website_path, $site_url, $file_path);
+ *  		return $file_url;
+ *	}
+ *
+ * [/code]
+ *
+ */
 function mc_get_theme_file($file)
 {
-	if(file_exists(get_stylesheet_directory() . $file))
+	if(file_exists(get_stylesheet_directory() . $file)){
         require_once(get_stylesheet_directory() . $file);
-    else
+	}
+    else {
         require_once(get_template_directory() . $file);
+    }
 }
 
 //medicenter get_font_subsets
@@ -663,7 +788,10 @@ function mc_ajax_get_font_subsets()
 	}
 	exit();
 }
+
 add_action('wp_ajax_medicenter_get_font_subsets', 'mc_ajax_get_font_subsets');
+
+
 
 /**
  * Returns array of Google Fonts
@@ -673,6 +801,8 @@ function mc_get_google_fonts()
 {
 	//get google fonts
 	$fontsArray = get_option("medicenter_google_fonts");
+
+
 	//update if option doesn't exist or it was modified more than 2 weeks ago
 	if($fontsArray===FALSE || (time()-$fontsArray->last_update>2*7*24*60*60))
 	{
@@ -694,8 +824,10 @@ function mc_get_google_font_subset($font)
 {
 	$subsets = array();
 	//get google fonts
-	$fontsArray = mc_get_google_fonts();		
+	$fontsArray = mc_get_google_fonts();
+
 	$fontsCount = count($fontsArray->items);
+
 	for($i=0; $i<$fontsCount; $i++)
 	{
 		if($fontsArray->items[$i]->family==$font)
@@ -707,6 +839,8 @@ function mc_get_google_font_subset($font)
 			break;
 		}
 	}
+
+
 	return $subsets;
 }
 ?>
