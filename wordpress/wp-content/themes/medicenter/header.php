@@ -12,6 +12,9 @@
 		<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="<?php esc_url(bloginfo("rss2_url")); ?>" />
 		<link rel="pingback" href="<?php esc_url(bloginfo("pingback_url")); ?>" />
 		<?php
+		/**
+		 * 站点 icon 设置
+		 */
 		if(!function_exists('has_site_icon') || !has_site_icon())
 		{
 			?>
@@ -23,6 +26,9 @@
 		wp_head();
 		?>
 		<?php
+		/**
+		 * 自定义 颜色
+		 */
 		mc_get_theme_file("/custom_colors.php");
 		if(!empty($theme_options['ga_tracking_code']))
 		{				
@@ -33,6 +39,7 @@
 		}		
 		?>
 	</head>
+
 	<body <?php body_class(); ?>>
 		<div class="site_container<?php echo ($theme_options['layout']=="boxed" || (isset($_COOKIE['mc_layout']) && $_COOKIE['mc_layout']=="boxed") ? ' boxed' : ($theme_options['layout']=="fullwidth" || (isset($_COOKIE['mc_layout']) && $_COOKIE['mc_layout']=="fullwidth") ? ' fullwidth' : '')); ?>">
 			<?php
@@ -140,7 +147,7 @@
 					<?php 
 					if($header_layout_type!=2 && $header_layout_type!=3)
 					{
-						//Get menu object
+						// Get menu object
 						$locations = get_nav_menu_locations();
 						if(isset($locations["main-menu"]))
 						{
@@ -151,6 +158,7 @@
 									"theme_location" => "main-menu",
 									"menu_class" => "sf-menu header_right"
 								));
+								
 							?>
 							<div class="mobile_menu_container clearfix">
 								<a href="#" class="mobile-menu-switch">

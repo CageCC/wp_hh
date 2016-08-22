@@ -1,9 +1,16 @@
 <?php
+/**
+ * 主题侧边栏
+ *
+ *
+ */
 global $themename;
-//custom post type - sidebars
+// custom post type - sidebars
 function theme_sidebars_init()
 {
 	global $themename;
+
+
 	$labels = array(
 		'name' => _x('Sidebars', 'post type general name', 'medicenter'),
 		'singular_name' => _x('Sidebar', 'post type singular name', 'medicenter'),
@@ -19,6 +26,7 @@ function theme_sidebars_init()
 		'parent_item_colon' => '',
 		'menu_name' => __("Sidebars", 'medicenter')
 	);
+
 	$args = array(  
 		"labels" => $labels, 
 		"public" => true,  
@@ -29,8 +37,10 @@ function theme_sidebars_init()
 		"rewrite" => true,  
 		"supports" => array("title", "page-attributes")
 	);
+
 	register_post_type($themename . "_sidebars", $args);
 }  
+
 add_action("init", "theme_sidebars_init"); 
 
 //Adds a box to the main column on the Sidebars edit screens
@@ -47,6 +57,8 @@ function theme_add_sidebars_custom_box()
     );
 }
 add_action("add_meta_boxes", "theme_add_sidebars_custom_box");
+
+
 //backwards compatible (before WP 3.0)
 //add_action("admin_init", "theme_add_custom_box", 1);
 
@@ -111,6 +123,8 @@ function theme_inner_sidebars_custom_box_main($post)
 	</table>';
 }
 
+
+
 //When the post is saved, saves our custom data
 function theme_save_sidebars_postdata($post_id) 
 {
@@ -136,8 +150,15 @@ function theme_save_sidebars_postdata($post_id)
 	update_post_meta($post_id, "before_title", ($_POST["before_title"]=="" ? "empty" : $_POST["before_title"]));
 	update_post_meta($post_id, "after_title", ($_POST["after_title"]=="" ? "empty" : $_POST["after_title"]));
 	update_post_meta($post_id, "hidden", $_POST["hidden"]);
+
 }
+
+
 add_action("save_post", "theme_save_sidebars_postdata");
+
+
+
+
 
 //custom sidebars items list
 function medicenter_sidebars_edit_columns($columns)
@@ -153,6 +174,8 @@ function medicenter_sidebars_edit_columns($columns)
 	return $columns;  
 }  
 add_filter("manage_edit-" . $themename . "_sidebars_columns", $themename . "_sidebars_edit_columns");
+
+
 
 function manage_medicenter_sidebars_posts_custom_column($column)
 {
@@ -170,6 +193,8 @@ function manage_medicenter_sidebars_posts_custom_column($column)
 }
 add_action("manage_" . $themename . "_sidebars_posts_custom_column", "manage_" . $themename . "_sidebars_posts_custom_column");
 
+
+
 // Register the column as sortable
 function medicenter_sidebars_sortable_columns($columns) 
 {
@@ -182,6 +207,8 @@ function medicenter_sidebars_sortable_columns($columns)
 
     return $columns;
 }
+
+
 add_filter("manage_edit-" . $themename . "_sidebars_sortable_columns", $themename . "_sidebars_sortable_columns");
 
 function medicenter_sidebars_column_orderby($vars) 
@@ -196,5 +223,8 @@ function medicenter_sidebars_column_orderby($vars)
  
     return $vars;
 }
+
 add_filter("request", $themename . "_sidebars_column_orderby");
+
+
 ?>

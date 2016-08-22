@@ -18,6 +18,9 @@
  * @package WordPress
  */
 
+// 本地化设置
+define('WPLANG', 'zh_CN');
+
 // ** MySQL 设置 - 具体信息来自您正在使用的主机 ** //
 /** WordPress数据库的名称 */
 define('DB_NAME', 'wp_health');
