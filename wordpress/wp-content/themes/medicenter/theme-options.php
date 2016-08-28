@@ -1,4 +1,9 @@
 <?php
+/**
+ * 主题选项 配置
+ */
+
+
 global $themename;
 //admin menu
 function theme_admin_menu() 
@@ -7,6 +12,8 @@ function theme_admin_menu()
 	add_submenu_page("themes.php", ucfirst('medicenter'), "Theme Options", "edit_theme_options", "ThemeOptions", $themename . "_options");
 }
 add_action("admin_menu", "theme_admin_menu");
+
+
 
 function theme_stripslashes_deep($value)
 {
@@ -24,17 +31,24 @@ function slider_get_settings()
 }
 add_action('wp_ajax_slider_get_settings', 'slider_get_settings');
 
+
 function slider_delete()
 {
 	echo "slider_start" . delete_option($_POST["id"]) . "slider_end";
 	exit();
 }
+
 add_action('wp_ajax_slider_delete', 'slider_delete');
+
+
+
 
 function medicenter_save_options()
 {
 	ob_start();
 	global $themename;
+
+
 	if($_POST["slider_id"]!="")
 	{
 		$slider_id = sanitize_title($_POST["slider_id"]);
@@ -54,6 +68,8 @@ function medicenter_save_options()
 		);
 		update_option('medicenter_slider_settings_' . $slider_id, $slider_options);
 	}
+
+
 	$theme_options = array(
 		"favicon_url" => $_POST["favicon_url"],
 		"logo_url" => $_POST["logo_url"],
@@ -166,6 +182,9 @@ function medicenter_save_options()
 		"subheader_font" => $_POST["subheader_font"],
 		"subheader_font_subset" => (isset($_POST["subheader_font_subset"]) ? $_POST["subheader_font_subset"] : ""),
 	);
+
+
+
 	update_option($themename . "_options", $theme_options);
 	$system_message = ob_get_clean();
 	$_POST["system_message"] = $system_message;

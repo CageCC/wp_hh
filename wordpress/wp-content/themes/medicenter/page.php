@@ -1,6 +1,7 @@
 <?php
 get_header();
 ?>
+<!-- page.php -->
 <div class="theme_page relative">
 	<div class="page_layout page_margin_top clearfix">
 		<div class="page_header clearfix">

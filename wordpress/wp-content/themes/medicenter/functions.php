@@ -217,6 +217,7 @@ function theme_after_setup_theme()
 
 		add_option($themename . "_options", $theme_options);
 		
+		// 主题选项中(Theme Options) 默认首页图片轮播
 		add_option($themename . "_slider_settings_home-slider", array('slider_image_url' => array (0 => get_template_directory_uri() . "/images/slider/img1.jpg", 1 => get_template_directory_uri() . "/images/slider/img2.jpg", 2 => get_template_directory_uri() . "/images/slider/img3.jpg"), 'slider_image_title' => array(0 => 'Top notch<br>experience', 1 => 'Show your<br>schedule', 2 => 'Build it<br>your way'), 'slider_image_subtitle' => array (0 => 'Medicenter is a responsive template<br>perfect for all screen sizes', 1 => 'Organize and visualize your week<br>with build-in timetable', 2 => 'Limitless possibilities with multiple<br>page layouts and different shortcodes'), 'slider_image_link' => array (), 'slider_autoplay' => '1', 'slider_navigation' => '1', 'slider_pause_on_hover' => NULL, 'slider_height' => 670, 'slide_interval' => 5000, 'slider_effect' => 'scroll', 'slider_transition' => 'easeInOutQuint', 'slider_transition_speed' => 750));
 		update_option("blogdescription", "Responsive Medical Health WordPress Theme");
 		
@@ -280,7 +281,7 @@ function theme_after_setup_theme()
 	
 
 
-	//custom theme filters
+	// custom theme filters
 	add_filter('wp_title', 'cs_wp_title_filter', 10, 2);
 
 	add_filter("image_size_names_choose", "theme_image_sizes");
@@ -290,7 +291,8 @@ function theme_after_setup_theme()
 	add_filter('excerpt_more', 'theme_excerpt_more', 99);
 
 	add_filter('site_transient_update_plugins', 'medicenter_filter_update_vc_plugin', 10, 2);
-	//using shortcodes in sidebar
+
+	// using shortcodes in sidebar
 	add_filter("widget_text", "do_shortcode");
 	
 	//custom theme woocommerce filters
@@ -314,6 +316,7 @@ function theme_after_setup_theme()
 	
 	// custom theme actions
 	if(!function_exists('_wp_render_title_tag')) {
+
 		add_action('wp_head', 'cs_theme_slug_render_title');
 	}
 	
@@ -390,7 +393,7 @@ add_action("switch_theme", "theme_switch_theme");
 
 
 
-
+// 主题配置 ======================================================
 // theme options
 global $theme_options;
 $theme_options = array(
@@ -499,7 +502,7 @@ $theme_options = array(
 );
 
 $theme_options = theme_stripslashes_deep(array_merge($theme_options, get_option($themename . "_options")));
-
+// end 主题配置 ======================================================
 
 
 /**

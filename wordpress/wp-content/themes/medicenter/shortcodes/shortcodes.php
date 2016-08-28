@@ -66,29 +66,30 @@ if($count_pages->publish<100)
 }
 
 
+// 短代码文件 =============================================
 
-//slider
+// slider
 mc_get_theme_file("/shortcodes/slider.php");
 
-//home box
+// home box
 mc_get_theme_file("/shortcodes/home_box.php");
 
-//blog
+// blog
 mc_get_theme_file("/shortcodes/blog.php");
 
-//post
+// post
 mc_get_theme_file("/shortcodes/single-post.php");
 
-//items_list
+// items_list
 mc_get_theme_file("/shortcodes/items_list.php");
 
-//columns
+// columns
 mc_get_theme_file("/shortcodes/columns.php");
 
-//timetable
+// timetable
 mc_get_theme_file("/shortcodes/timetable.php");
 
-//map
+// map
 mc_get_theme_file("/shortcodes/map.php");
 
 
@@ -124,9 +125,11 @@ mc_get_theme_file("/shortcodes/cart_icon.php");
 //pricing table
 mc_get_theme_file("/shortcodes/pricing_table.php");
 
+// end 短代码文件  =============================================
 
-
-//row inner
+/**
+ * 短代码： vc_row_inner
+ */
 $attributes = array(
 	array(
 		"type" => "dropdown",
@@ -143,7 +146,9 @@ vc_add_params('vc_row_inner', $attributes);
 
 
 
-// row
+/**
+ * 短代码： row
+ */
 vc_map( 
 	array(
 	'name' => __( 'Row', 'js_composer' ),
@@ -306,7 +311,9 @@ $vc_column_width_list = array(
 );
 
 
-
+/**
+ * vc_column 短代码
+ */
 vc_map( array(
 	'name' => __( 'Column', 'js_composer' ),
 	'base' => 'vc_column',
@@ -357,7 +364,10 @@ vc_map( array(
 
 
 
-//widgetised sidebar
+/**
+ * 短代码： vc_widget_sidebar
+ *
+ */
 vc_map( array(
 	'name' => __( 'Widgetised Sidebar', 'js_composer' ),
 	'base' => 'vc_widget_sidebar',
@@ -481,6 +491,10 @@ $target_arr = array(
 	__( 'New window', 'js_composer' ) => '_blank'
 );
 
+
+/**
+ * 短代码： vc_button
+ */
 vc_map( 
 	array(
 	'name' => __( 'Button', 'js_composer' ) . " 1",
@@ -614,7 +628,7 @@ add_shortcode("page_layout", "theme_page_layout");
 
 
 
-//page left
+// page left
 function theme_page_left($atts, $content)
 {
 	if(is_active_sidebar('left-top'))
@@ -631,7 +645,7 @@ add_shortcode("page_left", "theme_page_left");
 
 
 
-//page right
+// page right
 function theme_page_right($atts, $content)
 {
 	if(is_active_sidebar('right-top'))
@@ -648,7 +662,7 @@ add_shortcode("page_right", "theme_page_right");
 
 
 
-//button more
+// button more
 function theme_button_more($atts, $content)
 {
 	extract(shortcode_atts(array(
@@ -688,7 +702,10 @@ add_shortcode("box_header", "theme_box_header");
 
 
 
-//visual composer
+// visual composer
+/**
+ * 短代码：box_header
+ */
 vc_map( 
 	array(
 	"name" => __("Box header", 'medicenter'),
@@ -797,6 +814,9 @@ $mc_colors_arr = array(
 );
 
 
+/**
+ * 短代码：dropcap
+ */
 vc_map( 
 	array(
 	"name" => __("Dropcap text", 'medicenter'),
@@ -902,7 +922,11 @@ function theme_show_all_button($atts)
 add_shortcode("show_all_button", "theme_show_all_button");
 
 
+
 //visual composer
+/**
+ * 短代码：show_all_button
+ */
 vc_map( array(
 	"name" => __("Show all button", 'medicenter'),
 	"base" => "show_all_button",

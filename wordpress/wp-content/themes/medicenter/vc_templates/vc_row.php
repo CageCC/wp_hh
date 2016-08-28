@@ -4,7 +4,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * vc_row
+ * 覆盖默认shortcode的输出 
+ *
  * Shortcode attributes
+ *
+ *
  * @var $atts
  * @var $el_class
  * @var $full_width
@@ -53,29 +58,48 @@ if (vc_shortcode_custom_css_has_property( $css, array('border', 'background') ) 
 if (!empty($atts['gap'])) {
 	$css_classes[] = 'vc_column-gap-'.$atts['gap'];
 }
-if($top_margin!="none")
+
+if($top_margin!="none") {
 	$css_classes[] = $top_margin;
-if(!empty($type))
+}
+
+if(!empty($type)) {
 	$css_classes[] = $type;
+}
+
+
 $wrapper_attributes = array();
+
+
 // build attributes for wrapper
 if ( ! empty( $el_id ) ) {
 	$wrapper_attributes[] = 'id="' . esc_attr( $el_id ) . '"';
 }
+
+
 if ( ! empty( $full_width ) ) {
 	$wrapper_attributes[] = 'data-vc-full-width="true"';
 	$wrapper_attributes[] = 'data-vc-full-width-init="false"';
+
+
 	if ( 'stretch_row_content' === $full_width ) {
+
 		$wrapper_attributes[] = 'data-vc-stretch-content="true"';
 	} elseif ( 'stretch_row_content_no_spaces' === $full_width ) {
+
+
 		$wrapper_attributes[] = 'data-vc-stretch-content="true"';
 		$css_classes[] = 'vc_row-no-padding';
 	}
+
+
 	$after_output .= '<div class="vc_row-full-width"></div>';
 }
 
 if ( ! empty( $full_height ) ) {
 	$css_classes[] = ' vc_row-o-full-height';
+
+
 	if ( ! empty( $columns_placement ) ) {
 		$flex_row = true;
 		$css_classes[] = ' vc_row-o-columns-' . $columns_placement;
@@ -141,7 +165,7 @@ $css_class = preg_replace( '/\s+/', ' ', apply_filters( VC_SHORTCODE_CUSTOM_CSS_
 
 $wrapper_attributes[] = 'class="' . esc_attr( trim( $css_class ) ) . '"';
 
-
+$output = '<!-- vc_row -->';
 $output .= '<div ' . implode( ' ', $wrapper_attributes ) . '>';
 $output .= wpb_js_remove_wpautop( $content );
 $output .= '</div>';

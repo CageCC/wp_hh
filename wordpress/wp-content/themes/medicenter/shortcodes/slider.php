@@ -46,32 +46,46 @@
 }
 add_shortcode("slider", "theme_slider");*/
 
-//slider
+// slider
 function theme_slider($atts)
 {
 	extract(shortcode_atts(array(
 		"id" => ""
 	), $atts));
+
+
 	$slider_options = theme_stripslashes_deep(get_option($id));
+
+
 	if($slider_options)
 	{
 		$output = '';
 		$slides_count = count($slider_options["slider_image_url"]);
+
+
 		if(count($slides_count))
 		{
 			$output .= '<ul class="slider ' . $id . ' id-' . $id . ' autoplay-' . $slider_options['slider_autoplay'] . ' interval-' . $slider_options['slide_interval'] . ' effect-' . $slider_options['slider_effect'] . ' easing-' . $slider_options['slider_transition'] . ' duration-' . $slider_options['slider_transition_speed'] . /*((int)$ontouch ? ' ontouch' : '') . ((int)$onmouse ? ' onmouse' : '') .*/ '">';
+
+
 			for($i=0; $i<$slides_count; $i++)
 			{
 				
 				$output .= '<li id="slide_' . $i . '" style="background-image: url(' . $slider_options["slider_image_url"][$i] . ');' . (isset($slider_options["slider_image_link"][$i]) && $slider_options["slider_image_link"][$i]!="" ? ' cursor: pointer;' : '') . '"' . (isset($slider_options["slider_image_link"][$i]) && $slider_options["slider_image_link"][$i]!="" ? ' onclick="javascript:window.location.href=\'' . $slider_options["slider_image_link"][$i] . '\'; return false;"' : '') . '>
 					&nbsp;</li>';
 			}
+
+
 			$output .= '</ul>';
 		}
 		
 		$output .= '<style>';
+
+
 		$slider_styles = array();
 		if(!empty($slider_options["slider_height"]) && $slider_options["slider_height"]!=670) {
+
+
 			$proportion = $slider_options["slider_height"]/670;
 			$slider_styles = array(				
 				"height" => array(
@@ -91,6 +105,8 @@ function theme_slider($atts)
 					floor((195*$proportion)-20),
 				),				
 			);
+
+
 			$output .= '
 				.slider li { 
 					height: ' . $slider_styles["height"][0] . 'px;
@@ -131,6 +147,8 @@ function theme_slider($atts)
 					}
 				}';
 		}
+
+
 		if(isset($slider_options['slider_navigation'])) {
 			$display = $slider_options['slider_navigation']==1 ? "block" : "none";
 			$output .= '
@@ -142,6 +160,7 @@ function theme_slider($atts)
 	}
 	return $output;
 }
+
 add_shortcode("slider", "theme_slider");
 
 //slider content
@@ -150,11 +169,16 @@ function theme_slider_content($atts)
 	extract(shortcode_atts(array(
 		"id" => ""
 	), $atts));
+
 	$slider_options = theme_stripslashes_deep(get_option($id));
+
+
 	if($slider_options)
 	{
-		$output = "";
+		$output = "<!-- theme_slider_content -->";
 		$slides_count = count($slider_options["slider_image_url"]);
+
+
 		if(count($slides_count))
 		{
 			$output .= '<div class="slider_content_box clearfix">';
@@ -176,6 +200,8 @@ function theme_slider_content($atts)
 	return $output;
 }
 add_shortcode("slider_content", "theme_slider_content");
+// end file =======================================================================
+
 
 //visual composer
 /*function theme_slider_vc_init()
