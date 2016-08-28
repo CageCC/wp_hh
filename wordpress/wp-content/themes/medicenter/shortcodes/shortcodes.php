@@ -664,7 +664,11 @@ add_shortcode("button_more", "theme_button_more");
 
 
 
-//box_header
+/**
+ * box_header
+ *
+ * shortcode: box_header
+ */
 function theme_box_header($atts)
 {
 	extract(shortcode_atts(array(
@@ -679,6 +683,7 @@ function theme_box_header($atts)
 
 	return '<' . $type . ' class="box_header' . ($class!="" ? ' ' . $class : '') . (!(int)$bottom_border ? ' no_border' : ((int)$animation ? ' animation-slide' : '')) . ($top_margin!="none" ? ' ' . $top_margin : '') . '">' . do_shortcode($title) . '</' . $type . '>';
 }
+
 add_shortcode("box_header", "theme_box_header");
 
 
@@ -878,7 +883,12 @@ vc_map(
 
 
 
-// show all
+/**
+ * show all
+ *
+ * shortcode: show_all_button
+ *
+ */
 function theme_show_all_button($atts)
 {
 	extract(shortcode_atts(array(

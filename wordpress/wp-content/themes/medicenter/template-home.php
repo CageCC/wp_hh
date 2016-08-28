@@ -5,12 +5,14 @@ Template Name: Home
 get_header();
 $slider_id = get_post_meta(get_the_ID(), "main_slider", true);
 
-if(substr($slider_id, 0, 10)=="medicenter")
+if(substr($slider_id, 0, 10)=="medicenter") {
 	echo do_shortcode("[slider id='" . $slider_id . "']");
-else if(substr($slider_id, 0, 10)=="revolution")
+} else if(substr($slider_id, 0, 10)=="revolution") {
 	echo do_shortcode("[rev_slider " . substr($slider_id, 27) . "]");
-else
+}else {
 	echo do_shortcode("[layerslider id='" . substr($slider_id, 27) . "']");
+}
+
 ?>
 <div class="theme_page relative noborder">
 	<?php

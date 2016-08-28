@@ -10,6 +10,8 @@ function theme_admin_init()
 }
 add_action("admin_init", "theme_admin_init");
 
+
+
 function theme_admin_print_scripts()
 {
 	wp_enqueue_script('jquery');
@@ -154,6 +156,8 @@ function theme_admin_print_scripts()
 		if(substr($key, 0, 26)=="medicenter_slider_settings")
 			$sliderAllShortcodeIds[] = $key;
 	}
+
+
 	//get revolution sliders
 	if(is_plugin_active('revslider/revslider.php'))
 	{
@@ -165,6 +169,8 @@ function theme_admin_print_scripts()
 		ORDER BY id ASC LIMIT 100
 		"
 		);
+
+
 		if($rs) 
 		{
 			foreach($rs as $slider)
@@ -173,7 +179,9 @@ function theme_admin_print_scripts()
 			}
 		}
 	}
-	//get layer sliders
+
+
+	// get layer sliders
 	if(is_plugin_active('LayerSlider/layerslider.php'))
 	{
 		global $wpdb;
@@ -185,6 +193,8 @@ function theme_admin_print_scripts()
 		ORDER BY date_c ASC LIMIT 999
 		"
 		);
+
+
 		$layer_sliders = array();
 		if($ls)
 		{
@@ -194,8 +204,12 @@ function theme_admin_print_scripts()
 			}
 		}
 	}
+
+
 	//sort slider ids
 	sort($sliderAllShortcodeIds);
+
+
 	$data = array(
 		'img_url' =>  get_template_directory_uri() . "/images/",
 		'admin_img_url' =>  get_template_directory_uri() . "/admin/images/",
@@ -207,10 +221,14 @@ function theme_admin_print_scripts()
 		'theme_sliders' => $sliderAllShortcodeIds,
 		'main_slider' => get_post_meta(get_the_ID(), "main_slider", true)
 	);
+
+
 	//pass data to javascript
 	$params = array(
 		'l10n_print_after' => 'config = ' . json_encode($data) . ';'
 	);
+
+	
 	wp_localize_script("theme-admin", "config", $params);
 }
 

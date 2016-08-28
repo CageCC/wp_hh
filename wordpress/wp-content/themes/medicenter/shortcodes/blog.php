@@ -1,5 +1,8 @@
 <?php
-//blog
+/**
+ * shortcode: blog
+ *
+ */
 function theme_blog($atts, $content)
 {
 	global $themename;
@@ -31,23 +34,35 @@ function theme_blog($atts, $content)
 		"top_margin" => 'none'
 	), $atts));
 	
+
+
 	$featured_image_size = str_replace("mc_", "", $featured_image_size);
 	
 	$ids = explode(",", $ids);
+
 	if($ids[0]=="-" || $ids[0]=="")
 	{
 		unset($ids[0]);
 		$ids = array_values($ids);
-	}	
+	}
+
+
 	$category = explode(",", $category);
+
+
 	if($category[0]=="-" || $category[0]=="")
 	{
 		unset($category[0]);
 		$category = array_values($category);
 	}
+
+
 	global $paged;
 	$paged = (get_query_var((is_front_page() ? 'page' : 'paged'))) ? get_query_var((is_front_page() ? 'page' : 'paged')) : 1;
-	query_posts(array( 
+
+
+	query_posts(
+		array( 
 		'post__in' => $ids,
 		'post_type' => 'post',
 		'post_status' => 'publish',
@@ -64,30 +79,49 @@ function theme_blog($atts, $content)
 		'orderby' => implode(" ", explode(",", $order_by)),
 		'order' => $order
 	));
+
+
 	global $wp_query;
 	$post_count = $wp_query->post_count;
 	
 	$output = '';
-	if((int)$layout_type==2)
+
+
+	if((int)$layout_type==2) {
 		$output .= '<div class="columns clearfix">';
+	}
+
+
 	$i = 0;
-	if(have_posts()) : while (have_posts()) : the_post();
-		if($i==0 || ((int)$layout_type==2 && $i==ceil($post_count/2)))
-		{
-			if($i==ceil($post_count/2))
-				$output .= '</ul>';
-			$output .= '<ul class="blog' . ((int)$layout_type==3 ? ' simple' : '') . ((int)$layout_type==2 ? ($i==ceil($post_count/2) ? ' column_right' : ' column_left') : ' clearfix') . ($top_margin!="none" ? ' ' . $top_margin : '') . '">';
-		}
-		$post_classes = get_post_class("post");
-		$output .= '<li class="' . ((int)$layout_type==3 ? 'item_content ' : '');
-		foreach($post_classes as $key=>$post_class)
-			$output .= ' ' . $post_class;
-		$output .= '">';
+	if(have_posts()) : 
+		while (have_posts()) : 
+			the_post();
+			if($i==0 || ((int)$layout_type==2 && $i==ceil($post_count/2)))
+			{
+				if($i==ceil($post_count/2)) {
+					$output .= '</ul>';
+				}
+
+				$output .= '<ul class="blog' . ((int)$layout_type==3 ? ' simple' : '') . ((int)$layout_type==2 ? ($i==ceil($post_count/2) ? ' column_right' : ' column_left') : ' clearfix') . ($top_margin!="none" ? ' ' . $top_margin : '') . '">';
+			}
+
+
+			$post_classes = get_post_class("post");
+			$output .= '<li class="' . ((int)$layout_type==3 ? 'item_content ' : '');
+
+			foreach($post_classes as $key=>$post_class) {
+				$output .= ' ' . $post_class;
+			}
+
+
+			$output .= '">';
+
+
 		if((int)$layout_type!=3)
 		{
 			if((int)$layout_type!=2 || (int)$show_post_date_box || (int)$show_post_comments_box)
 			{
-			$output .= '<ul class="comment_box clearfix">';
+				$output .= '<ul class="comment_box clearfix">';
 							if((int)$layout_type!=2 || (int)$show_post_date_box)
 							{
 							$output .= '<li class="date' . ((int)$layout_type!=2 ? ' clearfix' : '' ) . ($post_date_animation!='' ? ' animated_element animation-' . $post_date_animation . ((int)$post_date_animation_duration>0 && (int)$post_date_animation_duration!=600 ? ' duration-' . (int)$post_date_animation_duration : '') . ((int)$post_date_animation_delay>0 ? ' delay-' . (int)$post_date_animation_delay : '') : '') . '">
@@ -95,21 +129,29 @@ function theme_blog($atts, $content)
 								<div class="arrow_date"></div>
 							</li>';
 							}
+
+
 							if((int)$show_post_comments_box)
 							{
-							$output .= '<li class="comments_number' . ($post_comments_animation!='' ? ' animated_element animation-' . $post_comments_animation . ((int)$post_comments_animation_duration>0 && (int)$post_comments_animation_duration!=600 ? ' duration-' . (int)$post_comments_animation_duration : '') . ((int)$post_comments_animation_delay>0 ? ' delay-' . (int)$post_comments_animation_delay : '') : '') . '">';
-							$comments_count = get_comments_number();
-		$output .= '			<a href="' . get_comments_link() . '" title="' . $comments_count . ' ' . ($comments_count==1 ? __('comment', 'medicenter') : __('comments', 'medicenter')) . '">' . $comments_count . ((int)$show_post_comments_label ? ' ' . ($comments_count==1 ? __('comment', 'medicenter') : __('comments', 'medicenter')) : '') . '</a>
+								$output .= '<li class="comments_number' . ($post_comments_animation!='' ? ' animated_element animation-' . $post_comments_animation . ((int)$post_comments_animation_duration>0 && (int)$post_comments_animation_duration!=600 ? ' duration-' . (int)$post_comments_animation_duration : '') . ((int)$post_comments_animation_delay>0 ? ' delay-' . (int)$post_comments_animation_delay : '') : '') . '">';
+								$comments_count = get_comments_number();
+
+
+								$output .= '			<a href="' . get_comments_link() . '" title="' . $comments_count . ' ' . ($comments_count==1 ? __('comment', 'medicenter') : __('comments', 'medicenter')) . '">' . $comments_count . ((int)$show_post_comments_label ? ' ' . ($comments_count==1 ? __('comment', 'medicenter') : __('comments', 'medicenter')) : '') . '</a>
 							</li>';
 							}
-			$output .= '</ul>';
+
+
+						$output .= '</ul>';
 			}
+
+
 			$output .= '<div class="post_content">';
-						$show_images_in = get_post_meta(get_the_ID(), $themename . "_show_images_in", true);
-						$attachment_ids = get_post_meta(get_the_ID(), $themename . "_attachment_ids", true);
-						$images = get_post_meta(get_the_ID(), $themename . "_images", true);
-						$images_count = count((array)$images);
-						if($images_count>0 && ($show_images_in=="blog" || $show_images_in=="both"))
+			$show_images_in = get_post_meta(get_the_ID(), $themename . "_show_images_in", true);
+			$attachment_ids = get_post_meta(get_the_ID(), $themename . "_attachment_ids", true);
+			$images = get_post_meta(get_the_ID(), $themename . "_images", true);
+			$images_count = count((array)$images);
+			if($images_count>0 && ($show_images_in=="blog" || $show_images_in=="both"))
 						{
 							$images_titles = get_post_meta(get_the_ID(), $themename . "_images_titles", true);
 							$videos = get_post_meta(get_the_ID(), $themename . "_videos", true);
@@ -242,6 +284,9 @@ function theme_blog($atts, $content)
 	return $output;
 }
 add_shortcode("blog", "theme_blog");
+
+
+
 
 //visual composer
 function theme_blog_vc_init()
@@ -519,4 +564,8 @@ function theme_blog_vc_init()
 	));
 }
 add_action("init", "theme_blog_vc_init");
+
+
+
+// end file
 ?>

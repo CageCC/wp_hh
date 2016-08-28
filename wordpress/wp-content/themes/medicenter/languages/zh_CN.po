@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: MediCenter WordPress Theme\n"
-"POT-Creation-Date: 2016-08-22 23:06+0800\n"
-"PO-Revision-Date: 2016-08-22 23:48+0800\n"
+"POT-Creation-Date: 2016-08-22 23:48+0800\n"
+"PO-Revision-Date: 2016-08-23 01:03+0800\n"
 "Last-Translator: \n"
 "Language-Team: QuanticaLabs\n"
 "Language: en_GB\n"
@@ -58,7 +58,7 @@ msgid "top"
 msgstr "上面"
 
 #: ../admin/functions.php:202 ../shortcodes/shortcodes.php:309
-#: ../sidebars.php:9
+#: ../sidebars.php:16
 msgid "Sidebar"
 msgstr "侧边栏"
 
@@ -777,7 +777,7 @@ msgstr ""
 #: ../shortcodes/map.php:170 ../shortcodes/map.php:177
 #: ../shortcodes/map.php:184 ../shortcodes/shortcodes.php:584
 #: ../shortcodes/shortcodes.php:591 ../shortcodes/testimonials.php:79
-#: ../sidebars.php:106 ../sidebars.php:167 ../theme-options.php:930
+#: ../sidebars.php:118 ../sidebars.php:190 ../theme-options.php:930
 #: ../theme-options.php:940 ../theme-options.php:958 ../theme-options.php:987
 #: ../theme-options.php:1072 ../theme-options.php:1081
 #: ../widgets/widget-appointment.php:134 ../widgets/widget-cart-icon.php:81
@@ -798,7 +798,7 @@ msgstr ""
 #: ../shortcodes/map.php:170 ../shortcodes/map.php:177
 #: ../shortcodes/map.php:184 ../shortcodes/shortcodes.php:584
 #: ../shortcodes/shortcodes.php:591 ../shortcodes/testimonials.php:79
-#: ../sidebars.php:107 ../sidebars.php:167 ../theme-options.php:931
+#: ../sidebars.php:119 ../sidebars.php:190 ../theme-options.php:931
 #: ../theme-options.php:939 ../theme-options.php:959 ../theme-options.php:986
 #: ../theme-options.php:1071 ../theme-options.php:1080
 #: ../widgets/widget-appointment.php:135 ../widgets/widget-cart-icon.php:80
@@ -1287,7 +1287,7 @@ msgstr ""
 
 #: ../meta-box.php:8 ../meta-box.php:16 ../post-type-departments.php:131
 #: ../post-type-doctors.php:40 ../post-type-features.php:40
-#: ../post-type-gallery.php:40 ../sidebars.php:42
+#: ../post-type-gallery.php:40 ../sidebars.php:52
 msgid "Options"
 msgstr "选项"
 
@@ -1400,7 +1400,7 @@ msgstr ""
 
 #: ../post-type-departments.php:11 ../post-type-doctors.php:8
 #: ../post-type-features.php:8 ../post-type-gallery.php:8
-#: ../post-type-weekdays.php:10 ../sidebars.php:10
+#: ../post-type-weekdays.php:10 ../sidebars.php:17
 msgid "Add New"
 msgstr ""
 
@@ -1548,7 +1548,7 @@ msgstr ""
 #: ../post-type-doctors.php:499 ../post-type-features.php:229
 #: ../post-type-features.php:393 ../post-type-gallery.php:382
 #: ../post-type-gallery.php:487 ../post-type-weekdays.php:43
-#: ../shortcodes/blog.php:336 ../sidebars.php:150
+#: ../shortcodes/blog.php:336 ../sidebars.php:171
 #: ../woocommerce/myaccount/my-orders.php:26
 msgid "Date"
 msgstr ""
@@ -2004,7 +2004,7 @@ msgid "Menu order"
 msgstr ""
 
 #: ../post-type-doctors.php:504 ../post-type-features.php:398
-#: ../post-type-gallery.php:492 ../shortcodes/blog.php:341 ../sidebars.php:148
+#: ../post-type-gallery.php:492 ../shortcodes/blog.php:341 ../sidebars.php:169
 #: ../widgets/widget-departments.php:179
 #: ../woocommerce/myaccount/my-orders.php:25
 msgid "Order"
@@ -4289,59 +4289,59 @@ msgstr ""
 msgid "Filter title"
 msgstr ""
 
-#: ../sidebars.php:8 ../sidebars.php:14 ../sidebars.php:20
+#: ../sidebars.php:15 ../sidebars.php:21 ../sidebars.php:27
 msgid "Sidebars"
 msgstr "侧边栏"
 
-#: ../sidebars.php:11
+#: ../sidebars.php:18
 msgid "Add New Sidebar"
 msgstr ""
 
-#: ../sidebars.php:12
+#: ../sidebars.php:19
 msgid "Edit Sidebar"
 msgstr ""
 
-#: ../sidebars.php:13
+#: ../sidebars.php:20
 msgid "New Sidebar"
 msgstr ""
 
-#: ../sidebars.php:15
+#: ../sidebars.php:22
 msgid "View Sidebar"
 msgstr ""
 
-#: ../sidebars.php:16
+#: ../sidebars.php:23
 msgid "Search Sidebars"
 msgstr ""
 
-#: ../sidebars.php:17
+#: ../sidebars.php:24
 msgid "No sidebars found"
 msgstr ""
 
-#: ../sidebars.php:18
+#: ../sidebars.php:25
 msgid "No sidebars found in Trash"
 msgstr ""
 
-#: ../sidebars.php:70
+#: ../sidebars.php:82
 msgid "Before widget"
 msgstr ""
 
-#: ../sidebars.php:78
+#: ../sidebars.php:90
 msgid "After widget"
 msgstr ""
 
-#: ../sidebars.php:86
+#: ../sidebars.php:98
 msgid "Before title"
 msgstr ""
 
-#: ../sidebars.php:94
+#: ../sidebars.php:106
 msgid "After title"
 msgstr ""
 
-#: ../sidebars.php:102 ../sidebars.php:149
+#: ../sidebars.php:114 ../sidebars.php:170
 msgid "Hidden"
 msgstr ""
 
-#: ../sidebars.php:147
+#: ../sidebars.php:168
 msgid "Sidebar name"
 msgstr ""
 
