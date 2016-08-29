@@ -1,4 +1,9 @@
 <?php
+/**
+ * 自定义 post 类型
+ *
+ *
+ */
 //custom post type - doctors
 function theme_doctors_init()
 {
@@ -17,6 +22,7 @@ function theme_doctors_init()
 		'parent_item_colon' => '',
 		'menu_name' => __("Doctors", 'medicenter')
 	);
+
 	$args = array(  
 		"labels" => $labels, 
 		"public" => true,  
@@ -27,10 +33,20 @@ function theme_doctors_init()
 		"rewrite" => true,
 		"supports" => array("title", "editor", "excerpt", "thumbnail", "page-attributes")  
 	);
+
+	// 自定义文章类型
 	register_post_type("doctors", $args);
-	register_taxonomy("doctors_category", array("doctors"), array("label" => "Categories", "singular_label" => "Category", "rewrite" => true));
+
+	// 分类信息
+	register_taxonomy(
+		"doctors_category", 
+		array("doctors"), 
+		array("label" => "Categories", "singular_label" => "Category", "rewrite" => true)
+	);
 }  
 add_action("init", "theme_doctors_init"); 
+
+
 
 //Adds a box to the right column and to the main column on the Doctors edit screens
 function theme_add_doctors_custom_box() 
@@ -45,6 +61,8 @@ function theme_add_doctors_custom_box()
     );
 }
 add_action("add_meta_boxes", "theme_add_doctors_custom_box");
+
+
 //backwards compatible (before WP 3.0)
 //add_action("admin_init", "theme_add_custom_box", 1);
 
@@ -347,24 +365,32 @@ function theme_inner_doctors_custom_box_main($post)
 	</div>';
 }
 
+
+
 //When the post is saved, saves our custom data
 function theme_save_doctors_postdata($post_id) 
 {
 	global $themename;
 	//verify if this is an auto save routine. 
 	//if it is our form has not been submitted, so we dont want to do anything
-	if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) 
+	if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
 		return;
+	}
 
 	//verify this came from the our screen and with proper authorization,
 	//because save_post can be triggered at other times
-	if (!isset($_POST[$themename . '_doctors_noncename']) || !wp_verify_nonce($_POST[$themename . '_doctors_noncename'], plugin_basename( __FILE__ )))
+	if (!isset($_POST[$themename . '_doctors_noncename']) || !wp_verify_nonce($_POST[$themename . '_doctors_noncename'], plugin_basename( __FILE__ ))) {
 		return;
+	}
 
 
 	//Check permissions
-	if(!current_user_can('edit_post', $post_id))
+	if(!current_user_can('edit_post', $post_id)) {
 		return;
+	}
+
+
+
 
 	//OK, we're authenticated: we need to find and save the data
 	update_post_meta($post_id, "subtitle", $_POST["doctor_subtitle"]);
@@ -394,6 +420,10 @@ function theme_save_doctors_postdata($post_id)
 }
 add_action("save_post", "theme_save_doctors_postdata");
 
+
+
+
+
 function doctors_edit_columns($columns)
 {
 	$columns = array(
@@ -406,6 +436,10 @@ function doctors_edit_columns($columns)
 	return $columns;
 }
 add_filter("manage_edit-doctors_columns", "doctors_edit_columns");
+
+
+
+
 
 function manage_doctors_posts_custom_column($column)
 {
@@ -420,9 +454,13 @@ function manage_doctors_posts_custom_column($column)
 add_action("manage_doctors_posts_custom_column", "manage_doctors_posts_custom_column");
 
 add_shortcode("doctors", "theme_gallery_shortcode");
+
+
 //ajax pagination
 add_action("wp_ajax_theme_doctors_pagination", "theme_gallery_shortcode");
 add_action("wp_ajax_nopriv_theme_doctors_pagination", "theme_gallery_shortcode");
+
+
 
 //visual composer
 function theme_doctors_vc_init()
@@ -434,17 +472,25 @@ function theme_doctors_vc_init()
 		'order' => 'ASC',
 		'post_type' => 'doctors'
 	));
+
 	$doctors_array = array();
 	$doctors_array[__("All", 'medicenter')] = "-";
-	foreach($doctors_list as $doctor)
+
+	foreach($doctors_list as $doctor) {
 		$doctors_array[$doctor->post_title . " (id:" . $doctor->ID . ")"] = $doctor->ID;
+	}
+
+
 
 	//get doctors categories list
 	$doctors_categories = get_terms("doctors_category");
 	$doctors_categories_array = array();
 	$doctors_categories_array[__("All", 'medicenter')] = "-";
-	foreach($doctors_categories as $doctors_category)
+
+
+	foreach($doctors_categories as $doctors_category) {
 		$doctors_categories_array[$doctors_category->name] =  $doctors_category->slug;
+	}
 	
 	//get all pages
 	global $medicenter_pages_array;
@@ -452,7 +498,10 @@ function theme_doctors_vc_init()
 	//image sizes
 	$image_sizes_array = array();
 	$image_sizes_array[__("Default", 'medicenter')] = "default";
+
 	global $_wp_additional_image_sizes;
+
+
 	foreach(get_intermediate_image_sizes() as $s) 
 	{
 		if(isset($_wp_additional_image_sizes[$s])) 
@@ -467,6 +516,8 @@ function theme_doctors_vc_init()
 		}
 		$image_sizes_array[$s . " (" . $width . "x" . $height . ")"] = "mc_" . $s;
 	}
+
+
 
 	vc_map( array(
 		"name" => __("Doctors list", 'medicenter'),
@@ -772,4 +823,6 @@ function theme_doctors_vc_init()
 	));
 }
 add_action("init", "theme_doctors_vc_init");
+
+// end file
 ?>
