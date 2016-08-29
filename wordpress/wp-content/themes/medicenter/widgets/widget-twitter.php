@@ -64,6 +64,8 @@ class twitter_widget extends WP_Widget
 				<?php
 				mc_get_theme_file("/libraries/lib_autolink.php");
 				$tweets = json_decode($response['response']);
+				$tweets = !empty($tweets) ? $tweets : array();
+				
 				if(count($tweets->errors))
 					echo '<li class="icon_small_arrow right_white"><p>' . $tweets->errors[0]->message . '! ' . __('Please check your config under Appearance->Widgets->Twitter Feed!', 'medicenter') . '</p></li>';
 				else

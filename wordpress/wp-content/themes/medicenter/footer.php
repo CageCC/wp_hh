@@ -35,8 +35,12 @@
 		</div>
 		<!-- layout_picker -->
 		<?php
-		if((int)$theme_options["layout_picker"])
-			mc_get_theme_file("/layout_picker/layout_picker.php");		
+		if((int)$theme_options["layout_picker"]) {
+			mc_get_theme_file("/layout_picker/layout_picker.php");
+
+		}
+		
+		echo "<!-- /layout_picker -->";
 		wp_footer();
 		?>
 	</body>
