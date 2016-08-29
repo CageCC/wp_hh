@@ -36,7 +36,7 @@ if(substr($slider_id, 0, 10)=="medicenter") {
 	<?php
 	endif;
 	// 短代码：theme_slider_content
-	var_dump($slider_id, get_the_ID());exit;
+	// var_dump($slider_id, get_the_ID());exit;
 	if(substr($slider_id, 0, 10) == "medicenter") {
 		echo do_shortcode("[slider_content id='" . $slider_id . "']");
 	}

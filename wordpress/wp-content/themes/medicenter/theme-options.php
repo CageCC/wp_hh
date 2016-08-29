@@ -9,7 +9,14 @@ global $themename;
 function theme_admin_menu() 
 {
 	global $themename;
-	add_submenu_page("themes.php", ucfirst('medicenter'), "Theme Options", "edit_theme_options", "ThemeOptions", $themename . "_options");
+	add_submenu_page(
+		"themes.php",
+		ucfirst('medicenter'), 
+		"Theme Options", 
+		"edit_theme_options", 
+		"ThemeOptions", 
+		$themename . "_options"
+	);
 }
 add_action("admin_menu", "theme_admin_menu");
 
@@ -2029,7 +2036,7 @@ function medicenter_options()
 				</ul>
 			</div>
 		</div>
-		<div class="footer">
+		<div class="footer.php">
 			<div class="footer_left">
 				<ul class="social-list">
 					<li><a target="_blank" href="http://www.facebook.com/QuanticaLabs/" class="social-list-facebook" title="Facebook"></a></li>
@@ -3136,4 +3143,6 @@ function medicenter_options()
 <?php
 	*/
 }
+
+// end file
 ?>
