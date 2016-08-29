@@ -8,7 +8,13 @@
 							dynamic_sidebar($sidebar->post_name);
 						?>
 					</ul>
-					
+					<div class="footer_box_container clearfix">
+						<?php
+						$sidebar = get_post(get_post_meta(get_the_ID(), "page_sidebar_footer_bottom", true));
+						if(!(int)get_post_meta($sidebar->ID, "hidden", true) && is_active_sidebar($sidebar->post_name))
+							dynamic_sidebar($sidebar->post_name);
+						?>
+					</div>
 					<?php if($theme_options["footer_text_left"]!="" || $theme_options["footer_text_right"]!=""): ?>
 					<div class="copyright_area clearfix">
 						<?php if($theme_options["footer_text_left"]!=""): ?>

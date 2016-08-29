@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: MediCenter WordPress Theme\n"
-"POT-Creation-Date: 2016-08-29 12:28+0800\n"
-"PO-Revision-Date: 2016-08-29 16:51+0800\n"
+"POT-Creation-Date: 2016-08-29 21:28+0800\n"
+"PO-Revision-Date: 2016-08-29 21:30+0800\n"
 "Last-Translator: \n"
 "Language-Team: QuanticaLabs\n"
 "Language: en_GB\n"
@@ -786,7 +786,7 @@ msgstr ""
 #: ../widgets/widget-scrolling-most-commented.php:103
 #: ../widgets/widget-scrolling-most-viewed.php:102
 #: ../widgets/widget-scrolling-recent-posts.php:95
-#: ../widgets/widget-twitter.php:114
+#: ../widgets/widget-twitter.php:116
 msgid "no"
 msgstr ""
 
@@ -807,7 +807,7 @@ msgstr ""
 #: ../widgets/widget-scrolling-most-commented.php:104
 #: ../widgets/widget-scrolling-most-viewed.php:103
 #: ../widgets/widget-scrolling-recent-posts.php:96
-#: ../widgets/widget-twitter.php:115
+#: ../widgets/widget-twitter.php:117
 msgid "yes"
 msgstr ""
 
@@ -1271,7 +1271,7 @@ msgstr ""
 
 #: ../layout_picker/layout_picker.php:82 ../theme-options.php:990
 msgid "Direction"
-msgstr ""
+msgstr "阅读方向"
 
 #: ../layout_picker/layout_picker.php:86 ../theme-options.php:994
 msgid "LTR"
@@ -1283,7 +1283,7 @@ msgstr ""
 
 #: ../layout_picker/layout_picker.php:91 ../theme-options.php:1000
 msgid "Animations"
-msgstr ""
+msgstr "动画"
 
 #: ../meta-box.php:8 ../meta-box.php:16 ../post-type-departments.php:131
 #: ../post-type-doctors.php:40 ../post-type-features.php:40
@@ -1534,7 +1534,7 @@ msgstr ""
 #: ../widgets/widget-scrolling-most-commented.php:97
 #: ../widgets/widget-scrolling-most-viewed.php:96
 #: ../widgets/widget-scrolling-recent-posts.php:89
-#: ../widgets/widget-twitter.php:108
+#: ../widgets/widget-twitter.php:110
 msgid "Title"
 msgstr ""
 
@@ -4363,7 +4363,7 @@ msgstr "保存选项"
 
 #: ../theme-options.php:809 ../theme-options.php:877
 msgid "Main"
-msgstr "重要"
+msgstr "主要"
 
 #: ../theme-options.php:815 ../theme-options.php:1033
 msgid "Slider"
@@ -4511,7 +4511,7 @@ msgstr ""
 
 #: ../theme-options.php:1009
 msgid "Collapsible mobile submenus"
-msgstr ""
+msgstr "折叠式手机菜单"
 
 #: ../theme-options.php:1018
 msgid "Google Maps API Key"
@@ -4997,7 +4997,7 @@ msgstr ""
 #: ../widgets/widget-scrolling-most-commented.php:101
 #: ../widgets/widget-scrolling-most-viewed.php:100
 #: ../widgets/widget-scrolling-recent-posts.php:93
-#: ../widgets/widget-twitter.php:112
+#: ../widgets/widget-twitter.php:114
 msgid "Title border animation"
 msgstr ""
 
@@ -5156,7 +5156,7 @@ msgstr ""
 #: ../widgets/widget-scrolling-most-commented.php:108
 #: ../widgets/widget-scrolling-most-viewed.php:107
 #: ../widgets/widget-scrolling-recent-posts.php:100
-#: ../widgets/widget-twitter.php:123
+#: ../widgets/widget-twitter.php:125
 msgid "Count"
 msgstr ""
 
@@ -5172,28 +5172,28 @@ msgstr ""
 msgid "Twitter Feed"
 msgstr ""
 
-#: ../widgets/widget-twitter.php:68
+#: ../widgets/widget-twitter.php:70
 msgid "Please check your config under Appearance->Widgets->Twitter Feed!"
 msgstr ""
 
-#: ../widgets/widget-twitter.php:119 ../woocommerce/myaccount/form-login.php:40
+#: ../widgets/widget-twitter.php:121 ../woocommerce/myaccount/form-login.php:40
 #: ../woocommerce/myaccount/form-login.php:59
 msgid "Login"
 msgstr ""
 
-#: ../widgets/widget-twitter.php:127
+#: ../widgets/widget-twitter.php:129
 msgid "Consumer key"
 msgstr ""
 
-#: ../widgets/widget-twitter.php:131
+#: ../widgets/widget-twitter.php:133
 msgid "Consumer secret"
 msgstr ""
 
-#: ../widgets/widget-twitter.php:135
+#: ../widgets/widget-twitter.php:137
 msgid "Access token"
 msgstr ""
 
-#: ../widgets/widget-twitter.php:139
+#: ../widgets/widget-twitter.php:141
 msgid "Access token secret"
 msgstr ""
 

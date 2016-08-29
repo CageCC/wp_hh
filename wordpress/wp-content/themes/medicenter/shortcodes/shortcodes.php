@@ -1084,12 +1084,13 @@ add_shortcode("sidebar_box", "theme_sidebar_box");
 
 
 
-//scroll top
+// scroll top
 function theme_scroll_top($atts, $content)
 {
 	extract(shortcode_atts(array(
 		"title" => "Scroll to top",
-		"label" => "Top"
+		// "label" => "Top"
+		"label" => '返回顶部'
 	), $atts));
 	
 	return '<a class="scroll_top icon_small_arrow top_white" href="#top" title="' . esc_attr($title) . '">' . esc_attr($label) . '</a>';

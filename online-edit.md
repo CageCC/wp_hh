@@ -1,5 +1,46 @@
 # 上线编辑操作
 
+### （尾部）版权修改：
+后台 -- 小工具 -- Theme Options -- 重要 -- 版权信息
+```
+<a href="javascript:;">@Copyright，版权归深圳龙城心血管医院所有</a>
+
+© Copyright - <a href='http://themeforest.net/user/QuanticaLabs/portfolio?ref=QuanticaLabs' target='_blank'>MediCenter Theme</a> by <a href='http://quanticalabs.com' title='QuanticaLabs' target='_blank'>QuanticaLabs</a>
+```
+
+### （尾部）修改版权 边框颜色
+后台 -- 小工具 -- Theme Options -- 基本 -- 其他 -- 版权区域边框颜色
+```
+    00406E
+    
+    
+```
+
+### （尾部）导航菜单
+后台 -- 小工具 -- Sidebar Footer Top 
+
+### (右侧边栏) 联系我们
+后台 -- 小工具 -- Sidebar Home Right 
+```
+<p class="info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut volutpat rutrum eros sit amet sollicitudin.</p>
+--
+<p class="info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut volutpat rutrum eros sit amet sollicitudin.</p>
+```
+
+### (右侧边栏) 科室导航
+后台 -- 小工具 -- Sidebar Home Right 
+
+```
+
+```
+
+
+
+
+
+- - - - -
+
+
 ### 关闭调试模式：
 站点根目录下 wp-config.php
 ```php

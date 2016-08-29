@@ -4188,3 +4188,7 @@ body .vc_row
 {
 	margin-left: 0;
 }
+/*---------- me -------------*/
+.floatr {
+	float: right;
+}

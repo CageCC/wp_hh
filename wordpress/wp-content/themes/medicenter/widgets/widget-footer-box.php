@@ -24,6 +24,12 @@ class footer_box_widget extends WP_Widget
 		$title_color = isset($instance['title_color']) ? $instance['title_color'] : "";
 		$url = isset($instance['url']) ? $instance['url'] : "";
 		$more_label = isset($instance['more_label']) ? $instance['more_label'] : "";
+
+		// ----
+		$url2 = isset($instance['url2']) ? $instance['url2'] : "";
+		$more_label2 = isset($instance['more_label2']) ? $instance['more_label2'] : "";
+		// ----
+
 		$content = isset($instance['content']) ? $instance['content'] : "";
 		$text_color = isset($instance['text_color']) ? $instance['text_color'] : "";
 		$color = isset($instance['color']) ? $instance['color'] : "";
@@ -43,13 +49,18 @@ class footer_box_widget extends WP_Widget
 			}
 			?>
 			<?php if($content!="" || $url!=""):	?>
-			<p<?php echo ($text_color!="" ? " style='color: #" . $text_color . ";'" : ""); ?>>	
+			<p class="clearfix" <?php echo ($text_color!="" ? " style='color: #" . $text_color . ";'" : ""); ?>>	
 			<?php 
 			if($content!="")
 				echo do_shortcode(apply_filters("widget_text", $content)); 
 			if($url!=""): ?>
 			<a class="icon_small_arrow right_white" href="<?php echo esc_attr($url); ?>" title="<?php echo esc_attr($more_label); ?>"><?php echo esc_attr($more_label); ?></a>
 			<?php endif;
+				if($url2!="") :
+			?>
+			<a class="icon_small_arrow right_white floatr" href="<?php echo esc_attr($url2); ?>" title="<?php echo esc_attr($more_label2); ?>"><?php echo esc_attr($more_label2); ?></a>
+			<?php
+				endif;
 			endif; ?>
 			</p>
 		</li>
@@ -65,6 +76,12 @@ class footer_box_widget extends WP_Widget
 		$instance['title_color'] = isset($new_instance['title_color']) ? strip_tags($new_instance['title_color']) : "";
 		$instance['url'] = isset($new_instance['url']) ? strip_tags($new_instance['url']) : "";
 		$instance['more_label'] = isset($new_instance['more_label']) ? strip_tags($new_instance['more_label']) : "";
+		// --
+
+		$instance['url2'] = isset($new_instance['url2']) ? strip_tags($new_instance['url2']) : "";
+		$instance['more_label2'] = isset($new_instance['more_label2']) ? strip_tags($new_instance['more_label2']) : "";
+
+		// ---
 		$instance['content'] = isset($new_instance['content']) ? $new_instance['content'] : "";
 		$instance['text_color'] = isset($new_instance['text_color']) ? $new_instance['text_color'] : "";
 		$instance['color'] = isset($new_instance['color']) ? strip_tags($new_instance['color']) : "";
@@ -106,6 +123,14 @@ class footer_box_widget extends WP_Widget
 		<p>
 			<label for="<?php echo $this->get_field_id('more_label'); ?>"><?php _e('More link label', 'medicenter'); ?></label>
 			<input class="widefat" id="<?php echo $this->get_field_id('more_label'); ?>" name="<?php echo $this->get_field_name('more_label'); ?>" type="text" value="<?php echo $more_label; ?>" />
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id('url2'); ?>"><?php _e('More link url 2', 'medicenter'); ?></label>
+			<input class="widefat" id="<?php echo $this->get_field_id('url2'); ?>" name="<?php echo $this->get_field_name('url2'); ?>" type="text" value="<?php echo $url2; ?>" />
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id('more_label2'); ?>"><?php _e('More link label 2', 'medicenter'); ?></label>
+			<input class="widefat" id="<?php echo $this->get_field_id('more_label2'); ?>" name="<?php echo $this->get_field_name('more_label2'); ?>" type="text" value="<?php echo $more_label2; ?>" />
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_id('content'); ?>"><?php _e('Content', 'medicenter'); ?></label>
