@@ -27,11 +27,23 @@
 <p class="info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut volutpat rutrum eros sit amet sollicitudin.</p>
 ```
 
-### (右侧边栏) 科室导航
+### (右侧边栏) 科室导航 -- 待修改
 后台 -- 小工具 -- Sidebar Home Right 
 
 ```
 
+```
+
+### （body） 医疗环境
+后台 -- 页面 -- Home
+
+添加代码：指定分类 category="28,34"
+```
+[vc_row top_margin="none" el_position="first last"]
+	[vc_column top_margin="none"]
+		[medicenter_gallery shortcode_type="gallery" header="医疗环境" order_by="menu_order,title" order="ASC" type="list_with_details" layout="gallery_4_columns" featured_image_size="default" title_box="0" details_page="-" display_method="dm_carousel" all_label="All Departments" id="carousel" autoplay="0" pause_on_hover="1" scroll="1" effect="scroll" easing="swing" duration="500" items_per_page="4" ajax_pagination="1" ids="-"  display_headers="1" headers_type="h2" display_social_icons="0" images_loop="0" lightbox_icon_color="blue_light" top_margin="page_margin_top" el_position="first last" animation="1"]
+	[/vc_column]
+[/vc_row]
 ```
 
 

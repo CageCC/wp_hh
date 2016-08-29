@@ -34,6 +34,7 @@ get_header();
 			endif;
 			?>
 		</div>
+		<!-- have_posts -->
 		<div class="clearfix">
 			<?php
 			if(have_posts()) : while (have_posts()) : the_post();
@@ -41,6 +42,7 @@ get_header();
 			endwhile; endif;
 			?>
 		</div>
+		<!-- /have_posts -->
 	</div>
 </div>
 <?php

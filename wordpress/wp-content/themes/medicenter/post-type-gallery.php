@@ -17,6 +17,7 @@ function theme_gallery_init()
 		'parent_item_colon' => '',
 		'menu_name' => __("Gallery", 'medicenter')
 	);
+
 	$args = array(  
 		"labels" => $labels, 
 		"public" => true,  
@@ -27,10 +28,15 @@ function theme_gallery_init()
 		"rewrite" => true,  
 		"supports" => array("title", "editor", "excerpt", "thumbnail", "page-attributes")  
 	);
+
 	register_post_type("medicenter_gallery", $args);
+
+
 	register_taxonomy("medicenter_gallery_category", array("medicenter_gallery"), array("label" => "Categories", "singular_label" => "Category", "rewrite" => true));
 }  
 add_action("init", "theme_gallery_init"); 
+
+
 
 //Adds a box to the right column and to the main column on the Gallery items edit screens
 function theme_add_gallery_custom_box() 
@@ -45,6 +51,7 @@ function theme_add_gallery_custom_box()
     );
 }
 add_action("add_meta_boxes", "theme_add_gallery_custom_box");
+
 //backwards compatible (before WP 3.0)
 //add_action("admin_init", "theme_add_custom_box", 1);
 
@@ -324,6 +331,8 @@ function theme_inner_gallery_custom_box_main($post)
 	</div>';
 }
 
+
+
 //When the post is saved, saves our custom data
 function theme_save_gallery_postdata($post_id) 
 {
@@ -424,15 +433,17 @@ function theme_gallery_vc_init()
 	));
 	$gallery_items_array = array();
 	$gallery_items_array[__("All", 'medicenter')] = "-";
-	foreach($gallery_items_list as $gallery_item)
+	foreach($gallery_items_list as $gallery_item) {
 		$gallery_items_array[$gallery_item->post_title . " (id:" . $gallery_item->ID . ")"] = $gallery_item->ID;
+	}
 
 	//get gallery items categories list
 	$gallery_items_categories = get_terms("medicenter_gallery_category");
 	$gallery_items_categories_array = array();
 	$gallery_items_categories_array[__("All", 'medicenter')] = "-";
-	foreach($gallery_items_categories as $gallery_items_category)
+	foreach($gallery_items_categories as $gallery_items_category) {
 		$gallery_items_categories_array[$gallery_items_category->name] =  $gallery_items_category->slug;
+	}
 	
 	//get all pages
 	global $medicenter_pages_array;

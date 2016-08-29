@@ -3,8 +3,13 @@ function theme_gallery_shortcode($atts, $content='', $tag='medicenter_gallery')
 {
 	global $themename;
 	global $post;
-	if(isset($_GET["atts"]))//$_GET["action"]=="theme_" . $atts['shortcode_type'] . "_pagination")
+
+	if(isset($_GET["atts"])) {
+		//$_GET["action"]=="theme_" . $atts['shortcode_type'] . "_pagination")
 		$atts = unserialize(stripslashes($_GET["atts"]));
+	}
+
+
 	extract(shortcode_atts(array(
 		"shortcode_type" => "",
 		"header" => "",
@@ -65,44 +70,69 @@ function theme_gallery_shortcode($atts, $content='', $tag='medicenter_gallery')
 		unset($ids[0]);
 		$ids = array_values($ids);
 	}
+
+	// 分类
 	$category = explode(",", $category);
 	if($category[0]=="-" || $category[0]=="")
 	{
 		unset($category[0]);
 		$category = array_values($category);
 	}
-	if(empty($shortcode_type))
+
+	if(empty($shortcode_type)) {
 		$shortcode_type = $tag;
+	}
+
+
 	$args = array( 
 		'post__in' => $ids,
 		'post_type' => ($shortcode_type=='gallery' ? 'medicenter_gallery' : $shortcode_type),
 		'posts_per_page' => ($display_method=="dm_pagination" ? $items_per_page : '-1'),
 		'post_status' => 'publish',
-		($shortcode_type=='gallery' ? 'medicenter_gallery' : $shortcode_type) . '_category' => implode(",", $category),
+		// ($shortcode_type=='gallery' ? 'medicenter_gallery' : $shortcode_type) . '_category' => implode(",", $category),
 		'orderby' => implode(" ", explode(",", $order_by)), 
 		'order' => $order
 	);
+
+	// if(!empty($category)) {
+	// 	$args['category__in'] = $category;
+	// }
+
 	if($display_method=="dm_pagination")
 	{
-		if(isset($_GET["action"]) && $_GET["action"]=="theme_" . $shortcode_type . "_pagination")
+		if(isset($_GET["action"]) && $_GET["action"]=="theme_" . $shortcode_type . "_pagination") {
 			$args['paged'] = (int)$_GET['paged'];
-		else
+		}
+		else {
 			$args['paged'] = get_query_var('paged');
+		}
 	}
+
+	
 	query_posts($args);
+
 	global $wp_query; 
 	$post_count = $wp_query->post_count;
 	
+	// --
+	// var_dump($wp_query->request);exit;
+	// $the_query = new WP_Query( $args );
+	// var_dump($the_query->request);exit;
 	$output = "";
 	if(have_posts())
 	{
 		if($display_method=="dm_pagination" && ((isset($_GET["action"]) && $_GET["action"]!="theme_" . $shortcode_type . "_pagination") || !isset($_GET["action"])))
 			$output .= "<div class='theme_" . $shortcode_type . "_pagination'>";
+
+
 		//details
 		if($type=="list_with_details" || $type=="details")
 		{
 			$output .= '<ul class="gallery_item_details_list clearfix' . ($type=="details" ? ' not_hidden' : '') . ($top_margin!="none" ? ' ' . $top_margin : '') . '">';
 			while(have_posts()): the_post();
+			$cat1 = the_category();
+
+			// var_dump($cat1);exit;
 			$output .= '<li id="gallery-details-' . $post->post_name . '" class="gallery_item_details clearfix">
 					<div class="columns no_width">
 						<div class="column_left">';
@@ -230,10 +260,14 @@ function theme_gallery_shortcode($atts, $content='', $tag='medicenter_gallery')
 					$output .= '</div>
 					</div>
 				</div>';
+
 			endwhile;
+
 			$output .= '</ul>';
 		}
 		
+
+		// ! details
 		if($type!="details")
 		{
 			if($header!="" && $display_method!="dm_carousel")
@@ -259,13 +293,16 @@ function theme_gallery_shortcode($atts, $content='', $tag='medicenter_gallery')
 			}
 
 			//list
-			if($display_method=="dm_carousel")
+			if($display_method=="dm_carousel") {
 				$output .= '<div class="clearfix' . ($top_margin!="none" ? ' ' . $top_margin : '') . '">
 				<div class="header_left">' . ($header!="" ? '<h3 class="box_header' . ((int)$animation ? ' animation-slide' : '') . '">' . $header . '</h3>' : '') . '</div>
 				<div class="header_right"><a href="#" id="' . $id . '_prev" class="scrolling_list_control_left icon_small_arrow left_black"></a><a href="#" id="' . $id . '_next" class="scrolling_list_control_right icon_small_arrow right_black"></a></div></div>
 				<ul class="mc_gallery ' . $layout . ' horizontal_carousel ' . $id . ' id-' . $id . ' autoplay-' . $autoplay . ' pause_on_hover-' . $pause_on_hover . ' scroll-' . $scroll . ' effect-' . $effect . ' easing-' . $newEasing . ' duration-' . $duration . /*((int)$ontouch ? ' ontouch' : '') . ((int)$onmouse ? ' onmouse' : '') .*/ '">';
-			else
+			}
+			else {
 				$output .= '<ul class="mc_gallery ' . $layout . '">';
+			}
+
 			while(have_posts()): the_post();
 				$categories = array_filter((array)get_the_terms(get_the_ID(), ($shortcode_type=='gallery' ? "medicenter_gallery" : $shortcode_type) . "_category"));
 				$categories_count = count($categories);
