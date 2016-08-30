@@ -45,10 +45,38 @@
 	[/vc_column]
 [/vc_row]
 ```
+### （body）轮播图
+后台 -- 外观 -- Theme Options -- 轮播图
 
 
+### （body）顶部菜单
+后台 -- 外观 -- 小工具 -- sliderbar home top
+链接：可留空，可填page名称，可填完整链接
 
 
+```
+[items_list style='simple' top_margin='none' class='thin opening_hours']
+	[item class='clearfix' value='8.00 - 17.00']Monday - Friday[/item]
+	[item class='clearfix' value='9.30 - 17.30']Saturday[/item]
+	[item class='clearfix' value='9.30 - 15.00']Sunday[/item]
+[/items_list]
+```
+
+
+### （body）首页主体输出 
+后台 -- 页面 -- home
+医院动态
+category: 可选取分类
+查看更多  Show all
+```php
+[vc_row top_margin="page_margin_top" el_position="first last"][vc_column top_margin="none" width="2/3"][box_header title="医院动态" type="h3" bottom_border="1" top_margin="none" el_position="first" animation="1"][blog mc_pagination="0" items_per_page="4" featured_image_size="default" layout_type="2" ids="-" category="-" order_by="date" order="desc" show_post_title="1" read_more="0" show_post_categories="0" show_post_author="0" show_post_comments_box="0" lightbox_icon_color="blue_light" top_margin="none"][show_all_button title="Show all →" url="blog" el_position="last"][/vc_column][vc_column top_margin="none" width="1/3"][vc_widget_sidebar sidebar_id="sidebar-home-right" top_margin="none" el_position="first last"][/vc_column][/vc_row]
+```
+
+### （header）菜单制作
+后台 -- 外观 -- 菜单 -- 编辑 页面菜单
+
+
+end =================================
 
 - - - - -
 

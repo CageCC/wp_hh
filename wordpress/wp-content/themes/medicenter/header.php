@@ -81,9 +81,12 @@
 			$header_layout_type = (isset($_COOKIE['mc_header_type']) && (int)$_COOKIE['mc_header_type'] ? (int)$_COOKIE['mc_header_type'] : (isset($theme_options["header_layout_type"]) ? (int)$theme_options["header_layout_type"] : 1));
 			?>
 			<div class="header_container <?php echo (($header_layout_type==1 || $header_layout_type==4) && ((!empty($_COOKIE['mc_sticky_menu']) && (int)$_COOKIE['mc_sticky_menu']==1) || (!empty($theme_options["sticky_menu"]) && (int)$theme_options["sticky_menu"]==1 && (!isset($_COOKIE['mc_sticky_menu']) || (int)$_COOKIE['mc_sticky_menu']==1 ))) ? "sticky" : "")?>">
+
 				<div class="header clearfix layout_<?php echo ($header_layout_type==3 ? $header_layout_type . ' layout_2' : $header_layout_type); ?>">
 					<?php
+
 					if(is_active_sidebar('header-top')):
+						echo '<!-- header-top -->';
 					?>
 					<div class="header_top_sidebar clearfix">
 					<?php
@@ -112,16 +115,16 @@
 							{
 								?>
 								<div class="header_top_right_sidebar_container">
-								<div class="header_top_right_sidebar clearfix">
-									<?php
-									dynamic_sidebar('sidebar-header-top-right');
-									$header_top_right_sidebar_visible = true;
-									?>
-								</div>
+									<div class="header_top_right_sidebar clearfix">
+								<?php
+										dynamic_sidebar('sidebar-header-top-right');
+										$header_top_right_sidebar_visible = true;
+								?>
+									</div>
 								</div>
 								<?php
-							}
-							else if(isset($theme_options["header_top_right_sidebar"]) && $theme_options["header_top_right_sidebar"]!="")
+
+							} else if(isset($theme_options["header_top_right_sidebar"]) && $theme_options["header_top_right_sidebar"]!="")
 							{
 								?>
 								<div class="header_top_right_sidebar_container">
@@ -144,22 +147,35 @@
 						}
 						?>
 					</div>
+					<!-- /header_left -->
 					<?php 
+					// $header_layout_type == 1/4
 					if($header_layout_type!=2 && $header_layout_type!=3)
 					{
 						// Get menu object
+						// 菜单定位(register_nav_menu)
+						// main-menu
+						// menu-page
+						// 主题默认的为：main-menu
+						// 修改为定制的：menu-page
 						$locations = get_nav_menu_locations();
-						if(isset($locations["main-menu"]))
+
+						
+						if(isset($locations["menu-page"]))
 						{
-							$main_menu_object = get_term($locations["main-menu"], "nav_menu");
-							if(has_nav_menu("main-menu") && $main_menu_object->count>0) 
+							// 分类列表
+							$main_menu_object = get_term($locations["menu-page"], "nav_menu");
+							// var_dump($main_menu_object);exit;
+							if(has_nav_menu("menu-page") && $main_menu_object->count>0) 
 							{
+								echo '<!-- main menu -->';
 								wp_nav_menu(array(
-									"theme_location" => "main-menu",
+									"theme_location" => "menu-page",
 									"menu_class" => "sf-menu header_right"
 								));
 								
 							?>
+							<!-- mobile menu -->
 							<div class="mobile_menu_container clearfix">
 								<a href="#" class="mobile-menu-switch">
 									<span class="line"></span>
@@ -171,7 +187,7 @@
 								wp_nav_menu(array(
 									'container'			=> 'nav',
 									'container_class'	=> 'mobile_menu' . (!isset($theme_options["collapsible_mobile_submenus"]) || (int)$theme_options["collapsible_mobile_submenus"] ? " collapsible-mobile-submenus" : ""),
-									'theme_location'	=> 'main-menu',
+									'theme_location'	=> 'menu-page',
 									"walker" => (!isset($theme_options["collapsible_mobile_submenus"]) || (int)$theme_options["collapsible_mobile_submenus"] ? new Mobile_Menu_Walker_Nav_Menu() : '')
 								));
 								?>

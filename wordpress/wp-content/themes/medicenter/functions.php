@@ -277,6 +277,8 @@ function theme_after_setup_theme()
 	if(function_exists("register_nav_menu"))
 	{
 		register_nav_menu("main-menu", "Main Menu");
+
+		register_nav_menu("menu-page", __( '页面菜单', 'medicenter' ));
 	}
 	
 

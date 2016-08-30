@@ -2,6 +2,9 @@
 /**
  * shortcode: blog
  *
+ *
+ * 如 首页page 输出 文章
+ *
  */
 function theme_blog($atts, $content)
 {
@@ -124,13 +127,23 @@ function theme_blog($atts, $content)
 				$output .= '<ul class="comment_box clearfix">';
 							if((int)$layout_type!=2 || (int)$show_post_date_box)
 							{
+								/**
+								// 格式化时间
 							$output .= '<li class="date' . ((int)$layout_type!=2 ? ' clearfix' : '' ) . ($post_date_animation!='' ? ' animated_element animation-' . $post_date_animation . ((int)$post_date_animation_duration>0 && (int)$post_date_animation_duration!=600 ? ' duration-' . (int)$post_date_animation_duration : '') . ((int)$post_date_animation_delay>0 ? ' delay-' . (int)$post_date_animation_delay : '') : '') . '">
 								<div class="value">' . mb_strtoupper(date_i18n("d M y", get_post_time())) . '</div>
+								<div class="arrow_date"></div>
+							</li>';
+								**/
+
+								$output .= '<li class="date' . ((int)$layout_type!=2 ? ' clearfix' : '' ) . ($post_date_animation!='' ? ' animated_element animation-' . $post_date_animation . ((int)$post_date_animation_duration>0 && (int)$post_date_animation_duration!=600 ? ' duration-' . (int)$post_date_animation_duration : '') . ((int)$post_date_animation_delay>0 ? ' delay-' . (int)$post_date_animation_delay : '') : '') . '">
+								<div class="value">' . mb_strtoupper(date("m月d号", get_post_time())) . '</div>
 								<div class="arrow_date"></div>
 							</li>';
 							}
 
 
+							
+							// 取消评论个数
 							if((int)$show_post_comments_box)
 							{
 								$output .= '<li class="comments_number' . ($post_comments_animation!='' ? ' animated_element animation-' . $post_comments_animation . ((int)$post_comments_animation_duration>0 && (int)$post_comments_animation_duration!=600 ? ' duration-' . (int)$post_comments_animation_duration : '') . ((int)$post_comments_animation_delay>0 ? ' delay-' . (int)$post_comments_animation_delay : '') : '') . '">';
@@ -140,6 +153,7 @@ function theme_blog($atts, $content)
 								$output .= '			<a href="' . get_comments_link() . '" title="' . $comments_count . ' ' . ($comments_count==1 ? __('comment', 'medicenter') : __('comments', 'medicenter')) . '">' . $comments_count . ((int)$show_post_comments_label ? ' ' . ($comments_count==1 ? __('comment', 'medicenter') : __('comments', 'medicenter')) : '') . '</a>
 							</li>';
 							}
+							
 
 
 						$output .= '</ul>';
@@ -212,11 +226,18 @@ function theme_blog($atts, $content)
 						$output .= apply_filters('the_excerpt', get_the_excerpt() . ((int)$read_more && (int)$layout_type==3 ? '<a title="' . __('Read more', 'medicenter') . '" href="' . get_permalink() . '" class="more">' . __('Read more &rarr;', 'medicenter') . '</a>' : ''));
 						if((int)$layout_type==3)
 							$output .=  '</div>';
-							if((int)$read_more && (int)$layout_type!=3)
+							if((int)$read_more && (int)$layout_type!=3) {
 								$output .= '<a title="' . __('Read more', 'medicenter') . '" href="' . get_permalink() . '" class="more">' . __('Read more &rarr;', 'medicenter') . '</a>';
+							}
+
+							// reset 
+							// $show_post_categories = 0;
+							// $show_post_author = 0;
+							// $show_post_date_footer = 0;
+							// end reset
 							if((int)$show_post_categories || (int)$show_post_author || (int)$show_post_date_footer)
 							{
-		$output .= '		<div class="post_footer clearfix">';
+								$output .= '		<div class="post_footer clearfix">';
 								if((int)$show_post_categories)
 								{
 								$output .= '<ul class="post_footer_details">';
@@ -233,16 +254,17 @@ function theme_blog($atts, $content)
 										$output .= '>' . $category->name . '</a>' . ($category != end($categories) ? ', ' : '') . '
 										</li>';
 									}
-		$output .= '			</ul>';
+									$output .= '			</ul>';
 								}
+
 								if((int)$show_post_author)
 								{
-								$output .= '<ul class="post_footer_details">
-									<li>' . __('Posted by', 'medicenter') . '</li>
-									<li>
-										' . (get_the_author_meta("user_url")!="" ? '<a class="author" href="' . get_the_author_meta("user_url") . '" title="' . get_the_author() . '">' . get_the_author() . '</a>' : get_the_author()) . '
-									</li>
-								</ul>';
+									$output .= '<ul class="post_footer_details">
+										<li>' . __('Posted by', 'medicenter') . '</li>
+										<li>
+											' . (get_the_author_meta("user_url")!="" ? '<a class="author" href="' . get_the_author_meta("user_url") . '" title="' . get_the_author() . '">' . get_the_author() . '</a>' : get_the_author()) . '
+										</li>
+									</ul>';
 								}
 								if((int)$show_post_date_footer)
 								{
@@ -253,6 +275,8 @@ function theme_blog($atts, $content)
 									</li>
 								</ul>';
 								}
+
+
 								if((int)$show_post_comments_footer)
 								{
 								$comments_count = get_comments_number();
@@ -262,8 +286,10 @@ function theme_blog($atts, $content)
 									</li>
 								</ul>';
 								}
-							$output .= '</div>';
+
+								$output .= '</div>';
 							}
+
 		$output .= ((int)$layout_type!=3 ? '</div>' : '') .	'</li>';
 		$i++;
 	endwhile; 

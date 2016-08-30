@@ -2049,7 +2049,8 @@ function medicenter_options()
 			</div>
 			<div class="footer_right">
 				<input type="hidden" name="action" value="<?php echo $themename; ?>_save" />
-				<input type="submit" name="submit" value="Save Options" />
+				<!--Save Options-->
+				<input type="submit" name="submit" value="保存选项" />
 				<img id="theme_options_preloader" src="<?php echo get_template_directory_uri();?>/admin/images/ajax-loader.gif" />
 				<img id="theme_options_tick" src="<?php echo get_template_directory_uri();?>/admin/images/tick.png" />
 			</div>

@@ -89,7 +89,7 @@ function theme_gallery_shortcode($atts, $content='', $tag='medicenter_gallery')
 		'post_type' => ($shortcode_type=='gallery' ? 'medicenter_gallery' : $shortcode_type),
 		'posts_per_page' => ($display_method=="dm_pagination" ? $items_per_page : '-1'),
 		'post_status' => 'publish',
-		// ($shortcode_type=='gallery' ? 'medicenter_gallery' : $shortcode_type) . '_category' => implode(",", $category),
+		($shortcode_type=='gallery' ? 'medicenter_gallery' : $shortcode_type) . '_category' => implode(",", $category),
 		'orderby' => implode(" ", explode(",", $order_by)), 
 		'order' => $order
 	);

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: MediCenter WordPress Theme\n"
-"POT-Creation-Date: 2016-08-29 21:31+0800\n"
-"PO-Revision-Date: 2016-08-30 08:27+0800\n"
+"POT-Creation-Date: 2016-08-31 00:16+0800\n"
+"PO-Revision-Date: 2016-08-31 01:16+0800\n"
 "Last-Translator: \n"
 "Language-Team: QuanticaLabs\n"
 "Language: en_GB\n"
@@ -75,8 +75,8 @@ msgid "Add New List Item"
 msgstr "添加新列表项"
 
 #: ../admin/functions.php:325 ../class-tgm-plugin-activation.php:2642
-#: ../post-type-doctors.php:511 ../post-type-features.php:377
-#: ../post-type-gallery.php:499 ../shortcodes/icon.php:152
+#: ../post-type-doctors.php:562 ../post-type-features.php:377
+#: ../post-type-gallery.php:510 ../shortcodes/icon.php:152
 #: ../shortcodes/items_list.php:108 ../shortcodes/notification_box.php:54
 #: ../shortcodes/shortcodes.php:730
 msgid "Type"
@@ -116,16 +116,16 @@ msgstr "Url"
 msgid "Url target"
 msgstr "链接 目标"
 
-#: ../admin/functions.php:357 ../post-type-doctors.php:151
-#: ../post-type-doctors.php:220 ../post-type-gallery.php:150
-#: ../post-type-gallery.php:197 ../shortcodes/icon.php:217
+#: ../admin/functions.php:357 ../post-type-doctors.php:169
+#: ../post-type-doctors.php:238 ../post-type-gallery.php:157
+#: ../post-type-gallery.php:204 ../shortcodes/icon.php:217
 #: ../widgets/widget-cart-icon.php:88
 msgid "new window"
 msgstr "新窗口"
 
-#: ../admin/functions.php:358 ../post-type-doctors.php:150
-#: ../post-type-doctors.php:219 ../post-type-gallery.php:149
-#: ../post-type-gallery.php:196 ../shortcodes/icon.php:218
+#: ../admin/functions.php:358 ../post-type-doctors.php:168
+#: ../post-type-doctors.php:237 ../post-type-gallery.php:156
+#: ../post-type-gallery.php:203 ../shortcodes/icon.php:218
 #: ../widgets/widget-cart-icon.php:87
 msgid "same window"
 msgstr "当前窗口"
@@ -646,12 +646,12 @@ msgstr ""
 msgid "Please enter your message"
 msgstr ""
 
-#: ../comments.php:12 ../shortcodes/blog.php:140 ../shortcodes/blog.php:261
+#: ../comments.php:12 ../shortcodes/blog.php:153 ../shortcodes/blog.php:285
 #: ../shortcodes/single-post.php:58
 msgid "comments"
 msgstr ""
 
-#: ../comments.php:12 ../shortcodes/blog.php:140 ../shortcodes/blog.php:261
+#: ../comments.php:12 ../shortcodes/blog.php:153 ../shortcodes/blog.php:285
 #: ../shortcodes/single-post.php:58
 msgid "comment"
 msgstr ""
@@ -729,9 +729,9 @@ msgstr ""
 msgid "Contact form"
 msgstr ""
 
-#: ../contact_form.php:108 ../post-type-doctors.php:478
-#: ../post-type-features.php:358 ../post-type-gallery.php:466
-#: ../shortcodes/announcement_box.php:49 ../shortcodes/blog.php:329
+#: ../contact_form.php:108 ../post-type-doctors.php:529
+#: ../post-type-features.php:358 ../post-type-gallery.php:477
+#: ../shortcodes/announcement_box.php:49 ../shortcodes/blog.php:355
 #: ../shortcodes/carousel.php:392 ../shortcodes/icon.php:147
 #: ../shortcodes/items_list.php:103 ../shortcodes/map.php:88
 #: ../shortcodes/notification_box.php:36 ../shortcodes/photostream.php:130
@@ -743,8 +743,8 @@ msgstr ""
 msgid "MediCenter"
 msgstr ""
 
-#: ../contact_form.php:113 ../post-type-doctors.php:573
-#: ../post-type-gallery.php:561 ../shortcodes/carousel.php:167
+#: ../contact_form.php:113 ../post-type-doctors.php:624
+#: ../post-type-gallery.php:572 ../shortcodes/carousel.php:167
 #: ../shortcodes/map.php:101 ../shortcodes/photostream.php:135
 #: ../shortcodes/pricing_table.php:29 ../shortcodes/shortcodes.php:833
 #: ../shortcodes/small_slider.php:138 ../shortcodes/testimonials.php:62
@@ -755,24 +755,24 @@ msgstr ""
 msgid "Please provide unique id for each contact form on the same page/post"
 msgstr ""
 
-#: ../contact_form.php:121 ../post-type-doctors.php:483
-#: ../post-type-gallery.php:471 ../shortcodes/announcement_box.php:55
+#: ../contact_form.php:121 ../post-type-doctors.php:534
+#: ../post-type-gallery.php:482 ../shortcodes/announcement_box.php:55
 #: ../shortcodes/carousel.php:175 ../shortcodes/items_list.php:116
 #: ../shortcodes/notification_box.php:41 ../shortcodes/testimonials.php:70
 #: ../theme-options.php:865 ../theme-options.php:1878
 msgid "Header"
 msgstr "头部"
 
-#: ../contact_form.php:128 ../post-type-doctors.php:490
-#: ../post-type-gallery.php:478 ../shortcodes/carousel.php:182
+#: ../contact_form.php:128 ../post-type-doctors.php:541
+#: ../post-type-gallery.php:489 ../shortcodes/carousel.php:182
 #: ../shortcodes/items_list.php:123 ../shortcodes/testimonials.php:77
 msgid "Header border animation"
 msgstr ""
 
 #: ../contact_form.php:130 ../contact_form.php:137
 #: ../layout_picker/layout_picker.php:96 ../meta-box.php:120
-#: ../post-type-doctors.php:342 ../post-type-doctors.php:492
-#: ../post-type-gallery.php:319 ../post-type-gallery.php:480
+#: ../post-type-doctors.php:360 ../post-type-doctors.php:543
+#: ../post-type-gallery.php:326 ../post-type-gallery.php:491
 #: ../shortcodes/carousel.php:184 ../shortcodes/items_list.php:125
 #: ../shortcodes/map.php:170 ../shortcodes/map.php:177
 #: ../shortcodes/map.php:184 ../shortcodes/shortcodes.php:739
@@ -792,8 +792,8 @@ msgstr ""
 
 #: ../contact_form.php:130 ../contact_form.php:137
 #: ../layout_picker/layout_picker.php:95 ../meta-box.php:119
-#: ../post-type-doctors.php:341 ../post-type-doctors.php:492
-#: ../post-type-gallery.php:318 ../post-type-gallery.php:480
+#: ../post-type-doctors.php:359 ../post-type-doctors.php:543
+#: ../post-type-gallery.php:325 ../post-type-gallery.php:491
 #: ../shortcodes/carousel.php:184 ../shortcodes/items_list.php:125
 #: ../shortcodes/map.php:170 ../shortcodes/map.php:177
 #: ../shortcodes/map.php:184 ../shortcodes/shortcodes.php:739
@@ -819,9 +819,9 @@ msgstr ""
 msgid "Department select box title"
 msgstr ""
 
-#: ../contact_form.php:149 ../post-type-doctors.php:767
-#: ../post-type-features.php:464 ../post-type-gallery.php:755
-#: ../shortcodes/announcement_box.php:181 ../shortcodes/blog.php:559
+#: ../contact_form.php:149 ../post-type-doctors.php:818
+#: ../post-type-features.php:464 ../post-type-gallery.php:766
+#: ../shortcodes/announcement_box.php:181 ../shortcodes/blog.php:585
 #: ../shortcodes/carousel.php:380 ../shortcodes/icon.php:239
 #: ../shortcodes/items_list.php:180 ../shortcodes/map.php:224
 #: ../shortcodes/notification_box.php:100 ../shortcodes/photostream.php:196
@@ -834,9 +834,9 @@ msgstr ""
 msgid "Top margin"
 msgstr ""
 
-#: ../contact_form.php:151 ../post-type-doctors.php:769
-#: ../post-type-features.php:466 ../post-type-gallery.php:757
-#: ../shortcodes/announcement_box.php:183 ../shortcodes/blog.php:561
+#: ../contact_form.php:151 ../post-type-doctors.php:820
+#: ../post-type-features.php:466 ../post-type-gallery.php:768
+#: ../shortcodes/announcement_box.php:183 ../shortcodes/blog.php:587
 #: ../shortcodes/carousel.php:382 ../shortcodes/icon.php:241
 #: ../shortcodes/items_list.php:132 ../shortcodes/items_list.php:182
 #: ../shortcodes/map.php:226 ../shortcodes/notification_box.php:102
@@ -849,9 +849,9 @@ msgstr ""
 msgid "Page (small)"
 msgstr ""
 
-#: ../contact_form.php:151 ../post-type-doctors.php:769
-#: ../post-type-features.php:466 ../post-type-gallery.php:757
-#: ../shortcodes/announcement_box.php:183 ../shortcodes/blog.php:561
+#: ../contact_form.php:151 ../post-type-doctors.php:820
+#: ../post-type-features.php:466 ../post-type-gallery.php:768
+#: ../shortcodes/announcement_box.php:183 ../shortcodes/blog.php:587
 #: ../shortcodes/carousel.php:382 ../shortcodes/icon.php:241
 #: ../shortcodes/items_list.php:132 ../shortcodes/items_list.php:182
 #: ../shortcodes/map.php:226 ../shortcodes/notification_box.php:102
@@ -864,9 +864,9 @@ msgstr ""
 msgid "Section (large)"
 msgstr ""
 
-#: ../contact_form.php:151 ../post-type-doctors.php:769
-#: ../post-type-features.php:466 ../post-type-gallery.php:757
-#: ../shortcodes/announcement_box.php:183 ../shortcodes/blog.php:561
+#: ../contact_form.php:151 ../post-type-doctors.php:820
+#: ../post-type-features.php:466 ../post-type-gallery.php:768
+#: ../shortcodes/announcement_box.php:183 ../shortcodes/blog.php:587
 #: ../shortcodes/carousel.php:382 ../shortcodes/icon.php:241
 #: ../shortcodes/items_list.php:132 ../shortcodes/items_list.php:182
 #: ../shortcodes/map.php:226 ../shortcodes/notification_box.php:102
@@ -1155,8 +1155,8 @@ msgstr ""
 msgid "Latest Posts"
 msgstr ""
 
-#: ../layout_picker/layout_picker.php:6 ../post-type-doctors.php:518
-#: ../post-type-gallery.php:506
+#: ../layout_picker/layout_picker.php:6 ../post-type-doctors.php:569
+#: ../post-type-gallery.php:517
 msgid "Layout"
 msgstr ""
 
@@ -1180,12 +1180,12 @@ msgstr ""
 msgid "Header type"
 msgstr ""
 
-#: ../layout_picker/layout_picker.php:46 ../shortcodes/blog.php:358
+#: ../layout_picker/layout_picker.php:46 ../shortcodes/blog.php:384
 #: ../shortcodes/single-post.php:212 ../theme-options.php:1884
 msgid "Type 1"
 msgstr ""
 
-#: ../layout_picker/layout_picker.php:47 ../shortcodes/blog.php:358
+#: ../layout_picker/layout_picker.php:47 ../shortcodes/blog.php:384
 #: ../shortcodes/single-post.php:212 ../theme-options.php:1885
 msgid "Type 2"
 msgstr ""
@@ -1203,22 +1203,22 @@ msgid "Top sidebar"
 msgstr ""
 
 #: ../layout_picker/layout_picker.php:57 ../layout_picker/layout_picker.php:67
-#: ../layout_picker/layout_picker.php:78 ../post-type-doctors.php:534
-#: ../post-type-doctors.php:541 ../post-type-doctors.php:584
-#: ../post-type-doctors.php:592 ../post-type-doctors.php:684
-#: ../post-type-doctors.php:706 ../post-type-doctors.php:722
-#: ../post-type-doctors.php:729 ../post-type-features.php:407
+#: ../layout_picker/layout_picker.php:78 ../post-type-doctors.php:585
+#: ../post-type-doctors.php:592 ../post-type-doctors.php:635
+#: ../post-type-doctors.php:643 ../post-type-doctors.php:735
+#: ../post-type-doctors.php:757 ../post-type-doctors.php:773
+#: ../post-type-doctors.php:780 ../post-type-features.php:407
 #: ../post-type-features.php:414 ../post-type-features.php:421
-#: ../post-type-features.php:428 ../post-type-gallery.php:522
-#: ../post-type-gallery.php:529 ../post-type-gallery.php:572
-#: ../post-type-gallery.php:580 ../post-type-gallery.php:672
-#: ../post-type-gallery.php:694 ../post-type-gallery.php:710
-#: ../post-type-gallery.php:717 ../shortcodes/blog.php:336
-#: ../shortcodes/blog.php:395 ../shortcodes/blog.php:402
-#: ../shortcodes/blog.php:409 ../shortcodes/blog.php:416
-#: ../shortcodes/blog.php:423 ../shortcodes/blog.php:431
-#: ../shortcodes/blog.php:439 ../shortcodes/blog.php:515
-#: ../shortcodes/blog.php:522 ../shortcodes/carousel.php:243
+#: ../post-type-features.php:428 ../post-type-gallery.php:533
+#: ../post-type-gallery.php:540 ../post-type-gallery.php:583
+#: ../post-type-gallery.php:591 ../post-type-gallery.php:683
+#: ../post-type-gallery.php:705 ../post-type-gallery.php:721
+#: ../post-type-gallery.php:728 ../shortcodes/blog.php:362
+#: ../shortcodes/blog.php:421 ../shortcodes/blog.php:428
+#: ../shortcodes/blog.php:435 ../shortcodes/blog.php:442
+#: ../shortcodes/blog.php:449 ../shortcodes/blog.php:457
+#: ../shortcodes/blog.php:465 ../shortcodes/blog.php:541
+#: ../shortcodes/blog.php:548 ../shortcodes/carousel.php:243
 #: ../shortcodes/carousel.php:283 ../shortcodes/carousel.php:290
 #: ../shortcodes/items_list.php:159 ../shortcodes/photostream.php:159
 #: ../shortcodes/shortcodes.php:175 ../shortcodes/shortcodes.php:198
@@ -1233,22 +1233,22 @@ msgid "Yes"
 msgstr ""
 
 #: ../layout_picker/layout_picker.php:58 ../layout_picker/layout_picker.php:68
-#: ../layout_picker/layout_picker.php:77 ../post-type-doctors.php:534
-#: ../post-type-doctors.php:541 ../post-type-doctors.php:584
-#: ../post-type-doctors.php:592 ../post-type-doctors.php:684
-#: ../post-type-doctors.php:706 ../post-type-doctors.php:722
-#: ../post-type-doctors.php:729 ../post-type-features.php:407
+#: ../layout_picker/layout_picker.php:77 ../post-type-doctors.php:585
+#: ../post-type-doctors.php:592 ../post-type-doctors.php:635
+#: ../post-type-doctors.php:643 ../post-type-doctors.php:735
+#: ../post-type-doctors.php:757 ../post-type-doctors.php:773
+#: ../post-type-doctors.php:780 ../post-type-features.php:407
 #: ../post-type-features.php:414 ../post-type-features.php:421
-#: ../post-type-features.php:428 ../post-type-gallery.php:522
-#: ../post-type-gallery.php:529 ../post-type-gallery.php:572
-#: ../post-type-gallery.php:580 ../post-type-gallery.php:672
-#: ../post-type-gallery.php:694 ../post-type-gallery.php:710
-#: ../post-type-gallery.php:717 ../shortcodes/blog.php:336
-#: ../shortcodes/blog.php:395 ../shortcodes/blog.php:402
-#: ../shortcodes/blog.php:409 ../shortcodes/blog.php:416
-#: ../shortcodes/blog.php:423 ../shortcodes/blog.php:431
-#: ../shortcodes/blog.php:439 ../shortcodes/blog.php:515
-#: ../shortcodes/blog.php:522 ../shortcodes/carousel.php:243
+#: ../post-type-features.php:428 ../post-type-gallery.php:533
+#: ../post-type-gallery.php:540 ../post-type-gallery.php:583
+#: ../post-type-gallery.php:591 ../post-type-gallery.php:683
+#: ../post-type-gallery.php:705 ../post-type-gallery.php:721
+#: ../post-type-gallery.php:728 ../shortcodes/blog.php:362
+#: ../shortcodes/blog.php:421 ../shortcodes/blog.php:428
+#: ../shortcodes/blog.php:435 ../shortcodes/blog.php:442
+#: ../shortcodes/blog.php:449 ../shortcodes/blog.php:457
+#: ../shortcodes/blog.php:465 ../shortcodes/blog.php:541
+#: ../shortcodes/blog.php:548 ../shortcodes/carousel.php:243
 #: ../shortcodes/carousel.php:283 ../shortcodes/carousel.php:290
 #: ../shortcodes/items_list.php:159 ../shortcodes/photostream.php:159
 #: ../shortcodes/single-post.php:219 ../shortcodes/single-post.php:226
@@ -1286,45 +1286,45 @@ msgid "Animations"
 msgstr "动画"
 
 #: ../meta-box.php:8 ../meta-box.php:16 ../post-type-departments.php:131
-#: ../post-type-doctors.php:40 ../post-type-features.php:40
-#: ../post-type-gallery.php:40 ../sidebars.php:52
+#: ../post-type-doctors.php:56 ../post-type-features.php:40
+#: ../post-type-gallery.php:46 ../sidebars.php:52
 msgid "Options"
 msgstr "选项"
 
-#: ../meta-box.php:54 ../post-type-doctors.php:272 ../post-type-gallery.php:249
+#: ../meta-box.php:54 ../post-type-doctors.php:290 ../post-type-gallery.php:256
 msgid "Additional featured images"
 msgstr ""
 
-#: ../meta-box.php:65 ../post-type-doctors.php:283 ../post-type-gallery.php:260
+#: ../meta-box.php:65 ../post-type-doctors.php:301 ../post-type-gallery.php:267
 msgid "Image url"
 msgstr ""
 
-#: ../meta-box.php:70 ../post-type-doctors.php:288 ../post-type-gallery.php:265
+#: ../meta-box.php:70 ../post-type-doctors.php:306 ../post-type-gallery.php:272
 #: ../theme-options.php:1066
 msgid "Browse"
 msgstr ""
 
-#: ../meta-box.php:75 ../post-type-doctors.php:293 ../post-type-gallery.php:270
+#: ../meta-box.php:75 ../post-type-doctors.php:311 ../post-type-gallery.php:277
 msgid "Image description"
 msgstr ""
 
-#: ../meta-box.php:83 ../post-type-doctors.php:301 ../post-type-gallery.php:278
+#: ../meta-box.php:83 ../post-type-doctors.php:319 ../post-type-gallery.php:285
 #: ../shortcodes/carousel.php:198 ../shortcodes/small_slider.php:169
 msgid "Video url"
 msgstr ""
 
-#: ../meta-box.php:91 ../post-type-doctors.php:309 ../post-type-gallery.php:286
+#: ../meta-box.php:91 ../post-type-doctors.php:327 ../post-type-gallery.php:293
 #: ../shortcodes/carousel.php:207 ../shortcodes/small_slider.php:178
 msgid "Iframe url"
 msgstr ""
 
-#: ../meta-box.php:99 ../post-type-doctors.php:317 ../post-type-gallery.php:294
+#: ../meta-box.php:99 ../post-type-doctors.php:335 ../post-type-gallery.php:301
 #: ../shortcodes/carousel.php:215 ../shortcodes/small_slider.php:186
 msgid "External url"
 msgstr ""
 
-#: ../meta-box.php:110 ../post-type-doctors.php:331
-#: ../post-type-gallery.php:308
+#: ../meta-box.php:110 ../post-type-doctors.php:349
+#: ../post-type-gallery.php:315
 msgid "Add image"
 msgstr ""
 
@@ -1398,7 +1398,7 @@ msgstr ""
 msgid "Department"
 msgstr ""
 
-#: ../post-type-departments.php:11 ../post-type-doctors.php:8
+#: ../post-type-departments.php:11 ../post-type-doctors.php:13
 #: ../post-type-features.php:8 ../post-type-gallery.php:8
 #: ../post-type-weekdays.php:10 ../sidebars.php:17
 msgid "Add New"
@@ -1416,7 +1416,7 @@ msgstr ""
 msgid "New Department"
 msgstr ""
 
-#: ../post-type-departments.php:15 ../post-type-gallery.php:554
+#: ../post-type-departments.php:15 ../post-type-gallery.php:565
 #: ../shortcodes/timetable.php:11 ../shortcodes/timetable.php:486
 msgid "All Departments"
 msgstr ""
@@ -1474,7 +1474,7 @@ msgid "End hour"
 msgstr ""
 
 #: ../post-type-departments.php:278 ../post-type-departments.php:332
-#: ../post-type-doctors.php:6 ../post-type-doctors.php:18
+#: ../post-type-doctors.php:11 ../post-type-doctors.php:23
 msgid "Doctors"
 msgstr ""
 
@@ -1522,14 +1522,14 @@ msgstr ""
 msgid "Timetable custom URL"
 msgstr ""
 
-#: ../post-type-departments.php:482 ../post-type-doctors.php:401
-#: ../post-type-features.php:226 ../post-type-gallery.php:377
+#: ../post-type-departments.php:482 ../post-type-doctors.php:431
+#: ../post-type-features.php:226 ../post-type-gallery.php:386
 #: ../shortcodes/icon.php:224 ../shortcodes/shortcodes.php:723
 #: ../shortcodes/shortcodes.php:943 ../shortcodes/shortcodes.php:994
 #: ../shortcodes/small_slider.php:146 ../shortcodes/testimonials.php:93
 #: ../widgets/widget-appointment.php:128
 #: ../widgets/widget-contact-details.php:193
-#: ../widgets/widget-departments.php:168 ../widgets/widget-footer-box.php:95
+#: ../widgets/widget-departments.php:168 ../widgets/widget-footer-box.php:112
 #: ../widgets/widget-home-box.php:131
 #: ../widgets/widget-scrolling-most-commented.php:97
 #: ../widgets/widget-scrolling-most-viewed.php:96
@@ -1538,23 +1538,23 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: ../post-type-departments.php:483 ../post-type-doctors.php:402
-#: ../post-type-features.php:227 ../post-type-gallery.php:381
+#: ../post-type-departments.php:483 ../post-type-doctors.php:432
+#: ../post-type-features.php:227 ../post-type-gallery.php:390
 #: ../widgets/widget-departments.php:186
 msgid "Categories"
 msgstr ""
 
-#: ../post-type-departments.php:484 ../post-type-doctors.php:403
-#: ../post-type-doctors.php:499 ../post-type-features.php:229
-#: ../post-type-features.php:393 ../post-type-gallery.php:382
-#: ../post-type-gallery.php:487 ../post-type-weekdays.php:43
-#: ../shortcodes/blog.php:381 ../sidebars.php:171
+#: ../post-type-departments.php:484 ../post-type-doctors.php:433
+#: ../post-type-doctors.php:550 ../post-type-features.php:229
+#: ../post-type-features.php:393 ../post-type-gallery.php:391
+#: ../post-type-gallery.php:498 ../post-type-weekdays.php:43
+#: ../shortcodes/blog.php:407 ../sidebars.php:171
 #: ../woocommerce/myaccount/my-orders.php:26
 msgid "Date"
 msgstr ""
 
-#: ../post-type-departments.php:545 ../post-type-doctors.php:513
-#: ../post-type-gallery.php:501 ../widgets/widget-departments.php:103
+#: ../post-type-departments.php:545 ../post-type-doctors.php:564
+#: ../post-type-gallery.php:512 ../widgets/widget-departments.php:103
 msgid "Details"
 msgstr ""
 
@@ -1563,885 +1563,885 @@ msgstr ""
 msgid "Timetable"
 msgstr ""
 
-#: ../post-type-doctors.php:7
+#: ../post-type-doctors.php:12
 msgid "Doctor"
 msgstr ""
 
-#: ../post-type-doctors.php:9
+#: ../post-type-doctors.php:14
 msgid "Add New Doctor"
 msgstr ""
 
-#: ../post-type-doctors.php:10
+#: ../post-type-doctors.php:15
 msgid "Edit Doctor"
 msgstr ""
 
-#: ../post-type-doctors.php:11
+#: ../post-type-doctors.php:16
 msgid "New Doctor"
 msgstr ""
 
-#: ../post-type-doctors.php:12 ../post-type-doctors.php:566
+#: ../post-type-doctors.php:17 ../post-type-doctors.php:617
 msgid "All Doctors"
 msgstr ""
 
-#: ../post-type-doctors.php:13
+#: ../post-type-doctors.php:18
 msgid "View Doctor"
 msgstr ""
 
-#: ../post-type-doctors.php:14
+#: ../post-type-doctors.php:19
 msgid "Search Doctor"
 msgstr ""
 
-#: ../post-type-doctors.php:15
+#: ../post-type-doctors.php:20
 msgid "No doctors found"
 msgstr ""
 
-#: ../post-type-doctors.php:16
+#: ../post-type-doctors.php:21
 msgid "No doctors found in Trash"
 msgstr ""
 
-#: ../post-type-doctors.php:105 ../post-type-gallery.php:104
+#: ../post-type-doctors.php:123 ../post-type-gallery.php:111
 #: ../shortcodes/small_slider.php:153
 msgid "Subtitle"
 msgstr ""
 
-#: ../post-type-doctors.php:113 ../post-type-gallery.php:112
+#: ../post-type-doctors.php:131 ../post-type-gallery.php:119
 msgid "Featured image description"
 msgstr ""
 
-#: ../post-type-doctors.php:121 ../post-type-gallery.php:120
+#: ../post-type-doctors.php:139 ../post-type-gallery.php:127
 msgid "Video URL (optional)"
 msgstr ""
 
-#: ../post-type-doctors.php:125 ../post-type-gallery.php:124
+#: ../post-type-doctors.php:143 ../post-type-gallery.php:131
 #: ../shortcodes/carousel.php:202 ../shortcodes/small_slider.php:173
 msgid ""
 "For Vimeo please use http://player.vimeo.com/video/%video_id% For YouTube: "
 "http://youtube.com/embed/%video_id%"
 msgstr ""
 
-#: ../post-type-doctors.php:130 ../post-type-gallery.php:129
+#: ../post-type-doctors.php:148 ../post-type-gallery.php:136
 msgid "Ifame URL (optional)"
 msgstr ""
 
-#: ../post-type-doctors.php:138 ../post-type-gallery.php:137
+#: ../post-type-doctors.php:156 ../post-type-gallery.php:144
 msgid "External URL (optional)"
 msgstr ""
 
-#: ../post-type-doctors.php:146 ../post-type-gallery.php:145
+#: ../post-type-doctors.php:164 ../post-type-gallery.php:152
 msgid "External URL target"
 msgstr ""
 
-#: ../post-type-doctors.php:157
+#: ../post-type-doctors.php:175
 msgid "Timetable page"
 msgstr ""
 
-#: ../post-type-doctors.php:182 ../post-type-gallery.php:159
+#: ../post-type-doctors.php:200 ../post-type-gallery.php:166
 msgid "Social icons"
 msgstr ""
 
-#: ../post-type-doctors.php:193 ../post-type-gallery.php:170
+#: ../post-type-doctors.php:211 ../post-type-gallery.php:177
 #: ../widgets/widget-appointment.php:151
 #: ../widgets/widget-contact-details.php:244
 msgid "Icon type"
 msgstr ""
 
-#: ../post-type-doctors.php:207 ../post-type-gallery.php:184
+#: ../post-type-doctors.php:225 ../post-type-gallery.php:191
 msgid "Icon url"
 msgstr ""
 
-#: ../post-type-doctors.php:215 ../post-type-gallery.php:192
+#: ../post-type-doctors.php:233 ../post-type-gallery.php:199
 #: ../widgets/widget-cart-icon.php:85
 msgid "Icon target"
 msgstr ""
 
-#: ../post-type-doctors.php:226 ../post-type-features.php:163
-#: ../post-type-gallery.php:203 ../shortcodes/icon.php:175
+#: ../post-type-doctors.php:244 ../post-type-features.php:163
+#: ../post-type-gallery.php:210 ../shortcodes/icon.php:175
 msgid "Icon color"
 msgstr ""
 
-#: ../post-type-doctors.php:230 ../post-type-doctors.php:738
-#: ../post-type-features.php:167 ../post-type-gallery.php:207
-#: ../post-type-gallery.php:726 ../shortcodes/blog.php:530
+#: ../post-type-doctors.php:248 ../post-type-doctors.php:789
+#: ../post-type-features.php:167 ../post-type-gallery.php:214
+#: ../post-type-gallery.php:737 ../shortcodes/blog.php:556
 #: ../shortcodes/carousel.php:252 ../shortcodes/icon.php:178
 #: ../shortcodes/photostream.php:167 ../shortcodes/single-post.php:289
 #: ../shortcodes/small_slider.php:215 ../widgets/widget-appointment.php:164
 #: ../widgets/widget-cart-icon.php:51 ../widgets/widget-contact-details.php:257
-#: ../widgets/widget-footer-box.php:121 ../widgets/widget-home-box.php:142
+#: ../widgets/widget-footer-box.php:146 ../widgets/widget-home-box.php:142
 #: ../widgets/widget-home-box.php:213 ../widgets/widget-home-box.php:247
 msgid "light blue"
 msgstr ""
 
-#: ../post-type-doctors.php:231 ../post-type-doctors.php:740
-#: ../post-type-features.php:168 ../post-type-gallery.php:208
-#: ../post-type-gallery.php:728 ../shortcodes/blog.php:532
+#: ../post-type-doctors.php:249 ../post-type-doctors.php:791
+#: ../post-type-features.php:168 ../post-type-gallery.php:215
+#: ../post-type-gallery.php:739 ../shortcodes/blog.php:558
 #: ../shortcodes/carousel.php:254 ../shortcodes/icon.php:180
 #: ../shortcodes/photostream.php:169 ../shortcodes/single-post.php:291
 #: ../shortcodes/small_slider.php:217 ../theme-options.php:882
 #: ../widgets/widget-appointment.php:165 ../widgets/widget-cart-icon.php:52
 #: ../widgets/widget-contact-details.php:258
-#: ../widgets/widget-footer-box.php:122 ../widgets/widget-home-box.php:143
+#: ../widgets/widget-footer-box.php:147 ../widgets/widget-home-box.php:143
 #: ../widgets/widget-home-box.php:214 ../widgets/widget-home-box.php:248
 msgid "blue"
 msgstr ""
 
-#: ../post-type-doctors.php:232 ../post-type-doctors.php:739
-#: ../post-type-features.php:169 ../post-type-gallery.php:209
-#: ../post-type-gallery.php:727 ../shortcodes/blog.php:531
+#: ../post-type-doctors.php:250 ../post-type-doctors.php:790
+#: ../post-type-features.php:169 ../post-type-gallery.php:216
+#: ../post-type-gallery.php:738 ../shortcodes/blog.php:557
 #: ../shortcodes/carousel.php:253 ../shortcodes/icon.php:179
 #: ../shortcodes/photostream.php:168 ../shortcodes/single-post.php:290
 #: ../shortcodes/small_slider.php:216 ../widgets/widget-appointment.php:166
 #: ../widgets/widget-cart-icon.php:53 ../widgets/widget-contact-details.php:259
-#: ../widgets/widget-footer-box.php:123 ../widgets/widget-home-box.php:144
+#: ../widgets/widget-footer-box.php:148 ../widgets/widget-home-box.php:144
 #: ../widgets/widget-home-box.php:215 ../widgets/widget-home-box.php:249
 msgid "dark blue"
 msgstr ""
 
-#: ../post-type-doctors.php:233 ../post-type-doctors.php:741
-#: ../post-type-features.php:170 ../post-type-gallery.php:210
-#: ../post-type-gallery.php:729 ../shortcodes/blog.php:533
+#: ../post-type-doctors.php:251 ../post-type-doctors.php:792
+#: ../post-type-features.php:170 ../post-type-gallery.php:217
+#: ../post-type-gallery.php:740 ../shortcodes/blog.php:559
 #: ../shortcodes/carousel.php:255 ../shortcodes/icon.php:181
 #: ../shortcodes/photostream.php:170 ../shortcodes/single-post.php:292
 #: ../shortcodes/small_slider.php:218 ../widgets/widget-appointment.php:167
 #: ../widgets/widget-cart-icon.php:54 ../widgets/widget-contact-details.php:260
-#: ../widgets/widget-footer-box.php:124 ../widgets/widget-home-box.php:145
+#: ../widgets/widget-footer-box.php:149 ../widgets/widget-home-box.php:145
 #: ../widgets/widget-home-box.php:216 ../widgets/widget-home-box.php:250
 msgid "black"
 msgstr ""
 
-#: ../post-type-doctors.php:234 ../post-type-doctors.php:742
-#: ../post-type-features.php:171 ../post-type-gallery.php:211
-#: ../post-type-gallery.php:730 ../shortcodes/blog.php:534
+#: ../post-type-doctors.php:252 ../post-type-doctors.php:793
+#: ../post-type-features.php:171 ../post-type-gallery.php:218
+#: ../post-type-gallery.php:741 ../shortcodes/blog.php:560
 #: ../shortcodes/carousel.php:256 ../shortcodes/icon.php:182
 #: ../shortcodes/photostream.php:171 ../shortcodes/single-post.php:293
 #: ../shortcodes/small_slider.php:219 ../widgets/widget-appointment.php:168
 #: ../widgets/widget-cart-icon.php:55 ../widgets/widget-contact-details.php:261
-#: ../widgets/widget-footer-box.php:125 ../widgets/widget-home-box.php:146
+#: ../widgets/widget-footer-box.php:150 ../widgets/widget-home-box.php:146
 #: ../widgets/widget-home-box.php:217 ../widgets/widget-home-box.php:251
 msgid "gray"
 msgstr ""
 
-#: ../post-type-doctors.php:235 ../post-type-doctors.php:743
-#: ../post-type-features.php:172 ../post-type-gallery.php:212
-#: ../post-type-gallery.php:731 ../shortcodes/blog.php:535
+#: ../post-type-doctors.php:253 ../post-type-doctors.php:794
+#: ../post-type-features.php:172 ../post-type-gallery.php:219
+#: ../post-type-gallery.php:742 ../shortcodes/blog.php:561
 #: ../shortcodes/carousel.php:257 ../shortcodes/icon.php:183
 #: ../shortcodes/photostream.php:172 ../shortcodes/single-post.php:294
 #: ../shortcodes/small_slider.php:220 ../widgets/widget-appointment.php:169
 #: ../widgets/widget-cart-icon.php:56 ../widgets/widget-contact-details.php:262
-#: ../widgets/widget-footer-box.php:126 ../widgets/widget-home-box.php:147
+#: ../widgets/widget-footer-box.php:151 ../widgets/widget-home-box.php:147
 #: ../widgets/widget-home-box.php:218 ../widgets/widget-home-box.php:252
 msgid "dark gray"
 msgstr ""
 
-#: ../post-type-doctors.php:236 ../post-type-doctors.php:744
-#: ../post-type-features.php:173 ../post-type-gallery.php:213
-#: ../post-type-gallery.php:732 ../shortcodes/blog.php:536
+#: ../post-type-doctors.php:254 ../post-type-doctors.php:795
+#: ../post-type-features.php:173 ../post-type-gallery.php:220
+#: ../post-type-gallery.php:743 ../shortcodes/blog.php:562
 #: ../shortcodes/carousel.php:258 ../shortcodes/icon.php:184
 #: ../shortcodes/photostream.php:173 ../shortcodes/single-post.php:295
 #: ../shortcodes/small_slider.php:221 ../widgets/widget-appointment.php:170
 #: ../widgets/widget-cart-icon.php:57 ../widgets/widget-contact-details.php:263
-#: ../widgets/widget-footer-box.php:127 ../widgets/widget-home-box.php:148
+#: ../widgets/widget-footer-box.php:152 ../widgets/widget-home-box.php:148
 #: ../widgets/widget-home-box.php:219 ../widgets/widget-home-box.php:253
 msgid "light gray"
 msgstr ""
 
-#: ../post-type-doctors.php:237 ../post-type-doctors.php:745
-#: ../post-type-features.php:174 ../post-type-gallery.php:214
-#: ../post-type-gallery.php:733 ../shortcodes/blog.php:537
+#: ../post-type-doctors.php:255 ../post-type-doctors.php:796
+#: ../post-type-features.php:174 ../post-type-gallery.php:221
+#: ../post-type-gallery.php:744 ../shortcodes/blog.php:563
 #: ../shortcodes/carousel.php:259 ../shortcodes/icon.php:185
 #: ../shortcodes/photostream.php:174 ../shortcodes/single-post.php:296
 #: ../shortcodes/small_slider.php:222 ../theme-options.php:884
 #: ../theme-options.php:1276 ../widgets/widget-appointment.php:171
 #: ../widgets/widget-cart-icon.php:58 ../widgets/widget-contact-details.php:264
-#: ../widgets/widget-footer-box.php:128 ../widgets/widget-home-box.php:149
+#: ../widgets/widget-footer-box.php:153 ../widgets/widget-home-box.php:149
 #: ../widgets/widget-home-box.php:220 ../widgets/widget-home-box.php:254
 msgid "green"
 msgstr ""
 
-#: ../post-type-doctors.php:238 ../post-type-doctors.php:746
-#: ../post-type-features.php:175 ../post-type-gallery.php:215
-#: ../post-type-gallery.php:734 ../shortcodes/blog.php:538
+#: ../post-type-doctors.php:256 ../post-type-doctors.php:797
+#: ../post-type-features.php:175 ../post-type-gallery.php:222
+#: ../post-type-gallery.php:745 ../shortcodes/blog.php:564
 #: ../shortcodes/carousel.php:260 ../shortcodes/icon.php:186
 #: ../shortcodes/photostream.php:175 ../shortcodes/single-post.php:297
 #: ../shortcodes/small_slider.php:223 ../widgets/widget-appointment.php:172
 #: ../widgets/widget-cart-icon.php:59 ../widgets/widget-contact-details.php:265
-#: ../widgets/widget-footer-box.php:129 ../widgets/widget-home-box.php:150
+#: ../widgets/widget-footer-box.php:154 ../widgets/widget-home-box.php:150
 #: ../widgets/widget-home-box.php:221 ../widgets/widget-home-box.php:255
 msgid "dark green"
 msgstr ""
 
-#: ../post-type-doctors.php:239 ../post-type-doctors.php:747
-#: ../post-type-features.php:176 ../post-type-gallery.php:216
-#: ../post-type-gallery.php:735 ../shortcodes/blog.php:539
+#: ../post-type-doctors.php:257 ../post-type-doctors.php:798
+#: ../post-type-features.php:176 ../post-type-gallery.php:223
+#: ../post-type-gallery.php:746 ../shortcodes/blog.php:565
 #: ../shortcodes/carousel.php:261 ../shortcodes/icon.php:187
 #: ../shortcodes/photostream.php:176 ../shortcodes/single-post.php:298
 #: ../shortcodes/small_slider.php:224 ../widgets/widget-appointment.php:173
 #: ../widgets/widget-cart-icon.php:60 ../widgets/widget-contact-details.php:266
-#: ../widgets/widget-footer-box.php:130 ../widgets/widget-home-box.php:151
+#: ../widgets/widget-footer-box.php:155 ../widgets/widget-home-box.php:151
 #: ../widgets/widget-home-box.php:222 ../widgets/widget-home-box.php:256
 msgid "light green"
 msgstr ""
 
-#: ../post-type-doctors.php:240 ../post-type-doctors.php:748
-#: ../post-type-features.php:177 ../post-type-gallery.php:217
-#: ../post-type-gallery.php:736 ../shortcodes/blog.php:540
+#: ../post-type-doctors.php:258 ../post-type-doctors.php:799
+#: ../post-type-features.php:177 ../post-type-gallery.php:224
+#: ../post-type-gallery.php:747 ../shortcodes/blog.php:566
 #: ../shortcodes/carousel.php:262 ../shortcodes/icon.php:188
 #: ../shortcodes/photostream.php:177 ../shortcodes/single-post.php:299
 #: ../shortcodes/small_slider.php:225 ../theme-options.php:886
 #: ../theme-options.php:1277 ../widgets/widget-appointment.php:174
 #: ../widgets/widget-cart-icon.php:61 ../widgets/widget-contact-details.php:267
-#: ../widgets/widget-footer-box.php:131 ../widgets/widget-home-box.php:152
+#: ../widgets/widget-footer-box.php:156 ../widgets/widget-home-box.php:152
 #: ../widgets/widget-home-box.php:223 ../widgets/widget-home-box.php:257
 msgid "orange"
 msgstr ""
 
-#: ../post-type-doctors.php:241 ../post-type-doctors.php:749
-#: ../post-type-features.php:178 ../post-type-gallery.php:218
-#: ../post-type-gallery.php:737 ../shortcodes/blog.php:541
+#: ../post-type-doctors.php:259 ../post-type-doctors.php:800
+#: ../post-type-features.php:178 ../post-type-gallery.php:225
+#: ../post-type-gallery.php:748 ../shortcodes/blog.php:567
 #: ../shortcodes/carousel.php:263 ../shortcodes/icon.php:189
 #: ../shortcodes/photostream.php:178 ../shortcodes/single-post.php:300
 #: ../shortcodes/small_slider.php:226 ../widgets/widget-appointment.php:175
 #: ../widgets/widget-cart-icon.php:62 ../widgets/widget-contact-details.php:268
-#: ../widgets/widget-footer-box.php:132 ../widgets/widget-home-box.php:153
+#: ../widgets/widget-footer-box.php:157 ../widgets/widget-home-box.php:153
 #: ../widgets/widget-home-box.php:224 ../widgets/widget-home-box.php:258
 msgid "dark orange"
 msgstr ""
 
-#: ../post-type-doctors.php:242 ../post-type-doctors.php:750
-#: ../post-type-features.php:179 ../post-type-gallery.php:219
-#: ../post-type-gallery.php:738 ../shortcodes/blog.php:542
+#: ../post-type-doctors.php:260 ../post-type-doctors.php:801
+#: ../post-type-features.php:179 ../post-type-gallery.php:226
+#: ../post-type-gallery.php:749 ../shortcodes/blog.php:568
 #: ../shortcodes/carousel.php:264 ../shortcodes/icon.php:190
 #: ../shortcodes/photostream.php:179 ../shortcodes/single-post.php:301
 #: ../shortcodes/small_slider.php:227 ../widgets/widget-appointment.php:176
 #: ../widgets/widget-cart-icon.php:63 ../widgets/widget-contact-details.php:269
-#: ../widgets/widget-footer-box.php:133 ../widgets/widget-home-box.php:154
+#: ../widgets/widget-footer-box.php:158 ../widgets/widget-home-box.php:154
 #: ../widgets/widget-home-box.php:225 ../widgets/widget-home-box.php:259
 msgid "light orange"
 msgstr ""
 
-#: ../post-type-doctors.php:243 ../post-type-doctors.php:751
-#: ../post-type-features.php:180 ../post-type-gallery.php:220
-#: ../post-type-gallery.php:739 ../shortcodes/blog.php:543
+#: ../post-type-doctors.php:261 ../post-type-doctors.php:802
+#: ../post-type-features.php:180 ../post-type-gallery.php:227
+#: ../post-type-gallery.php:750 ../shortcodes/blog.php:569
 #: ../shortcodes/carousel.php:265 ../shortcodes/icon.php:191
 #: ../shortcodes/photostream.php:180 ../shortcodes/single-post.php:302
 #: ../shortcodes/small_slider.php:228 ../theme-options.php:888
 #: ../theme-options.php:1278 ../widgets/widget-appointment.php:177
 #: ../widgets/widget-cart-icon.php:64 ../widgets/widget-contact-details.php:270
-#: ../widgets/widget-footer-box.php:134 ../widgets/widget-home-box.php:155
+#: ../widgets/widget-footer-box.php:159 ../widgets/widget-home-box.php:155
 #: ../widgets/widget-home-box.php:226 ../widgets/widget-home-box.php:260
 msgid "red"
 msgstr ""
 
-#: ../post-type-doctors.php:244 ../post-type-doctors.php:752
-#: ../post-type-features.php:181 ../post-type-gallery.php:221
-#: ../post-type-gallery.php:740 ../shortcodes/blog.php:544
+#: ../post-type-doctors.php:262 ../post-type-doctors.php:803
+#: ../post-type-features.php:181 ../post-type-gallery.php:228
+#: ../post-type-gallery.php:751 ../shortcodes/blog.php:570
 #: ../shortcodes/carousel.php:266 ../shortcodes/icon.php:192
 #: ../shortcodes/photostream.php:181 ../shortcodes/single-post.php:303
 #: ../shortcodes/small_slider.php:229 ../widgets/widget-appointment.php:178
 #: ../widgets/widget-cart-icon.php:65 ../widgets/widget-contact-details.php:271
-#: ../widgets/widget-footer-box.php:135 ../widgets/widget-home-box.php:156
+#: ../widgets/widget-footer-box.php:160 ../widgets/widget-home-box.php:156
 #: ../widgets/widget-home-box.php:227 ../widgets/widget-home-box.php:261
 msgid "dark red"
 msgstr ""
 
-#: ../post-type-doctors.php:245 ../post-type-doctors.php:753
-#: ../post-type-features.php:182 ../post-type-gallery.php:222
-#: ../post-type-gallery.php:741 ../shortcodes/blog.php:545
+#: ../post-type-doctors.php:263 ../post-type-doctors.php:804
+#: ../post-type-features.php:182 ../post-type-gallery.php:229
+#: ../post-type-gallery.php:752 ../shortcodes/blog.php:571
 #: ../shortcodes/carousel.php:267 ../shortcodes/icon.php:193
 #: ../shortcodes/photostream.php:182 ../shortcodes/single-post.php:304
 #: ../shortcodes/small_slider.php:230 ../widgets/widget-appointment.php:179
 #: ../widgets/widget-cart-icon.php:66 ../widgets/widget-contact-details.php:272
-#: ../widgets/widget-footer-box.php:136 ../widgets/widget-home-box.php:157
+#: ../widgets/widget-footer-box.php:161 ../widgets/widget-home-box.php:157
 #: ../widgets/widget-home-box.php:228 ../widgets/widget-home-box.php:262
 msgid "light red"
 msgstr ""
 
-#: ../post-type-doctors.php:246 ../post-type-doctors.php:754
-#: ../post-type-features.php:183 ../post-type-gallery.php:223
-#: ../post-type-gallery.php:742 ../shortcodes/blog.php:546
+#: ../post-type-doctors.php:264 ../post-type-doctors.php:805
+#: ../post-type-features.php:183 ../post-type-gallery.php:230
+#: ../post-type-gallery.php:753 ../shortcodes/blog.php:572
 #: ../shortcodes/carousel.php:268 ../shortcodes/icon.php:194
 #: ../shortcodes/photostream.php:183 ../shortcodes/single-post.php:305
 #: ../shortcodes/small_slider.php:231 ../theme-options.php:890
 #: ../theme-options.php:1279 ../widgets/widget-appointment.php:180
 #: ../widgets/widget-cart-icon.php:67 ../widgets/widget-contact-details.php:273
-#: ../widgets/widget-footer-box.php:137 ../widgets/widget-home-box.php:158
+#: ../widgets/widget-footer-box.php:162 ../widgets/widget-home-box.php:158
 #: ../widgets/widget-home-box.php:229 ../widgets/widget-home-box.php:263
 msgid "turquoise"
 msgstr ""
 
-#: ../post-type-doctors.php:247 ../post-type-doctors.php:755
-#: ../post-type-features.php:184 ../post-type-gallery.php:224
-#: ../post-type-gallery.php:743 ../shortcodes/blog.php:547
+#: ../post-type-doctors.php:265 ../post-type-doctors.php:806
+#: ../post-type-features.php:184 ../post-type-gallery.php:231
+#: ../post-type-gallery.php:754 ../shortcodes/blog.php:573
 #: ../shortcodes/carousel.php:269 ../shortcodes/icon.php:195
 #: ../shortcodes/photostream.php:184 ../shortcodes/single-post.php:306
 #: ../shortcodes/small_slider.php:232 ../widgets/widget-appointment.php:181
 #: ../widgets/widget-cart-icon.php:68 ../widgets/widget-contact-details.php:274
-#: ../widgets/widget-footer-box.php:138 ../widgets/widget-home-box.php:159
+#: ../widgets/widget-footer-box.php:163 ../widgets/widget-home-box.php:159
 #: ../widgets/widget-home-box.php:230 ../widgets/widget-home-box.php:264
 msgid "dark turquoise"
 msgstr ""
 
-#: ../post-type-doctors.php:248 ../post-type-doctors.php:756
-#: ../post-type-features.php:185 ../post-type-gallery.php:225
-#: ../post-type-gallery.php:744 ../shortcodes/blog.php:548
+#: ../post-type-doctors.php:266 ../post-type-doctors.php:807
+#: ../post-type-features.php:185 ../post-type-gallery.php:232
+#: ../post-type-gallery.php:755 ../shortcodes/blog.php:574
 #: ../shortcodes/carousel.php:270 ../shortcodes/icon.php:196
 #: ../shortcodes/photostream.php:185 ../shortcodes/single-post.php:307
 #: ../shortcodes/small_slider.php:233 ../widgets/widget-appointment.php:182
 #: ../widgets/widget-cart-icon.php:69 ../widgets/widget-contact-details.php:275
-#: ../widgets/widget-footer-box.php:139 ../widgets/widget-home-box.php:160
+#: ../widgets/widget-footer-box.php:164 ../widgets/widget-home-box.php:160
 #: ../widgets/widget-home-box.php:231 ../widgets/widget-home-box.php:265
 msgid "light turquoise"
 msgstr ""
 
-#: ../post-type-doctors.php:249 ../post-type-doctors.php:757
-#: ../post-type-features.php:186 ../post-type-gallery.php:226
-#: ../post-type-gallery.php:745 ../shortcodes/blog.php:549
+#: ../post-type-doctors.php:267 ../post-type-doctors.php:808
+#: ../post-type-features.php:186 ../post-type-gallery.php:233
+#: ../post-type-gallery.php:756 ../shortcodes/blog.php:575
 #: ../shortcodes/carousel.php:271 ../shortcodes/icon.php:197
 #: ../shortcodes/photostream.php:186 ../shortcodes/single-post.php:308
 #: ../shortcodes/small_slider.php:234 ../theme-options.php:892
 #: ../theme-options.php:1280 ../widgets/widget-appointment.php:183
 #: ../widgets/widget-cart-icon.php:70 ../widgets/widget-contact-details.php:276
-#: ../widgets/widget-footer-box.php:140 ../widgets/widget-home-box.php:161
+#: ../widgets/widget-footer-box.php:165 ../widgets/widget-home-box.php:161
 #: ../widgets/widget-home-box.php:232 ../widgets/widget-home-box.php:266
 msgid "violet"
 msgstr ""
 
-#: ../post-type-doctors.php:250 ../post-type-doctors.php:758
-#: ../post-type-features.php:187 ../post-type-gallery.php:227
-#: ../post-type-gallery.php:746 ../shortcodes/blog.php:550
+#: ../post-type-doctors.php:268 ../post-type-doctors.php:809
+#: ../post-type-features.php:187 ../post-type-gallery.php:234
+#: ../post-type-gallery.php:757 ../shortcodes/blog.php:576
 #: ../shortcodes/carousel.php:272 ../shortcodes/icon.php:198
 #: ../shortcodes/photostream.php:187 ../shortcodes/single-post.php:309
 #: ../shortcodes/small_slider.php:235 ../widgets/widget-appointment.php:184
 #: ../widgets/widget-cart-icon.php:71 ../widgets/widget-contact-details.php:277
-#: ../widgets/widget-footer-box.php:141 ../widgets/widget-home-box.php:162
+#: ../widgets/widget-footer-box.php:166 ../widgets/widget-home-box.php:162
 #: ../widgets/widget-home-box.php:233 ../widgets/widget-home-box.php:267
 msgid "dark violet"
 msgstr ""
 
-#: ../post-type-doctors.php:251 ../post-type-doctors.php:759
-#: ../post-type-features.php:188 ../post-type-gallery.php:228
-#: ../post-type-gallery.php:747 ../shortcodes/blog.php:551
+#: ../post-type-doctors.php:269 ../post-type-doctors.php:810
+#: ../post-type-features.php:188 ../post-type-gallery.php:235
+#: ../post-type-gallery.php:758 ../shortcodes/blog.php:577
 #: ../shortcodes/carousel.php:273 ../shortcodes/icon.php:199
 #: ../shortcodes/photostream.php:188 ../shortcodes/single-post.php:310
 #: ../shortcodes/small_slider.php:236 ../widgets/widget-appointment.php:185
 #: ../widgets/widget-cart-icon.php:72 ../widgets/widget-contact-details.php:278
-#: ../widgets/widget-footer-box.php:142 ../widgets/widget-home-box.php:163
+#: ../widgets/widget-footer-box.php:167 ../widgets/widget-home-box.php:163
 #: ../widgets/widget-home-box.php:234 ../widgets/widget-home-box.php:268
 msgid "light violet"
 msgstr ""
 
-#: ../post-type-doctors.php:252 ../post-type-doctors.php:760
-#: ../post-type-features.php:189 ../post-type-gallery.php:229
-#: ../post-type-gallery.php:748 ../shortcodes/blog.php:552
+#: ../post-type-doctors.php:270 ../post-type-doctors.php:811
+#: ../post-type-features.php:189 ../post-type-gallery.php:236
+#: ../post-type-gallery.php:759 ../shortcodes/blog.php:578
 #: ../shortcodes/carousel.php:274 ../shortcodes/icon.php:200
 #: ../shortcodes/photostream.php:189 ../shortcodes/single-post.php:311
 #: ../shortcodes/small_slider.php:237 ../widgets/widget-appointment.php:186
 #: ../widgets/widget-cart-icon.php:73 ../widgets/widget-contact-details.php:279
-#: ../widgets/widget-footer-box.php:143 ../widgets/widget-home-box.php:164
+#: ../widgets/widget-footer-box.php:168 ../widgets/widget-home-box.php:164
 #: ../widgets/widget-home-box.php:235 ../widgets/widget-home-box.php:245
 #: ../widgets/widget-home-box.php:269
 msgid "white"
 msgstr ""
 
-#: ../post-type-doctors.php:253 ../post-type-doctors.php:761
-#: ../post-type-features.php:190 ../post-type-gallery.php:230
-#: ../post-type-gallery.php:749 ../shortcodes/blog.php:553
+#: ../post-type-doctors.php:271 ../post-type-doctors.php:812
+#: ../post-type-features.php:190 ../post-type-gallery.php:237
+#: ../post-type-gallery.php:760 ../shortcodes/blog.php:579
 #: ../shortcodes/carousel.php:275 ../shortcodes/icon.php:201
 #: ../shortcodes/photostream.php:190 ../shortcodes/single-post.php:312
 #: ../shortcodes/small_slider.php:238 ../widgets/widget-appointment.php:187
 #: ../widgets/widget-cart-icon.php:74 ../widgets/widget-contact-details.php:280
-#: ../widgets/widget-footer-box.php:144 ../widgets/widget-home-box.php:165
+#: ../widgets/widget-footer-box.php:169 ../widgets/widget-home-box.php:165
 #: ../widgets/widget-home-box.php:236 ../widgets/widget-home-box.php:270
 msgid "yellow"
 msgstr ""
 
-#: ../post-type-doctors.php:265 ../post-type-gallery.php:242
+#: ../post-type-doctors.php:283 ../post-type-gallery.php:249
 #: ../widgets/widget-appointment.php:199
 #: ../widgets/widget-contact-details.php:292
 msgid "Add icon"
 msgstr ""
 
-#: ../post-type-doctors.php:337 ../post-type-gallery.php:314
+#: ../post-type-doctors.php:355 ../post-type-gallery.php:321
 #: ../shortcodes/photostream.php:157
 msgid "Featured images lightbox loop"
 msgstr ""
 
-#: ../post-type-doctors.php:438 ../post-type-doctors.php:445
+#: ../post-type-doctors.php:477 ../post-type-doctors.php:488
 #: ../post-type-features.php:340 ../post-type-features.php:347
-#: ../post-type-gallery.php:426 ../post-type-gallery.php:433
-#: ../shortcodes/blog.php:300 ../shortcodes/shortcodes.php:32
+#: ../post-type-gallery.php:435 ../post-type-gallery.php:443
+#: ../shortcodes/blog.php:326 ../shortcodes/shortcodes.php:32
 #: ../shortcodes/timetable.php:401 ../shortcodes/timetable.php:426
 msgid "All"
 msgstr ""
 
-#: ../post-type-doctors.php:454 ../post-type-gallery.php:442
-#: ../shortcodes/blog.php:306 ../shortcodes/photostream.php:107
+#: ../post-type-doctors.php:500 ../post-type-gallery.php:453
+#: ../shortcodes/blog.php:332 ../shortcodes/photostream.php:107
 #: ../shortcodes/shortcodes.php:205 ../shortcodes/single-post.php:175
 #: ../theme-options.php:993
 msgid "Default"
 msgstr ""
 
-#: ../post-type-doctors.php:472
+#: ../post-type-doctors.php:523
 msgid "Doctors list"
 msgstr ""
 
-#: ../post-type-doctors.php:485
+#: ../post-type-doctors.php:536
 msgid "Meet The Team"
 msgstr ""
 
-#: ../post-type-doctors.php:497 ../post-type-features.php:391
-#: ../post-type-gallery.php:485 ../shortcodes/blog.php:379
+#: ../post-type-doctors.php:548 ../post-type-features.php:391
+#: ../post-type-gallery.php:496 ../shortcodes/blog.php:405
 msgid "Order by"
 msgstr ""
 
-#: ../post-type-doctors.php:499 ../post-type-features.php:393
-#: ../post-type-gallery.php:487 ../shortcodes/blog.php:381
+#: ../post-type-doctors.php:550 ../post-type-features.php:393
+#: ../post-type-gallery.php:498 ../shortcodes/blog.php:407
 msgid "Title, menu order"
 msgstr ""
 
-#: ../post-type-doctors.php:499 ../post-type-features.php:393
-#: ../post-type-gallery.php:487 ../shortcodes/blog.php:381
+#: ../post-type-doctors.php:550 ../post-type-features.php:393
+#: ../post-type-gallery.php:498 ../shortcodes/blog.php:407
 msgid "Menu order"
 msgstr ""
 
-#: ../post-type-doctors.php:504 ../post-type-features.php:398
-#: ../post-type-gallery.php:492 ../shortcodes/blog.php:386 ../sidebars.php:169
+#: ../post-type-doctors.php:555 ../post-type-features.php:398
+#: ../post-type-gallery.php:503 ../shortcodes/blog.php:412 ../sidebars.php:169
 #: ../widgets/widget-departments.php:179
 #: ../woocommerce/myaccount/my-orders.php:25
 msgid "Order"
 msgstr ""
 
-#: ../post-type-doctors.php:506 ../post-type-features.php:400
-#: ../post-type-gallery.php:494 ../shortcodes/blog.php:388
+#: ../post-type-doctors.php:557 ../post-type-features.php:400
+#: ../post-type-gallery.php:505 ../shortcodes/blog.php:414
 msgid "ascending"
 msgstr ""
 
-#: ../post-type-doctors.php:506 ../post-type-features.php:400
-#: ../post-type-gallery.php:494 ../shortcodes/blog.php:388
+#: ../post-type-doctors.php:557 ../post-type-features.php:400
+#: ../post-type-gallery.php:505 ../shortcodes/blog.php:414
 msgid "descending"
 msgstr ""
 
-#: ../post-type-doctors.php:513 ../post-type-gallery.php:501
+#: ../post-type-doctors.php:564 ../post-type-gallery.php:512
 msgid "List with details"
 msgstr ""
 
-#: ../post-type-doctors.php:513 ../post-type-gallery.php:501
+#: ../post-type-doctors.php:564 ../post-type-gallery.php:512
 msgid "List"
 msgstr ""
 
-#: ../post-type-doctors.php:520
+#: ../post-type-doctors.php:571
 msgid "4 columns"
 msgstr ""
 
-#: ../post-type-doctors.php:520
+#: ../post-type-doctors.php:571
 msgid "2 columns"
 msgstr ""
 
-#: ../post-type-doctors.php:520
+#: ../post-type-doctors.php:571
 msgid "3 columns"
 msgstr ""
 
-#: ../post-type-doctors.php:525 ../post-type-gallery.php:513
-#: ../shortcodes/blog.php:349 ../shortcodes/photostream.php:150
+#: ../post-type-doctors.php:576 ../post-type-gallery.php:524
+#: ../shortcodes/blog.php:375 ../shortcodes/photostream.php:150
 #: ../shortcodes/single-post.php:203
 msgid "Featured image size"
 msgstr ""
 
-#: ../post-type-doctors.php:532 ../post-type-gallery.php:520
+#: ../post-type-doctors.php:583 ../post-type-gallery.php:531
 #: ../shortcodes/small_slider.php:244
 msgid "Hover icons"
 msgstr ""
 
-#: ../post-type-doctors.php:539 ../post-type-gallery.php:527
+#: ../post-type-doctors.php:590 ../post-type-gallery.php:538
 msgid "Title box in details"
 msgstr ""
 
-#: ../post-type-doctors.php:547 ../post-type-gallery.php:535
+#: ../post-type-doctors.php:598 ../post-type-gallery.php:546
 msgid "Details page"
 msgstr ""
 
-#: ../post-type-doctors.php:555 ../post-type-gallery.php:543
+#: ../post-type-doctors.php:606 ../post-type-gallery.php:554
 msgid "Display method"
 msgstr ""
 
-#: ../post-type-doctors.php:557 ../post-type-gallery.php:545
+#: ../post-type-doctors.php:608 ../post-type-gallery.php:556
 msgid "Filters"
 msgstr ""
 
-#: ../post-type-doctors.php:557 ../post-type-gallery.php:545
+#: ../post-type-doctors.php:608 ../post-type-gallery.php:556
 #: ../shortcodes/carousel.php:386
 msgid "Carousel"
 msgstr ""
 
-#: ../post-type-doctors.php:557 ../post-type-gallery.php:545
-#: ../shortcodes/blog.php:334
+#: ../post-type-doctors.php:608 ../post-type-gallery.php:556
+#: ../shortcodes/blog.php:360
 msgid "Pagination"
 msgstr ""
 
-#: ../post-type-doctors.php:557 ../post-type-gallery.php:545
+#: ../post-type-doctors.php:608 ../post-type-gallery.php:556
 #: ../shortcodes/shortcodes.php:237 ../shortcodes/shortcodes.php:252
 msgid "Simple"
 msgstr ""
 
-#: ../post-type-doctors.php:564 ../post-type-gallery.php:552
+#: ../post-type-doctors.php:615 ../post-type-gallery.php:563
 msgid "All filter label"
 msgstr ""
 
-#: ../post-type-doctors.php:576 ../post-type-gallery.php:564
+#: ../post-type-doctors.php:627 ../post-type-gallery.php:575
 #: ../shortcodes/carousel.php:170 ../shortcodes/small_slider.php:141
 msgid "Please provide unique id for each carousel on the same page/post"
 msgstr ""
 
-#: ../post-type-doctors.php:582 ../post-type-gallery.php:570
+#: ../post-type-doctors.php:633 ../post-type-gallery.php:581
 #: ../shortcodes/carousel.php:281 ../shortcodes/small_slider.php:251
 #: ../shortcodes/testimonials.php:109
 msgid "Autoplay"
 msgstr ""
 
-#: ../post-type-doctors.php:590 ../post-type-gallery.php:578
+#: ../post-type-doctors.php:641 ../post-type-gallery.php:589
 #: ../shortcodes/carousel.php:288 ../shortcodes/small_slider.php:258
 #: ../shortcodes/testimonials.php:116
 msgid "Pause on hover"
 msgstr ""
 
-#: ../post-type-doctors.php:593 ../post-type-gallery.php:581
+#: ../post-type-doctors.php:644 ../post-type-gallery.php:592
 msgid "Affect only when autoplay is set to yes"
 msgstr ""
 
-#: ../post-type-doctors.php:599 ../post-type-gallery.php:587
+#: ../post-type-doctors.php:650 ../post-type-gallery.php:598
 #: ../shortcodes/carousel.php:296 ../shortcodes/small_slider.php:266
 #: ../shortcodes/testimonials.php:124
 msgid "Scroll"
 msgstr ""
 
-#: ../post-type-doctors.php:602 ../post-type-gallery.php:590
+#: ../post-type-doctors.php:653 ../post-type-gallery.php:601
 #: ../shortcodes/carousel.php:299 ../shortcodes/small_slider.php:269
 #: ../shortcodes/testimonials.php:127
 msgid "Number of items to scroll in one step"
 msgstr ""
 
-#: ../post-type-doctors.php:608 ../post-type-gallery.php:596
+#: ../post-type-doctors.php:659 ../post-type-gallery.php:607
 #: ../shortcodes/carousel.php:304 ../shortcodes/small_slider.php:274
 #: ../shortcodes/testimonials.php:132
 msgid "Effect"
 msgstr ""
 
-#: ../post-type-doctors.php:611 ../post-type-gallery.php:599
+#: ../post-type-doctors.php:662 ../post-type-gallery.php:610
 #: ../shortcodes/carousel.php:307 ../shortcodes/small_slider.php:277
 #: ../shortcodes/testimonials.php:135 ../theme-options.php:1138
 msgid "scroll"
 msgstr ""
 
-#: ../post-type-doctors.php:612 ../post-type-features.php:435
-#: ../post-type-gallery.php:600 ../shortcodes/announcement_box.php:152
-#: ../shortcodes/blog.php:447 ../shortcodes/blog.php:481
+#: ../post-type-doctors.php:663 ../post-type-features.php:435
+#: ../post-type-gallery.php:611 ../shortcodes/announcement_box.php:152
+#: ../shortcodes/blog.php:473 ../shortcodes/blog.php:507
 #: ../shortcodes/carousel.php:308 ../shortcodes/shortcodes.php:60
 #: ../shortcodes/shortcodes.php:1011 ../shortcodes/shortcodes.php:1042
 #: ../shortcodes/single-post.php:254 ../shortcodes/single-post.php:343
 #: ../shortcodes/single-post.php:374 ../shortcodes/small_slider.php:278
 #: ../shortcodes/testimonials.php:136 ../theme-options.php:1139
 #: ../theme-options.php:1911 ../theme-options.php:1927
-#: ../widgets/widget-footer-box.php:153 ../widgets/widget-home-box.php:279
+#: ../widgets/widget-footer-box.php:178 ../widgets/widget-home-box.php:279
 msgid "none"
 msgstr ""
 
-#: ../post-type-doctors.php:613 ../post-type-gallery.php:601
+#: ../post-type-doctors.php:664 ../post-type-gallery.php:612
 #: ../shortcodes/carousel.php:309 ../shortcodes/small_slider.php:279
 #: ../shortcodes/testimonials.php:137 ../theme-options.php:1140
 msgid "directscroll"
 msgstr ""
 
-#: ../post-type-doctors.php:614 ../post-type-gallery.php:602
+#: ../post-type-doctors.php:665 ../post-type-gallery.php:613
 #: ../shortcodes/carousel.php:310 ../shortcodes/small_slider.php:280
 #: ../shortcodes/testimonials.php:138 ../theme-options.php:1141
 msgid "fade"
 msgstr ""
 
-#: ../post-type-doctors.php:615 ../post-type-gallery.php:603
+#: ../post-type-doctors.php:666 ../post-type-gallery.php:614
 #: ../shortcodes/carousel.php:311 ../shortcodes/small_slider.php:281
 #: ../shortcodes/testimonials.php:139 ../theme-options.php:1142
 msgid "crossfade"
 msgstr ""
 
-#: ../post-type-doctors.php:616 ../post-type-gallery.php:604
+#: ../post-type-doctors.php:667 ../post-type-gallery.php:615
 #: ../shortcodes/carousel.php:312 ../shortcodes/small_slider.php:282
 #: ../shortcodes/testimonials.php:140 ../theme-options.php:1143
 msgid "cover"
 msgstr ""
 
-#: ../post-type-doctors.php:617 ../post-type-gallery.php:605
+#: ../post-type-doctors.php:668 ../post-type-gallery.php:616
 #: ../shortcodes/carousel.php:313 ../shortcodes/small_slider.php:283
 #: ../shortcodes/testimonials.php:141 ../theme-options.php:1144
 msgid "uncover"
 msgstr ""
 
-#: ../post-type-doctors.php:624 ../post-type-gallery.php:612
+#: ../post-type-doctors.php:675 ../post-type-gallery.php:623
 #: ../shortcodes/carousel.php:319 ../shortcodes/small_slider.php:289
 #: ../shortcodes/testimonials.php:147
 msgid "Sliding easing"
 msgstr ""
 
-#: ../post-type-doctors.php:627 ../post-type-gallery.php:615
+#: ../post-type-doctors.php:678 ../post-type-gallery.php:626
 #: ../shortcodes/carousel.php:322 ../shortcodes/small_slider.php:293
 #: ../shortcodes/testimonials.php:150 ../theme-options.php:1152
 msgid "swing"
 msgstr ""
 
-#: ../post-type-doctors.php:628 ../post-type-gallery.php:616
+#: ../post-type-doctors.php:679 ../post-type-gallery.php:627
 #: ../shortcodes/carousel.php:323 ../shortcodes/small_slider.php:294
 #: ../shortcodes/testimonials.php:151 ../theme-options.php:1153
 msgid "linear"
 msgstr ""
 
-#: ../post-type-doctors.php:629 ../post-type-gallery.php:617
+#: ../post-type-doctors.php:680 ../post-type-gallery.php:628
 #: ../shortcodes/carousel.php:324 ../shortcodes/small_slider.php:295
 #: ../shortcodes/testimonials.php:152 ../theme-options.php:1154
 msgid "easeInQuad"
 msgstr ""
 
-#: ../post-type-doctors.php:630 ../post-type-gallery.php:618
+#: ../post-type-doctors.php:681 ../post-type-gallery.php:629
 #: ../shortcodes/carousel.php:325 ../shortcodes/small_slider.php:296
 #: ../shortcodes/testimonials.php:153 ../theme-options.php:1155
 msgid "easeOutQuad"
 msgstr ""
 
-#: ../post-type-doctors.php:631 ../post-type-gallery.php:619
+#: ../post-type-doctors.php:682 ../post-type-gallery.php:630
 #: ../shortcodes/carousel.php:326 ../shortcodes/small_slider.php:297
 #: ../shortcodes/testimonials.php:154 ../theme-options.php:1156
 msgid "easeInOutQuad"
 msgstr ""
 
-#: ../post-type-doctors.php:632 ../post-type-gallery.php:620
+#: ../post-type-doctors.php:683 ../post-type-gallery.php:631
 #: ../shortcodes/carousel.php:327 ../shortcodes/small_slider.php:298
 #: ../shortcodes/testimonials.php:155 ../theme-options.php:1157
 msgid "easeInCubic"
 msgstr ""
 
-#: ../post-type-doctors.php:633 ../post-type-gallery.php:621
+#: ../post-type-doctors.php:684 ../post-type-gallery.php:632
 #: ../shortcodes/carousel.php:328 ../shortcodes/small_slider.php:299
 #: ../shortcodes/testimonials.php:156 ../theme-options.php:1158
 msgid "easeOutCubic"
 msgstr ""
 
-#: ../post-type-doctors.php:634 ../post-type-gallery.php:622
+#: ../post-type-doctors.php:685 ../post-type-gallery.php:633
 #: ../shortcodes/carousel.php:329 ../shortcodes/small_slider.php:300
 #: ../shortcodes/testimonials.php:157 ../theme-options.php:1159
 #: ../theme-options.php:1160
 msgid "easeInOutCubic"
 msgstr ""
 
-#: ../post-type-doctors.php:635 ../post-type-gallery.php:623
+#: ../post-type-doctors.php:686 ../post-type-gallery.php:634
 #: ../shortcodes/carousel.php:330 ../shortcodes/small_slider.php:301
 #: ../shortcodes/testimonials.php:158 ../theme-options.php:1161
 msgid "easeInQuart"
 msgstr ""
 
-#: ../post-type-doctors.php:636 ../post-type-gallery.php:624
+#: ../post-type-doctors.php:687 ../post-type-gallery.php:635
 #: ../shortcodes/carousel.php:331 ../shortcodes/small_slider.php:302
 #: ../shortcodes/testimonials.php:159 ../theme-options.php:1162
 msgid "easeOutQuart"
 msgstr ""
 
-#: ../post-type-doctors.php:637 ../post-type-gallery.php:625
+#: ../post-type-doctors.php:688 ../post-type-gallery.php:636
 #: ../shortcodes/carousel.php:332 ../shortcodes/small_slider.php:303
 #: ../shortcodes/testimonials.php:160 ../theme-options.php:1163
 msgid "easeInOutQuart"
 msgstr ""
 
-#: ../post-type-doctors.php:638 ../post-type-gallery.php:626
+#: ../post-type-doctors.php:689 ../post-type-gallery.php:637
 #: ../shortcodes/carousel.php:333 ../shortcodes/small_slider.php:304
 #: ../shortcodes/testimonials.php:161 ../theme-options.php:1164
 msgid "easeInSine"
 msgstr ""
 
-#: ../post-type-doctors.php:639 ../post-type-gallery.php:627
+#: ../post-type-doctors.php:690 ../post-type-gallery.php:638
 #: ../shortcodes/carousel.php:334 ../shortcodes/small_slider.php:305
 #: ../shortcodes/testimonials.php:162 ../theme-options.php:1165
 msgid "easeOutSine"
 msgstr ""
 
-#: ../post-type-doctors.php:640 ../post-type-gallery.php:628
+#: ../post-type-doctors.php:691 ../post-type-gallery.php:639
 #: ../shortcodes/carousel.php:335 ../shortcodes/small_slider.php:306
 #: ../shortcodes/testimonials.php:163 ../theme-options.php:1166
 msgid "easeInOutSine"
 msgstr ""
 
-#: ../post-type-doctors.php:641 ../post-type-gallery.php:629
+#: ../post-type-doctors.php:692 ../post-type-gallery.php:640
 #: ../shortcodes/carousel.php:336 ../shortcodes/small_slider.php:307
 #: ../shortcodes/testimonials.php:164 ../theme-options.php:1167
 msgid "easeInExpo"
 msgstr ""
 
-#: ../post-type-doctors.php:642 ../post-type-gallery.php:630
+#: ../post-type-doctors.php:693 ../post-type-gallery.php:641
 #: ../shortcodes/carousel.php:337 ../shortcodes/small_slider.php:308
 #: ../shortcodes/testimonials.php:165 ../theme-options.php:1168
 msgid "easeOutExpo"
 msgstr ""
 
-#: ../post-type-doctors.php:643 ../post-type-gallery.php:631
+#: ../post-type-doctors.php:694 ../post-type-gallery.php:642
 #: ../shortcodes/carousel.php:338 ../shortcodes/small_slider.php:309
 #: ../shortcodes/testimonials.php:166 ../theme-options.php:1169
 msgid "easeInOutExpo"
 msgstr ""
 
-#: ../post-type-doctors.php:644 ../post-type-gallery.php:632
+#: ../post-type-doctors.php:695 ../post-type-gallery.php:643
 #: ../shortcodes/carousel.php:339 ../shortcodes/small_slider.php:310
 #: ../shortcodes/testimonials.php:167 ../theme-options.php:1170
 msgid "easeInQuint"
 msgstr ""
 
-#: ../post-type-doctors.php:645 ../post-type-gallery.php:633
+#: ../post-type-doctors.php:696 ../post-type-gallery.php:644
 #: ../shortcodes/carousel.php:340 ../shortcodes/small_slider.php:311
 #: ../shortcodes/testimonials.php:168 ../theme-options.php:1171
 msgid "easeOutQuint"
 msgstr ""
 
-#: ../post-type-doctors.php:646 ../post-type-gallery.php:634
+#: ../post-type-doctors.php:697 ../post-type-gallery.php:645
 #: ../shortcodes/carousel.php:341 ../shortcodes/small_slider.php:292
 #: ../shortcodes/testimonials.php:169 ../theme-options.php:1172
 msgid "easeInOutQuint"
 msgstr ""
 
-#: ../post-type-doctors.php:647 ../post-type-gallery.php:635
+#: ../post-type-doctors.php:698 ../post-type-gallery.php:646
 #: ../shortcodes/carousel.php:342 ../shortcodes/small_slider.php:312
 #: ../shortcodes/testimonials.php:170 ../theme-options.php:1173
 msgid "easeInCirc"
 msgstr ""
 
-#: ../post-type-doctors.php:648 ../post-type-gallery.php:636
+#: ../post-type-doctors.php:699 ../post-type-gallery.php:647
 #: ../shortcodes/carousel.php:343 ../shortcodes/small_slider.php:313
 #: ../shortcodes/testimonials.php:171 ../theme-options.php:1174
 msgid "easeOutCirc"
 msgstr ""
 
-#: ../post-type-doctors.php:649 ../post-type-gallery.php:637
+#: ../post-type-doctors.php:700 ../post-type-gallery.php:648
 #: ../shortcodes/carousel.php:344 ../shortcodes/small_slider.php:314
 #: ../shortcodes/testimonials.php:172 ../theme-options.php:1175
 msgid "easeInOutCirc"
 msgstr ""
 
-#: ../post-type-doctors.php:650 ../post-type-gallery.php:638
+#: ../post-type-doctors.php:701 ../post-type-gallery.php:649
 #: ../shortcodes/carousel.php:345 ../shortcodes/small_slider.php:315
 #: ../shortcodes/testimonials.php:173 ../theme-options.php:1176
 msgid "easeInElastic"
 msgstr ""
 
-#: ../post-type-doctors.php:651 ../post-type-gallery.php:639
+#: ../post-type-doctors.php:702 ../post-type-gallery.php:650
 #: ../shortcodes/carousel.php:346 ../shortcodes/small_slider.php:316
 #: ../shortcodes/testimonials.php:174 ../theme-options.php:1177
 msgid "easeOutElastic"
 msgstr ""
 
-#: ../post-type-doctors.php:652 ../post-type-gallery.php:640
+#: ../post-type-doctors.php:703 ../post-type-gallery.php:651
 #: ../shortcodes/carousel.php:347 ../shortcodes/small_slider.php:317
 #: ../shortcodes/testimonials.php:175 ../theme-options.php:1178
 msgid "easeInOutElastic"
 msgstr ""
 
-#: ../post-type-doctors.php:653 ../post-type-gallery.php:641
+#: ../post-type-doctors.php:704 ../post-type-gallery.php:652
 #: ../shortcodes/carousel.php:348 ../shortcodes/small_slider.php:318
 #: ../shortcodes/testimonials.php:176 ../theme-options.php:1179
 msgid "easeInBack"
 msgstr ""
 
-#: ../post-type-doctors.php:654 ../post-type-gallery.php:642
+#: ../post-type-doctors.php:705 ../post-type-gallery.php:653
 #: ../shortcodes/carousel.php:349 ../shortcodes/small_slider.php:319
 #: ../shortcodes/testimonials.php:177 ../theme-options.php:1180
 msgid "easeOutBack"
 msgstr ""
 
-#: ../post-type-doctors.php:655 ../post-type-gallery.php:643
+#: ../post-type-doctors.php:706 ../post-type-gallery.php:654
 #: ../shortcodes/carousel.php:350 ../shortcodes/small_slider.php:320
 #: ../shortcodes/testimonials.php:178 ../theme-options.php:1181
 msgid "easeInOutBack"
 msgstr ""
 
-#: ../post-type-doctors.php:656 ../post-type-gallery.php:644
+#: ../post-type-doctors.php:707 ../post-type-gallery.php:655
 #: ../shortcodes/carousel.php:351 ../shortcodes/small_slider.php:321
 #: ../shortcodes/testimonials.php:179 ../theme-options.php:1182
 msgid "easeInBounce"
 msgstr ""
 
-#: ../post-type-doctors.php:657 ../post-type-gallery.php:645
+#: ../post-type-doctors.php:708 ../post-type-gallery.php:656
 #: ../shortcodes/carousel.php:352 ../shortcodes/small_slider.php:322
 #: ../shortcodes/testimonials.php:180 ../theme-options.php:1183
 msgid "easeOutBounce"
 msgstr ""
 
-#: ../post-type-doctors.php:658 ../post-type-gallery.php:646
+#: ../post-type-doctors.php:709 ../post-type-gallery.php:657
 #: ../shortcodes/carousel.php:353 ../shortcodes/small_slider.php:323
 #: ../shortcodes/testimonials.php:181 ../theme-options.php:1184
 msgid "easeInOutBounce"
 msgstr ""
 
-#: ../post-type-doctors.php:665 ../post-type-gallery.php:653
+#: ../post-type-doctors.php:716 ../post-type-gallery.php:664
 #: ../shortcodes/carousel.php:359 ../shortcodes/small_slider.php:329
 #: ../shortcodes/testimonials.php:187
 msgid "Sliding transition speed (ms)"
 msgstr ""
 
-#: ../post-type-doctors.php:674 ../post-type-gallery.php:662
+#: ../post-type-doctors.php:725 ../post-type-gallery.php:673
 msgid "Items per page"
 msgstr ""
 
-#: ../post-type-doctors.php:682 ../post-type-gallery.php:670
+#: ../post-type-doctors.php:733 ../post-type-gallery.php:681
 msgid "Ajax pagination"
 msgstr ""
 
-#: ../post-type-doctors.php:690 ../post-type-features.php:363
-#: ../post-type-gallery.php:678 ../shortcodes/blog.php:364
+#: ../post-type-doctors.php:741 ../post-type-features.php:363
+#: ../post-type-gallery.php:689 ../shortcodes/blog.php:390
 #: ../shortcodes/timetable.php:441
 msgid "Display selected"
 msgstr ""
 
-#: ../post-type-doctors.php:697 ../post-type-features.php:370
-#: ../post-type-gallery.php:685 ../shortcodes/blog.php:372
+#: ../post-type-doctors.php:748 ../post-type-features.php:370
+#: ../post-type-gallery.php:696 ../shortcodes/blog.php:398
 msgid "Display from Category"
 msgstr ""
 
-#: ../post-type-doctors.php:704 ../post-type-gallery.php:692
+#: ../post-type-doctors.php:755 ../post-type-gallery.php:703
 msgid "Display headers in details"
 msgstr ""
 
-#: ../post-type-doctors.php:712 ../post-type-gallery.php:700
+#: ../post-type-doctors.php:763 ../post-type-gallery.php:711
 msgid "Headers type"
 msgstr ""
 
-#: ../post-type-doctors.php:714 ../post-type-gallery.php:702
+#: ../post-type-doctors.php:765 ../post-type-gallery.php:713
 #: ../shortcodes/shortcodes.php:732
 msgid "H2"
 msgstr ""
 
-#: ../post-type-doctors.php:714 ../post-type-gallery.php:702
+#: ../post-type-doctors.php:765 ../post-type-gallery.php:713
 #: ../shortcodes/shortcodes.php:732
 msgid "H1"
 msgstr ""
 
-#: ../post-type-doctors.php:714 ../post-type-gallery.php:702
+#: ../post-type-doctors.php:765 ../post-type-gallery.php:713
 #: ../shortcodes/shortcodes.php:732
 msgid "H3"
 msgstr ""
 
-#: ../post-type-doctors.php:714 ../post-type-gallery.php:702
+#: ../post-type-doctors.php:765 ../post-type-gallery.php:713
 #: ../shortcodes/shortcodes.php:732
 msgid "H4"
 msgstr ""
 
-#: ../post-type-doctors.php:714 ../post-type-gallery.php:702
+#: ../post-type-doctors.php:765 ../post-type-gallery.php:713
 #: ../shortcodes/shortcodes.php:732
 msgid "H5"
 msgstr ""
 
-#: ../post-type-doctors.php:720 ../post-type-gallery.php:708
+#: ../post-type-doctors.php:771 ../post-type-gallery.php:719
 msgid "Display social icons"
 msgstr ""
 
-#: ../post-type-doctors.php:727 ../post-type-gallery.php:715
+#: ../post-type-doctors.php:778 ../post-type-gallery.php:726
 #: ../shortcodes/carousel.php:241 ../shortcodes/small_slider.php:204
 msgid "Lightbox images loop"
 msgstr ""
 
-#: ../post-type-doctors.php:735 ../post-type-gallery.php:723
-#: ../shortcodes/blog.php:527 ../shortcodes/carousel.php:249
+#: ../post-type-doctors.php:786 ../post-type-gallery.php:734
+#: ../shortcodes/blog.php:553 ../shortcodes/carousel.php:249
 #: ../shortcodes/photostream.php:164 ../shortcodes/single-post.php:286
 #: ../shortcodes/small_slider.php:212
 msgid "Lightbox icon color"
@@ -2847,13 +2847,13 @@ msgstr ""
 msgid "wheelchair"
 msgstr ""
 
-#: ../post-type-features.php:316 ../shortcodes/blog.php:212
-#: ../shortcodes/blog.php:216
+#: ../post-type-features.php:316 ../shortcodes/blog.php:226
+#: ../shortcodes/blog.php:230
 msgid "Read more"
 msgstr ""
 
-#: ../post-type-features.php:316 ../shortcodes/blog.php:212
-#: ../shortcodes/blog.php:216
+#: ../post-type-features.php:316 ../shortcodes/blog.php:226
+#: ../shortcodes/blog.php:230
 msgid "Read more &rarr;"
 msgstr ""
 
@@ -2879,7 +2879,7 @@ msgstr ""
 msgid "Headers links"
 msgstr ""
 
-#: ../post-type-features.php:419 ../shortcodes/blog.php:400
+#: ../post-type-features.php:419 ../shortcodes/blog.php:426
 #: ../shortcodes/items_list.php:157
 msgid "Read more button"
 msgstr ""
@@ -2893,82 +2893,82 @@ msgid "Icon animation"
 msgstr ""
 
 #: ../post-type-features.php:436 ../shortcodes/announcement_box.php:153
-#: ../shortcodes/blog.php:448 ../shortcodes/blog.php:482
+#: ../shortcodes/blog.php:474 ../shortcodes/blog.php:508
 #: ../shortcodes/shortcodes.php:1012 ../shortcodes/shortcodes.php:1043
 #: ../shortcodes/single-post.php:255 ../shortcodes/single-post.php:344
-#: ../shortcodes/single-post.php:375 ../widgets/widget-footer-box.php:154
+#: ../shortcodes/single-post.php:375 ../widgets/widget-footer-box.php:179
 #: ../widgets/widget-home-box.php:280
 msgid "fade in"
 msgstr ""
 
 #: ../post-type-features.php:437 ../shortcodes/announcement_box.php:154
-#: ../shortcodes/blog.php:449 ../shortcodes/blog.php:483
+#: ../shortcodes/blog.php:475 ../shortcodes/blog.php:509
 #: ../shortcodes/shortcodes.php:1013 ../shortcodes/shortcodes.php:1044
 #: ../shortcodes/single-post.php:256 ../shortcodes/single-post.php:345
-#: ../shortcodes/single-post.php:376 ../widgets/widget-footer-box.php:155
+#: ../shortcodes/single-post.php:376 ../widgets/widget-footer-box.php:180
 #: ../widgets/widget-home-box.php:281
 msgid "scale"
 msgstr ""
 
 #: ../post-type-features.php:438 ../shortcodes/announcement_box.php:155
-#: ../shortcodes/blog.php:450 ../shortcodes/blog.php:484
+#: ../shortcodes/blog.php:476 ../shortcodes/blog.php:510
 #: ../shortcodes/shortcodes.php:1014 ../shortcodes/shortcodes.php:1045
 #: ../shortcodes/single-post.php:257 ../shortcodes/single-post.php:346
-#: ../shortcodes/single-post.php:377 ../widgets/widget-footer-box.php:156
+#: ../shortcodes/single-post.php:377 ../widgets/widget-footer-box.php:181
 #: ../widgets/widget-home-box.php:282
 msgid "slide right"
 msgstr ""
 
 #: ../post-type-features.php:439 ../shortcodes/announcement_box.php:156
-#: ../shortcodes/blog.php:451 ../shortcodes/blog.php:485
+#: ../shortcodes/blog.php:477 ../shortcodes/blog.php:511
 #: ../shortcodes/shortcodes.php:1015 ../shortcodes/shortcodes.php:1046
 #: ../shortcodes/single-post.php:258 ../shortcodes/single-post.php:347
-#: ../shortcodes/single-post.php:378 ../widgets/widget-footer-box.php:157
+#: ../shortcodes/single-post.php:378 ../widgets/widget-footer-box.php:182
 #: ../widgets/widget-home-box.php:283
 msgid "slide right 200%"
 msgstr ""
 
 #: ../post-type-features.php:440 ../shortcodes/announcement_box.php:157
-#: ../shortcodes/blog.php:452 ../shortcodes/blog.php:486
+#: ../shortcodes/blog.php:478 ../shortcodes/blog.php:512
 #: ../shortcodes/shortcodes.php:1016 ../shortcodes/shortcodes.php:1047
 #: ../shortcodes/single-post.php:259 ../shortcodes/single-post.php:348
-#: ../shortcodes/single-post.php:379 ../widgets/widget-footer-box.php:158
+#: ../shortcodes/single-post.php:379 ../widgets/widget-footer-box.php:183
 #: ../widgets/widget-home-box.php:284
 msgid "slide left"
 msgstr ""
 
 #: ../post-type-features.php:441 ../shortcodes/announcement_box.php:158
-#: ../shortcodes/blog.php:453 ../shortcodes/blog.php:487
+#: ../shortcodes/blog.php:479 ../shortcodes/blog.php:513
 #: ../shortcodes/shortcodes.php:1017 ../shortcodes/shortcodes.php:1048
 #: ../shortcodes/single-post.php:260 ../shortcodes/single-post.php:349
-#: ../shortcodes/single-post.php:380 ../widgets/widget-footer-box.php:159
+#: ../shortcodes/single-post.php:380 ../widgets/widget-footer-box.php:184
 #: ../widgets/widget-home-box.php:285
 msgid "slide left 50%"
 msgstr ""
 
 #: ../post-type-features.php:442 ../shortcodes/announcement_box.php:159
-#: ../shortcodes/blog.php:454 ../shortcodes/blog.php:488
+#: ../shortcodes/blog.php:480 ../shortcodes/blog.php:514
 #: ../shortcodes/shortcodes.php:1018 ../shortcodes/shortcodes.php:1049
 #: ../shortcodes/single-post.php:261 ../shortcodes/single-post.php:350
-#: ../shortcodes/single-post.php:381 ../widgets/widget-footer-box.php:160
+#: ../shortcodes/single-post.php:381 ../widgets/widget-footer-box.php:185
 #: ../widgets/widget-home-box.php:286
 msgid "slide down"
 msgstr ""
 
 #: ../post-type-features.php:443 ../shortcodes/announcement_box.php:160
-#: ../shortcodes/blog.php:455 ../shortcodes/blog.php:489
+#: ../shortcodes/blog.php:481 ../shortcodes/blog.php:515
 #: ../shortcodes/shortcodes.php:1019 ../shortcodes/shortcodes.php:1050
 #: ../shortcodes/single-post.php:262 ../shortcodes/single-post.php:351
-#: ../shortcodes/single-post.php:382 ../widgets/widget-footer-box.php:161
+#: ../shortcodes/single-post.php:382 ../widgets/widget-footer-box.php:186
 #: ../widgets/widget-home-box.php:287
 msgid "slide down 200%"
 msgstr ""
 
 #: ../post-type-features.php:444 ../shortcodes/announcement_box.php:161
-#: ../shortcodes/blog.php:456 ../shortcodes/blog.php:490
+#: ../shortcodes/blog.php:482 ../shortcodes/blog.php:516
 #: ../shortcodes/shortcodes.php:1020 ../shortcodes/shortcodes.php:1051
 #: ../shortcodes/single-post.php:263 ../shortcodes/single-post.php:352
-#: ../shortcodes/single-post.php:383 ../widgets/widget-footer-box.php:162
+#: ../shortcodes/single-post.php:383 ../widgets/widget-footer-box.php:187
 #: ../widgets/widget-home-box.php:288
 msgid "slide up"
 msgstr ""
@@ -3021,31 +3021,31 @@ msgstr ""
 msgid "No gallery items found in Trash"
 msgstr ""
 
-#: ../post-type-gallery.php:378
+#: ../post-type-gallery.php:387
 msgid "Video URL"
 msgstr ""
 
-#: ../post-type-gallery.php:379
+#: ../post-type-gallery.php:388
 msgid "Iframe URL"
 msgstr ""
 
-#: ../post-type-gallery.php:380
+#: ../post-type-gallery.php:389
 msgid "External URL"
 msgstr ""
 
-#: ../post-type-gallery.php:460
+#: ../post-type-gallery.php:471
 msgid "Gallery items list"
 msgstr ""
 
-#: ../post-type-gallery.php:508
+#: ../post-type-gallery.php:519
 msgid "Item width 225px"
 msgstr ""
 
-#: ../post-type-gallery.php:508
+#: ../post-type-gallery.php:519
 msgid "Item width 480px"
 msgstr ""
 
-#: ../post-type-gallery.php:508
+#: ../post-type-gallery.php:519
 msgid "Item width 310px"
 msgstr ""
 
@@ -3257,7 +3257,7 @@ msgstr ""
 #: ../shortcodes/shortcodes.php:159 ../shortcodes/shortcodes.php:503
 #: ../shortcodes/shortcodes.php:850 ../widgets/widget-appointment.php:143
 #: ../widgets/widget-contact-details.php:204
-#: ../widgets/widget-footer-box.php:111 ../widgets/widget-home-box.php:176
+#: ../widgets/widget-footer-box.php:136 ../widgets/widget-home-box.php:176
 msgid "Content"
 msgstr ""
 
@@ -3320,112 +3320,112 @@ msgstr ""
 msgid "Button animation delay"
 msgstr ""
 
-#: ../shortcodes/blog.php:224 ../shortcodes/single-post.php:128
+#: ../shortcodes/blog.php:245 ../shortcodes/single-post.php:128
 msgid "Posted in "
 msgstr ""
 
-#: ../shortcodes/blog.php:230 ../shortcodes/single-post.php:134
+#: ../shortcodes/blog.php:251 ../shortcodes/single-post.php:134
 #, php-format
 msgid "View all posts filed under %s"
 msgstr ""
 
-#: ../shortcodes/blog.php:241 ../shortcodes/single-post.php:145
+#: ../shortcodes/blog.php:263 ../shortcodes/single-post.php:145
 msgid "Posted by"
 msgstr ""
 
-#: ../shortcodes/blog.php:250
+#: ../shortcodes/blog.php:272
 msgid "Posted on"
 msgstr ""
 
-#: ../shortcodes/blog.php:261
+#: ../shortcodes/blog.php:285
 msgid "Comments:"
 msgstr ""
 
-#: ../shortcodes/blog.php:271
+#: ../shortcodes/blog.php:297
 #, php-format
 msgid "No results found for %s"
 msgstr ""
 
-#: ../shortcodes/blog.php:323
+#: ../shortcodes/blog.php:349
 msgid "Blog"
 msgstr ""
 
-#: ../shortcodes/blog.php:341
+#: ../shortcodes/blog.php:367
 msgid "Items per page/Post count"
 msgstr ""
 
-#: ../shortcodes/blog.php:344
+#: ../shortcodes/blog.php:370
 msgid ""
 "Items per page if pagination is set to 'yes' or post count otherwise. Set -1 "
 "to display all."
 msgstr ""
 
-#: ../shortcodes/blog.php:356 ../shortcodes/single-post.php:210
+#: ../shortcodes/blog.php:382 ../shortcodes/single-post.php:210
 msgid "Layout type"
 msgstr ""
 
-#: ../shortcodes/blog.php:358
+#: ../shortcodes/blog.php:384
 msgid "Type 3 (simple)"
 msgstr ""
 
-#: ../shortcodes/blog.php:367
+#: ../shortcodes/blog.php:393
 msgid ""
 "Please provide post ids separated with commas, to display only selected posts"
 msgstr ""
 
-#: ../shortcodes/blog.php:393 ../shortcodes/single-post.php:217
+#: ../shortcodes/blog.php:419 ../shortcodes/single-post.php:217
 msgid "Show post title"
 msgstr ""
 
-#: ../shortcodes/blog.php:407 ../shortcodes/single-post.php:231
+#: ../shortcodes/blog.php:433 ../shortcodes/single-post.php:231
 msgid "Show post categories"
 msgstr ""
 
-#: ../shortcodes/blog.php:414 ../shortcodes/single-post.php:238
+#: ../shortcodes/blog.php:440 ../shortcodes/single-post.php:238
 msgid "Show post author"
 msgstr ""
 
-#: ../shortcodes/blog.php:421 ../shortcodes/single-post.php:318
+#: ../shortcodes/blog.php:447 ../shortcodes/single-post.php:318
 msgid "Show post date in box above post"
 msgstr ""
 
-#: ../shortcodes/blog.php:429
+#: ../shortcodes/blog.php:455
 msgid "Show comments number in box above/beside the post"
 msgstr ""
 
-#: ../shortcodes/blog.php:437
+#: ../shortcodes/blog.php:463
 msgid "Show comments number label in box above/beside the post"
 msgstr ""
 
-#: ../shortcodes/blog.php:444 ../shortcodes/single-post.php:340
+#: ../shortcodes/blog.php:470 ../shortcodes/single-post.php:340
 msgid "Post date box animation"
 msgstr ""
 
-#: ../shortcodes/blog.php:463 ../shortcodes/single-post.php:358
+#: ../shortcodes/blog.php:489 ../shortcodes/single-post.php:358
 msgid "Post date box animation duration (ms)"
 msgstr ""
 
-#: ../shortcodes/blog.php:471 ../shortcodes/single-post.php:365
+#: ../shortcodes/blog.php:497 ../shortcodes/single-post.php:365
 msgid "Post date box animation delay (ms)"
 msgstr ""
 
-#: ../shortcodes/blog.php:478 ../shortcodes/single-post.php:371
+#: ../shortcodes/blog.php:504 ../shortcodes/single-post.php:371
 msgid "Post comments box animation"
 msgstr ""
 
-#: ../shortcodes/blog.php:497 ../shortcodes/single-post.php:389
+#: ../shortcodes/blog.php:523 ../shortcodes/single-post.php:389
 msgid "Post comments box animation duration (ms)"
 msgstr ""
 
-#: ../shortcodes/blog.php:505 ../shortcodes/single-post.php:396
+#: ../shortcodes/blog.php:531 ../shortcodes/single-post.php:396
 msgid "Post comments box animation delay (ms)"
 msgstr ""
 
-#: ../shortcodes/blog.php:513
+#: ../shortcodes/blog.php:539
 msgid "Show post date in post footer"
 msgstr ""
 
-#: ../shortcodes/blog.php:520
+#: ../shortcodes/blog.php:546
 msgid "Show comments number in post footer"
 msgstr ""
 
@@ -4062,7 +4062,7 @@ msgstr ""
 msgid "Button icon."
 msgstr ""
 
-#: ../shortcodes/shortcodes.php:558 ../widgets/widget-footer-box.php:115
+#: ../shortcodes/shortcodes.php:558 ../widgets/widget-footer-box.php:140
 msgid "Text color"
 msgstr ""
 
@@ -4070,7 +4070,7 @@ msgstr ""
 msgid "Hover text color"
 msgstr ""
 
-#: ../shortcodes/shortcodes.php:572 ../widgets/widget-footer-box.php:119
+#: ../shortcodes/shortcodes.php:572 ../widgets/widget-footer-box.php:144
 #: ../widgets/widget-home-box.php:140
 msgid "Color"
 msgstr ""
@@ -4138,7 +4138,7 @@ msgstr ""
 
 #: ../shortcodes/shortcodes.php:916 ../shortcodes/shortcodes.php:945
 msgid "Show all &rarr;"
-msgstr "显示所有 &arr;"
+msgstr "显示所有 &rarr;"
 
 #: ../shortcodes/shortcodes.php:931
 msgid "Show all button"
@@ -5083,7 +5083,7 @@ msgid "Tab color"
 msgstr ""
 
 #: ../widgets/widget-departments.php:247 ../widgets/widget-departments.php:259
-#: ../widgets/widget-departments.php:271 ../widgets/widget-footer-box.php:146
+#: ../widgets/widget-departments.php:271 ../widgets/widget-footer-box.php:171
 #: ../widgets/widget-home-box.php:167 ../widgets/widget-home-box.php:238
 #: ../widgets/widget-home-box.php:272
 msgid "or pick custom one: "
@@ -5101,27 +5101,35 @@ msgstr ""
 msgid "Footer Box"
 msgstr ""
 
-#: ../widgets/widget-footer-box.php:99 ../widgets/widget-home-box.php:135
+#: ../widgets/widget-footer-box.php:116 ../widgets/widget-home-box.php:135
 msgid "Title color"
 msgstr ""
 
-#: ../widgets/widget-footer-box.php:103
+#: ../widgets/widget-footer-box.php:120
 msgid "More link url"
 msgstr ""
 
-#: ../widgets/widget-footer-box.php:107
+#: ../widgets/widget-footer-box.php:124
 msgid "More link label"
 msgstr ""
 
-#: ../widgets/widget-footer-box.php:151 ../widgets/widget-home-box.php:277
+#: ../widgets/widget-footer-box.php:128
+msgid "More link url 2"
+msgstr ""
+
+#: ../widgets/widget-footer-box.php:132
+msgid "More link label 2"
+msgstr ""
+
+#: ../widgets/widget-footer-box.php:176 ../widgets/widget-home-box.php:277
 msgid "Box animation"
 msgstr ""
 
-#: ../widgets/widget-footer-box.php:166 ../widgets/widget-home-box.php:292
+#: ../widgets/widget-footer-box.php:191 ../widgets/widget-home-box.php:292
 msgid "Box animation duration (in ms)"
 msgstr ""
 
-#: ../widgets/widget-footer-box.php:170 ../widgets/widget-home-box.php:296
+#: ../widgets/widget-footer-box.php:195 ../widgets/widget-home-box.php:296
 msgid "Box animation delay (in ms)"
 msgstr ""
 
