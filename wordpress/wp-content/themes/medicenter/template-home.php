@@ -11,6 +11,7 @@ echo '<!-- .header.php -->';
 // 
 $slider_id = get_post_meta(get_the_ID(), "main_slider", true);
 
+
 if(substr($slider_id, 0, 10)=="medicenter") {
 
 	echo do_shortcode("[slider id='" . $slider_id . "']");

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: MediCenter WordPress Theme\n"
-"POT-Creation-Date: 2016-08-29 21:28+0800\n"
-"PO-Revision-Date: 2016-08-29 21:30+0800\n"
+"POT-Creation-Date: 2016-08-29 21:31+0800\n"
+"PO-Revision-Date: 2016-08-30 08:27+0800\n"
 "Last-Translator: \n"
 "Language-Team: QuanticaLabs\n"
 "Language: en_GB\n"
@@ -4942,7 +4942,7 @@ msgstr ""
 
 #: ../theme-options.php:1806
 msgid "Copyright area border color"
-msgstr ""
+msgstr "版权区域边框颜色"
 
 #: ../theme-options.php:1881
 msgid "Header layout type"
