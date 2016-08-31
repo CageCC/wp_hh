@@ -3,3 +3,5 @@
 ~$demo.doc
 _install-resources/医院官网/
 .idea/
+*.bak.*
+*.bak
